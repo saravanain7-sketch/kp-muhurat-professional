@@ -1,0 +1,26 @@
+{
+  "id": "./",
+  "name": "KP Muhurat — Professional Muhurtham Dashboard",
+  "short_name": "KP Muhurat",
+  "description": "Professional KP Muhurtham timing dashboard with passing timing windows and optional filters.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#eaf6fc",
+  "theme_color": "#08264a",
+  "icons": [
+    {
+      "src": "kp-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "kp-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
