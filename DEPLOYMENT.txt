@@ -1,0 +1,5 @@
+GuruAgasthiya Professional Muhurtham Web 2.41
+
+This is a standalone project. Upload the CONTENTS of this folder to the ROOT of a NEW GitHub repository. index.html is the GuruAgasthiya professional interface. Do not upload the folder as a nested directory. Enable Settings > Pages > Deploy from a branch > main > /(root).
+
+This package uses the extracted GuruAgasthiya HTML/JavaScript calculation source. Exact parity with the original APK has not yet been established; compare identical inputs before relying on all timings.
