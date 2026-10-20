@@ -128,10 +128,23 @@ table{max-width:100%;border-collapse:collapse}
 .pill{white-space:normal;line-height:1.4}
 @media(max-width:520px){.row .l{gap:6px}.row .l .n{font-size:16px}.row .l .ta{font-size:14px}.row .p{gap:5px 10px}}
 </style>
+
+<style id="guru-minimal-timing-only-v251">
+/* Web 2.51: keep the integrated GuruAgasthiya view focused on timing output.
+   The shared KP Data tab remains the source for date/time/place when embedded. */
+body.shared-kp-context .panel:first-of-type > .grid,
+body:not(.shared-kp-context) .panel:first-of-type > .grid{display:none!important}
+.btns button:not(#go){display:none!important}
+.guruPageTitle p{display:none!important}
+.guruPageHero{padding:12px 14px;margin-bottom:10px}
+.panel:has(#lostPanel), #lostPanel, #cuspPanel, #rangePanel, #racePanel, #gpPanel, #cmPanel, #aboutPanel{display:none!important}
+@media(max-width:520px){.guruPageHero{padding:10px 12px;margin:0 0 8px}.guruPageMark{width:40px;height:40px;flex-basis:40px;font-size:25px}.guruPageTitle h1{font-size:19px}.panel{padding:12px}}
+</style>
+
 </head>
 <body>
 <div class="wrap">
-  <div class="guruPageHero"><div class="guruPageMark" aria-hidden="true">✦</div><div class="guruPageTitle"><div class="guruPageEyebrow">KP ASTROLOGY · V3.3.1</div><h1>GuruAgasthiya <span class="guruVersion">V3.3</span></h1><p>KP Lagna sub-lord timings and the complete set of GuruAgasthiya tools.</p></div></div>
+  <div class="guruPageHero"><div class="guruPageMark" aria-hidden="true">✦</div><div class="guruPageTitle"><div class="guruPageEyebrow">KP ASTROLOGY · V3.3.1</div><h1>GuruAgasthiya <span class="guruVersion">V3.3</span></h1><p>KP Lagna sub-lord timings</p></div></div>
 
   <div class="panel">
     <div class="grid">
