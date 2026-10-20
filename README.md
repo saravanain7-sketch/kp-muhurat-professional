@@ -16,3 +16,9 @@ The package can be checked for ZIP integrity and JavaScript syntax. This change 
 
 
 Mobile layout repair (2.46): restores the GuruAgasthiya base layout primitives, hides inactive panels, normalizes form controls and compact timing cards on phones. KP calculation functions were not intentionally changed.
+
+
+## Web 2.49 chart display update
+- Updated the South Indian chart colors, cell spacing, Lagna highlight, and center text sizing to match the supplied reference screenshot.
+- Display-only CSS changes; no astronomy, planetary position, transition, or Muhurtham selection functions were edited.
+- JavaScript syntax and ZIP integrity should be checked before deployment; visual verification on a physical Android device remains recommended.
