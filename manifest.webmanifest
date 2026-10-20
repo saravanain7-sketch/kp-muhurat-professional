@@ -1,8 +1,8 @@
 {
   "id": "./",
-  "name": "KP Muhurat — Professional Muhurtham Dashboard",
-  "short_name": "KP Muhurat",
-  "description": "Professional KP Muhurtham timing dashboard with passing timing windows and optional filters.",
+  "name": "GuruAgasthiya — KP Muhurtham Dashboard",
+  "short_name": "GuruAgasthiya",
+  "description": "GuruAgasthiya astrology and KP Muhurtham timing dashboard with passing timing windows and optional filters.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
