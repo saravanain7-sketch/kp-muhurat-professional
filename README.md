@@ -1,8 +1,8 @@
-# KP Muhurat + GuruAgasthiya Combined Web 2.45
+# KP Muhurat + GuruAgasthiya Combined Web 2.46
 
-This package is built from the uploaded Web 2.44 `index.html`, original `guruagasthiya.html`, icons, and manifest.
+This package is built from the uploaded Web 2.46 `index.html`, original `guruagasthiya.html`, icons, and manifest.
 
-## Fix in Web 2.45
+## Fix in Web 2.46
 - Keeps the KP Muhurat tabs and calculation source unchanged, apart from the visible version label and service-worker registration/cache behavior.
 - Keeps GuruAgasthiya V3.3.1 as a separate embedded page in the GuruAgasthiya tab.
 - Refreshes the embedded GuruAgasthiya page when the tab is first opened, with a build query to avoid stale cached HTML.
@@ -13,3 +13,6 @@ Upload all files in this folder to the repository root, side by side. `index.htm
 
 ## Validation note
 The package can be checked for ZIP integrity and JavaScript syntax. This change does not claim exact timing parity with the original GuruAgasthiya APK or Windows KP Muhurat V1.5.11; that still requires side-by-side tests with identical inputs.
+
+
+Mobile layout repair (2.46): restores the GuruAgasthiya base layout primitives, hides inactive panels, normalizes form controls and compact timing cards on phones. KP calculation functions were not intentionally changed.
