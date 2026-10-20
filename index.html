@@ -544,8 +544,19 @@ main{max-width:1000px;padding:18px 16px 28px}
 
 </style>
 
+
+<style id="web243-guru-full-tools-fix">
+/* Web 2.43: Keep the original KP tabs intact and expose the full GuruAgasthiya tool. */
+#dashboard{display:none!important}
+#guruagasthiya.active{display:block!important}
+#guruagasthiya .guruEmbeddedIntro{display:none!important}
+#guruagasthiya .guruEmbeddedFrameWrap{height:calc(100dvh - 135px)!important;min-height:780px!important;overflow:auto!important;border-radius:14px!important}
+#guruagasthiya iframe{display:block!important;width:100%!important;height:100%!important;min-height:780px!important;border:0!important}
+@media(max-width:600px){#guruagasthiya .guruEmbeddedFrameWrap{height:calc(100dvh - 110px)!important;min-height:850px!important;border-radius:10px!important}}
+</style>
+
 </head><body>
-<header><div class="headerBrand"><img class="headerLogo" src="kp-icon-192.png" alt="GuruAgasthiya astrology logo" width="36" height="36"><div><b>KP Muhurat</b> <small>V 1.5.11 — Web 2.42</small></div></div></header>
+<header><div class="headerBrand"><img class="headerLogo" src="kp-icon-192.png" alt="GuruAgasthiya astrology logo" width="36" height="36"><div><b>KP Muhurat</b> <small>V 1.5.11 — Web 2.43</small></div></div></header>
 <nav><button class="active" data-t="data">Data</button><button data-t="results">Results</button><button data-t="muhurtham">Muhurtham</button><button data-t="chart">Chart</button><button data-t="analysis">Analysis</button><button class="guruNavButton" data-t="guruagasthiya"><span class="guruNavIcon" aria-hidden="true">✦</span><span>GuruAgasthiya</span></button></nav>
 <main>
 <section id="dashboard">
@@ -3345,7 +3356,7 @@ initEngine();
     });
   }
 })();
-if('serviceWorker' in navigator){ navigator.serviceWorker.register('./sw.js?v=2.42').catch(function(e){console.warn('SW registration failed',e);}); }
+if('serviceWorker' in navigator){ navigator.serviceWorker.register('./sw.js?v=2.43').catch(function(e){console.warn('SW registration failed',e);}); }
   var b=document.getElementById('install');
   var deferred=null;
   function updateInstallState(){

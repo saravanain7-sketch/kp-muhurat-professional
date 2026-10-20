@@ -1,14 +1,19 @@
-# KP Muhurat + GuruAgasthiya — Combined Web 2.42
+# KP Muhurat + GuruAgasthiya — Combined Web 2.43
 
-## Important
-This is the combined website package, not the standalone GuruAgasthiya package. `index.html` is the KP Muhurat app and contains a GuruAgasthiya navigation section with an iframe pointing to `./guruagasthiya.html`. Keep both HTML files in the repository root, side by side.
+This package keeps the KP Muhurat application and restores the full GuruAgasthiya tool inside its own navigation tab.
 
-## Deploy to GitHub Pages
-1. Back up the current repository before replacing files.
-2. Upload all files from this folder directly into the repository root (not the ZIP itself and not a nested folder).
-3. Ensure `index.html`, `guruagasthiya.html`, `manifest.webmanifest`, `kp-icon-192.png`, and `kp-icon-512.png` appear at the root.
-4. Commit the changes, then wait for Pages to publish.
-5. On Android Chrome, open the site and hard-refresh/reload; if a previous PWA cache persists, clear the site's storage/cache before retesting.
+## Important deployment steps
+1. Extract this ZIP.
+2. Upload every file in this folder directly into the GitHub repository root, replacing the old files.
+3. Confirm `index.html` and `guruagasthiya.html` are side by side in the repository root.
+4. Commit changes and wait for GitHub Pages to publish.
+5. On Android Chrome, open the site, then clear site data/cache if the old UI remains.
+
+## Changes in Web 2.43
+- Kept KP Muhurat tabs and calculation code.
+- Removed the leftover timing-first CSS overrides from the GuruAgasthiya page that hid its chart, alarm, lost-and-found, cusp, range, race, Guru/GMP, Chandra Muhurtham and explanatory sections.
+- Hid the extra KP dashboard landing section that could appear instead of the selected tool.
+- Made GuruAgasthiya tab use the available screen space on mobile.
 
 ## Validation caveat
-The KP calculation scripts and GuruAgasthiya calculation page were retained from the supplied files; only the displayed Web version string and service-worker registration query in the KP index were updated. Exact timing parity with the original Windows/APK implementations has not been established by this package build.
+This is a source/layout correction; exact timing parity against the original APK and Windows KP Muhurat V1.5.11 still requires identical-input regression testing.
