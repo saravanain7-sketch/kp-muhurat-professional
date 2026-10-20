@@ -141,6 +141,17 @@ body:not(.shared-kp-context) .panel:first-of-type > .grid{display:none!important
 @media(max-width:520px){.guruPageHero{padding:10px 12px;margin:0 0 8px}.guruPageMark{width:40px;height:40px;flex-basis:40px;font-size:25px}.guruPageTitle h1{font-size:19px}.panel{padding:12px}}
 </style>
 
+
+<style id="guru-shared-data-form-hide-v254">
+/* Web 2.54: hide duplicate Guru date/place controls in the embedded KP app.
+   The KP Muhurat Data tab is the single source of date, time and location. */
+.wrap > .panel:has(#date) > .grid{display:none!important}
+.wrap > .panel:has(#date) #loc{display:none!important}
+.wrap > .panel:has(#date) .btns button:not(#go){display:none!important}
+.wrap > .panel:has(#date){padding-top:10px!important}
+@media(max-width:520px){.wrap > .panel:has(#date){padding:8px!important;margin-bottom:8px!important}}
+</style>
+
 </head>
 <body>
 <div class="wrap">

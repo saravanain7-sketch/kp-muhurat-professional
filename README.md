@@ -30,3 +30,8 @@ Mobile layout repair (2.46): restores the GuruAgasthiya base layout primitives, 
 - The embedded GuruAgasthiya view remains timing-focused; duplicate input fields and extra tools remain hidden.
 - Changes are limited to context synchronization and cache versioning; astronomy and Muhurtham calculation functions were not intentionally changed.
 - Exact timing parity has not been independently verified; compare identical inputs against the reference application before relying on timing output.
+
+
+## Web 2.54 duplicate-input visibility fix
+- Corrects the CSS selector so GuruAgasthiya's duplicate Date/Start time/Place/coordinates/UTC/Ayanamsa form is hidden when embedded. The shared KP Muhurat Data tab remains the single source of input.
+- Keeps the existing timing results and calculation logic. This is a presentation-only fix plus service-worker cache invalidation.
