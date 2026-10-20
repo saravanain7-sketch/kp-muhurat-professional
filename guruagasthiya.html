@@ -13,7 +13,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700&family=Noto+Sans+Tamil:wght@400;600&display=swap" rel="stylesheet">
 
-<style>.backToKP{display:inline-flex;align-items:center;margin:0 0 12px;padding:8px 12px;border:1px solid #d6b65d;border-radius:9px;background:#fff8e6;color:#0d4b69;text-decoration:none;font:600 13px/1.2 system-ui,Arial,sans-serif}.backToKP:focus{outline:2px solid #d6b65d;outline-offset:2px}</style>
+<style>.backToKP{display:inline-flex;align-items:center;margin:0 0 12px;padding:8px 12px;border:1px solid #d6b65d;border-radius:9px;background:#fff8e6;color:#0d4b69;text-decoration:none;font:600 13px/1.2 system-ui,Arial,sans-serif}.backToKP:focus{outline:2px solid #d6b65d;outline-offset:2px}
+/* Web 2.47: use the shared KP Muhurat Data form instead of duplicate date/place fields. */
+body.shared-kp-context .guruPageHero{margin-bottom:10px}
+body.shared-kp-context .panel:first-of-type > .grid{display:none!important}
+body.shared-kp-context #loc{display:none!important}
+body.shared-kp-context .panel:first-of-type{padding-top:10px}
+@media(max-width:520px){body.shared-kp-context .guruPageHero{padding:12px;margin:0 0 10px}body.shared-kp-context .guruPageTitle p{display:none}}
+</style>
 
 <style id="guru-professional-redesign">
 :root{--bg:#f3f6fb;--surface:#ffffff;--ink:#14243a;--muted:#627287;--line:#d9e2ef;--accent:#174a83;--accent-ink:#ffffff;--now:#e0b34d;--now-bg:#fff8e7;--green:#16835d}
@@ -648,6 +655,19 @@ function span(g){
 const $=id=>document.getElementById(id);
 let ROWS=[], endAll=0;
 
+function applySharedKpContext(ctx){
+  if(!ctx||ctx.type!=='KP_MUHURAT_CONTEXT')return;
+  document.body.classList.add('shared-kp-context');
+  if(ctx.date)$('date').value=ctx.date;
+  if(ctx.time)$('time').value=ctx.time;
+  if(Number.isFinite(Number(ctx.lat))) $('lat').value=String(ctx.lat);
+  if(Number.isFinite(Number(ctx.lon))) $('lon').value=String(ctx.lon);
+  if(Number.isFinite(Number(ctx.tz))) $('tz').value=String(ctx.tz);
+  if(ctx.ayan)$('ayan').value=ctx.ayan;
+  if(ctx.place){const placeSel=$('place');let found=false;for(let i=0;i<placeSel.options.length;i++){if(placeSel.options[i].textContent.toLowerCase()===ctx.place.toLowerCase()){placeSel.selectedIndex=i;found=true;break;}}if(!found){let opt=Array.from(placeSel.options).find(o=>o.value==='custom');if(opt)placeSel.value='custom';}}
+  if(ctx.run)run();
+}
+window.addEventListener('message',ev=>{if(ev.origin===location.origin)applySharedKpContext(ev.data);});
 (function init(){
   const sel=$('place');
   PLACES.forEach((p,i)=>{const o=document.createElement('option');o.value=i;o.textContent=p[0];sel.appendChild(o);});
