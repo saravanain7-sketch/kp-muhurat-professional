@@ -556,7 +556,7 @@ main{max-width:1000px;padding:18px 16px 28px}
 </style>
 
 </head><body>
-<header><div class="headerBrand"><img class="headerLogo" src="kp-icon-192.png" alt="GuruAgasthiya astrology logo" width="36" height="36"><div><b>KP Muhurat</b> <small>V 1.5.11 — Web 2.44</small></div></div></header>
+<header><div class="headerBrand"><img class="headerLogo" src="kp-icon-192.png" alt="GuruAgasthiya astrology logo" width="36" height="36"><div><b>KP Muhurat</b> <small>V 1.5.11 — Web 2.45</small></div></div></header>
 <nav><button class="active" data-t="data">Data</button><button data-t="results">Results</button><button data-t="muhurtham">Muhurtham</button><button data-t="chart">Chart</button><button data-t="analysis">Analysis</button><button class="guruNavButton" data-t="guruagasthiya"><span class="guruNavIcon" aria-hidden="true">✦</span><span>GuruAgasthiya</span></button></nav>
 <main>
 <section id="dashboard">
@@ -1033,6 +1033,7 @@ document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{
   document.querySelectorAll('nav button').forEach(x=>x.classList.remove('active'));
   document.querySelectorAll('section').forEach(x=>x.classList.remove('active'));
   b.classList.add('active'); const target=$(b.dataset.t); if(target)target.classList.add('active');
+  if(b.dataset.t==='guruagasthiya'){ const frame=$('guruAgasthiyaFrame'); if(frame && !frame.dataset.loaded){ frame.src='./guruagasthiya.html?build=2.45'; frame.dataset.loaded='1'; } }
   if(b.dataset.t==='results'){
     const first=(window.__selectionRows||[])[0];
     if(first){const table=$('chosenTable');if(table){table.querySelectorAll('tr.selected').forEach(x=>x.classList.remove('selected'));const tr=table.querySelector(`tr[data-muhurat-time="${first.time}"]`);if(tr)tr.classList.add('selected');}const timeControl=$('chosenChartTime');if(timeControl)timeControl.value=first.time;renderResultsAnalysis(first);const chartPanel=$('selectedMuhuratPanel');if(chartPanel)chartPanel.hidden=true;}
@@ -3356,7 +3357,7 @@ initEngine();
     });
   }
 })();
-if('serviceWorker' in navigator){ navigator.serviceWorker.register('./sw.js?v=2.43').catch(function(e){console.warn('SW registration failed',e);}); }
+if('serviceWorker' in navigator){ navigator.serviceWorker.register('./sw.js?v=2.45').catch(function(e){console.warn('SW registration failed',e);}); }
   var b=document.getElementById('install');
   var deferred=null;
   function updateInstallState(){

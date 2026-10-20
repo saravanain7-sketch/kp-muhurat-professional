@@ -1,13 +1,15 @@
-# KP Muhurat + GuruAgasthiya Combined Web 2.44
+# KP Muhurat + GuruAgasthiya Combined Web 2.45
 
-This package preserves the KP Muhurat main app and embeds the full available GuruAgasthiya V3.3.1 HTML tool in the GuruAgasthiya tab.
+This package is built from the uploaded Web 2.44 `index.html`, original `guruagasthiya.html`, icons, and manifest.
 
-Changes in 2.44:
-- Replaced the misleading “KP Muhurat / Muhurtham Dashboard” heading inside the embedded GuruAgasthiya page with a GuruAgasthiya V3.3 professional header.
-- Kept the date, time, place, coordinates, UTC offset and ayanamsa controls.
-- Kept the original GuruAgasthiya module buttons and their source handlers: Lost & Found, Cuspal Chart, Date-range Muhurtham, Horse Race, GMP Prasnam, Chandra Muhurtham and About; the original main timing and alarm controls remain.
-- The KP Muhurat calculation JavaScript was not intentionally changed; only the outer version label was updated.
+## Fix in Web 2.45
+- Keeps the KP Muhurat tabs and calculation source unchanged, apart from the visible version label and service-worker registration/cache behavior.
+- Keeps GuruAgasthiya V3.3.1 as a separate embedded page in the GuruAgasthiya tab.
+- Refreshes the embedded GuruAgasthiya page when the tab is first opened, with a build query to avoid stale cached HTML.
+- Updates the service worker cache name and uses network-first loading for HTML so older cached dashboard content is less likely to appear after deployment.
 
-Deploy all files directly to the GitHub Pages repository root. Keep `index.html` and `guruagasthiya.html` side by side. Clear browser cache after deployment if an old version is still shown.
+## GitHub Pages deployment
+Upload all files in this folder to the repository root, side by side. `index.html`, `guruagasthiya.html`, `sw.js`, `manifest.webmanifest`, and both icon PNGs must all be at the root. After deployment, open the site in Chrome and refresh. If an older installed PWA remains, close it and open the GitHub Pages URL in Chrome again so the new service worker can activate.
 
-Validation: ZIP integrity and JavaScript syntax checks are required after packaging. This does not establish exact timing parity with the original APK; that requires side-by-side regression tests using identical inputs.
+## Validation note
+The package can be checked for ZIP integrity and JavaScript syntax. This change does not claim exact timing parity with the original GuruAgasthiya APK or Windows KP Muhurat V1.5.11; that still requires side-by-side tests with identical inputs.
