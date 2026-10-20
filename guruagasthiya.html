@@ -130,7 +130,7 @@ table{max-width:100%;border-collapse:collapse}
 </style>
 
 <style id="guru-minimal-timing-only-v251">
-/* Web 2.51: keep the integrated GuruAgasthiya view focused on timing output.
+/* Web 2.53: keep the integrated GuruAgasthiya view focused on timing output.
    The shared KP Data tab remains the source for date/time/place when embedded. */
 body.shared-kp-context .panel:first-of-type > .grid,
 body:not(.shared-kp-context) .panel:first-of-type > .grid{display:none!important}
@@ -715,7 +715,7 @@ function applySharedKpContext(ctx){
   if(ctx.place){const placeSel=$('place');let found=false;for(let i=0;i<placeSel.options.length;i++){if(placeSel.options[i].textContent.toLowerCase()===ctx.place.toLowerCase()){placeSel.selectedIndex=i;found=true;break;}}if(!found){let opt=Array.from(placeSel.options).find(o=>o.value==='custom');if(opt)placeSel.value='custom';}}
   if(ctx.run)run();
 }
-window.addEventListener('message',ev=>{if(ev.origin===location.origin)applySharedKpContext(ev.data);});
+window.addEventListener('message',ev=>{if(ev.origin===location.origin && ev.data && ev.data.type==='KP_MUHURAT_CONTEXT')applySharedKpContext(ev.data);});
 (function init(){
   const sel=$('place');
   PLACES.forEach((p,i)=>{const o=document.createElement('option');o.value=i;o.textContent=p[0];sel.appendChild(o);});

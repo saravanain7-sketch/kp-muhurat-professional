@@ -22,3 +22,11 @@ Mobile layout repair (2.46): restores the GuruAgasthiya base layout primitives, 
 - Updated the South Indian chart colors, cell spacing, Lagna highlight, and center text sizing to match the supplied reference screenshot.
 - Display-only CSS changes; no astronomy, planetary position, transition, or Muhurtham selection functions were edited.
 - JavaScript syntax and ZIP integrity should be checked before deployment; visual verification on a physical Android device remains recommended.
+
+
+## Web 2.53 synchronization repair
+- GuruAgasthiya receives the shared Data-tab date, start time, latitude, longitude, and UTC offset on iframe load and when fields change.
+- Results recalculate when a Data field is committed or the main Show button is pressed.
+- The embedded GuruAgasthiya view remains timing-focused; duplicate input fields and extra tools remain hidden.
+- Changes are limited to context synchronization and cache versioning; astronomy and Muhurtham calculation functions were not intentionally changed.
+- Exact timing parity has not been independently verified; compare identical inputs against the reference application before relying on timing output.
