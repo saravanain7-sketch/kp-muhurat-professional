@@ -3,7 +3,7 @@
   "name": "GuruAgasthiya — KP Muhurtham Dashboard",
   "short_name": "GuruAgasthiya",
   "description": "GuruAgasthiya astrology and KP Muhurtham timing dashboard with passing timing windows and optional filters.",
-  "start_url": "./",
+  "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
