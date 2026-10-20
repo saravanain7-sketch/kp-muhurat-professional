@@ -362,6 +362,16 @@ nav button{flex:0 0 auto;font-size:14px;padding:14px 18px}
 @media(max-width:360px){nav button{padding:9px 8px!important;font-size:11.5px!important}.headerLogo{width:31px;height:31px;flex-basis:31px}}
 
 
+
+/* Web 2.38: keep GuruAgasthiya fully inside the app and improve its navigation identity. */
+nav .guruNavButton{display:inline-flex;align-items:center;gap:7px;color:#14577f}
+.guruNavIcon{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:7px;background:linear-gradient(145deg,#0b315b,#147e91);color:#f6d77c;font-size:15px;box-shadow:0 1px 4px #123c6426}
+.guruHero{display:flex;align-items:center;gap:13px;padding:5px 2px 12px;border-bottom:1px solid #dbe7ef}
+.guruHeroIcon{width:58px;height:58px;flex:0 0 58px;display:flex;align-items:center;justify-content:center;border-radius:16px;background:linear-gradient(145deg,#0b2850,#146b7c);color:#f5d77c;box-shadow:0 5px 14px #123c6424}
+.guruHeroIcon svg{width:42px;height:42px}
+.guruHeroCopy{min-width:0;flex:1}.guruEyebrow{font-size:10px;font-weight:800;letter-spacing:2px;color:#187b83}.guruHeroCopy h2{margin:3px 0 1px;font-size:23px;line-height:1.15;color:#153d61}.guruHeroCopy p{margin:0;color:#62768a;font-size:13px}.guruInlineBadge{display:inline-flex;align-items:center;gap:6px;padding:6px 9px;border:1px solid #b8e2d1;background:#effbf5;color:#19744d;border-radius:999px;font-size:11px;font-weight:750;white-space:nowrap}.guruInlineBadge span{width:7px;height:7px;border-radius:50%;background:#22a06b}.guruIntroText{margin:12px 0 0!important;font-size:13px!important;line-height:1.5!important;color:#53697a!important}
+@media(max-width:520px){nav .guruNavButton{gap:5px}.guruNavIcon{width:19px;height:19px;font-size:13px}.guruHero{gap:10px;flex-wrap:wrap}.guruHeroIcon{width:48px;height:48px;flex-basis:48px;border-radius:13px}.guruHeroIcon svg{width:35px;height:35px}.guruHeroCopy h2{font-size:20px}.guruInlineBadge{margin-left:auto;font-size:10px;padding:5px 7px}.guruIntroText{font-size:12px!important}.guruEmbeddedFrameWrap,#guruagasthiya iframe{height:calc(100dvh - 145px);min-height:620px}}
+
 /* Web 2.37: embedded GuruAgasthiya navigation section; isolated from KP engine */
 .guruEmbeddedIntro p{line-height:1.5;color:#4b6070}
 .guruEmbeddedFrameWrap{width:100%;height:calc(100dvh - 145px);min-height:680px;overflow:hidden;border:1px solid #cbd8e0;border-radius:14px;background:#eaf0f3}
@@ -536,7 +546,7 @@ main{max-width:1000px;padding:18px 16px 28px}
 
 </head><body>
 <header><div class="headerBrand"><img class="headerLogo" src="kp-icon-192.png" alt="KP Muhurat logo" width="36" height="36"><div><b>KP Muhurat</b> <small>V 1.5.11 — Web 2.37</small></div></div></header>
-<nav><button class="active" data-t="data">Data</button><button data-t="results">Results</button><button data-t="muhurtham">Muhurtham</button><button data-t="chart">Chart</button><button data-t="analysis">Analysis</button><button data-t="guruagasthiya">GuruAgasthiya</button></nav>
+<nav><button class="active" data-t="data">Data</button><button data-t="results">Results</button><button data-t="muhurtham">Muhurtham</button><button data-t="chart">Chart</button><button data-t="analysis">Analysis</button><button class="guruNavButton" data-t="guruagasthiya"><span class="guruNavIcon" aria-hidden="true">✦</span><span>GuruAgasthiya</span></button></nav>
 <main>
 <section id="dashboard">
   <div class="dashboard-hero">
@@ -585,11 +595,14 @@ main{max-width:1000px;padding:18px 16px 28px}
 
 <section id="guruagasthiya">
   <div class="panel guruEmbeddedIntro">
-    <div class="titlebar">GuruAgasthiya V3.3.1 · 249 KP Sub-lord Timings</div>
-    <p>Integrated GuruAgasthiya tool. This section runs separately from the KP Muhurat V1.5.11 selection engine; its timing calculations do not change the existing Muhurat results.</p>
-    <a class="btn" href="./guruagasthiya.html" target="_blank" rel="noopener">Open GuruAgasthiya separately ↗</a>
+    <div class="guruHero">
+      <div class="guruHeroIcon" aria-hidden="true"><svg viewBox="0 0 64 64" role="img" aria-label="GuruAgasthiya astrology icon"><circle cx="32" cy="32" r="27" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="32" cy="32" r="20" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="2.5 3"/><path d="M32 8v8M32 48v8M8 32h8M48 32h8M15 15l6 6M43 43l6 6M49 15l-6 6M21 43l-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M32 20l3.4 8.6L44 32l-8.6 3.4L32 44l-3.4-8.6L20 32l8.6-3.4z" fill="currentColor"/></svg></div>
+      <div class="guruHeroCopy"><div class="guruEyebrow">INTEGRATED TOOL</div><h2>GuruAgasthiya</h2><p>V3.3.1 · 249 KP Sub-lord Timings</p></div>
+      <div class="guruInlineBadge"><span></span> In this app</div>
+    </div>
+    <p class="guruIntroText">Use the complete GuruAgasthiya timing tool below without opening a separate page. Its calculations remain independent of the KP Muhurat V1.5.11 selection engine.</p>
   </div>
-  <div class="guruEmbeddedFrameWrap"><iframe id="guruAgasthiyaFrame" title="GuruAgasthiya 3.3.1 KP Lagna sub-lord timing tool" src="./guruagasthiya.html" loading="lazy" referrerpolicy="same-origin" allow="geolocation" ></iframe></div>
+  <div class="guruEmbeddedFrameWrap"><iframe id="guruAgasthiyaFrame" title="GuruAgasthiya 3.3.1 KP Lagna sub-lord timing tool embedded in KP Muhurat" src="./guruagasthiya.html" loading="eager" referrerpolicy="same-origin" allow="geolocation" ></iframe></div>
 </section>
 
 <section id="results"><div class="panel"><div class="chosenResultsHeader"><div class="titlebar">Chosen Muhurats</div><div class="chosenTimeControl"><label for="chosenChartTime">Time</label><input id="chosenChartTime" type="text" inputmode="numeric" autocomplete="off" maxlength="8" pattern="(?:[01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]" aria-label="Chart time in 24-hour HH:MM:SS format" value="06:10:44" title="24-hour time, HH:MM:SS"></div></div><div class="wide chosenWide"><table id="chosenTable"><thead><tr><th>Date</th><th>Time</th><th>SnL</th><th>StL</th><th>SbL</th><th>Y/N</th><th>Reason</th></tr></thead><tbody id="chosen"></tbody></table></div></div>

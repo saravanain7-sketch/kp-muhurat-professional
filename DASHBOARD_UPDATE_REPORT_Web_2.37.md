@@ -12,3 +12,7 @@
 - Main KP calculation script content is unchanged except version text in page chrome.
 - GuruAgasthiya astronomical/timing functions are retained; only the initial display mode and CSS/presentation metadata changed.
 - ZIP integrity and JavaScript syntax checks should be run before deployment. Exact parity against the Windows reference still requires a regression run using the established fixture.
+
+
+## Web 2.38 — Integrated GuruAgasthiya navigation
+Removed the external-page launch link from the GuruAgasthiya tab. The full tool remains embedded in the same app, with an improved in-app icon/header. Only main-page navigation and presentation styles were changed; calculation sources were left untouched.

@@ -250,3 +250,10 @@ This build makes the Analysis tables denser on mobile (22px rows, smaller text, 
 - Existing KP Muhurat calculation scripts were not edited for this integration.
 - Updated the PWA manifest and service-worker cache version to 2.36.
 - A raw Android APK cannot be run inside a web/PWA page; this integration embeds the functionality available from the supplied extracted HTML. A true single native APK merge requires the original Android project/source and build/signing configuration.
+
+
+## Web 2.38 — GuruAgasthiya stays in the same app
+- Removed the “Open GuruAgasthiya separately” link that launched a new page.
+- Kept the complete GuruAgasthiya tool embedded in the GuruAgasthiya tab of the main app.
+- Improved the GuruAgasthiya navigation identity with a compact astrology icon and upgraded the in-app heading card.
+- Presentation/navigation only: the KP Muhurat calculation scripts and the GuruAgasthiya source page were not modified.
