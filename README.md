@@ -14,3 +14,9 @@ This is the standalone GuruAgasthiya app, separate from KP Muhurat.
 Upload the files in this folder to a separate GitHub repository. Keep `guruagasthiya.html`, `manifest.webmanifest`, `sw.js`, `kp-icon-192.png`, and `kp-icon-512.png` at repository root. Enable GitHub Pages for `main` / root, then open `guruagasthiya.html` at the deployed site.
 
 Note: Visual verification on a phone and side-by-side calculation regression tests are still recommended.
+
+
+## Web v3.6 navigation update
+- Added a horizontal navigation bar: Data, Lost & Found, Cuspal chart, Muhurtham, Horse race, GMP Prasnam, Chandra Muhurtham.
+- Removed the About button from visible navigation.
+- Existing tool buttons and calculation handlers are reused; no astronomical calculation routines were intentionally changed.

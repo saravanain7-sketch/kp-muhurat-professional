@@ -164,10 +164,24 @@ body.shared-kp-context .wrap > .panel:has(#date){padding-top:10px!important}
 @media(max-width:520px){body.shared-kp-context .wrap > .panel:has(#date){padding:8px!important;margin-bottom:8px!important}}
 </style>
 
+
+<style id="guru-navigation-v36">
+#abBtn{display:none!important}
+.guruNav{position:sticky;top:0;z-index:20;display:flex;gap:4px;overflow-x:auto;white-space:nowrap;background:#fff;border-bottom:1px solid #d5e0e7;padding:7px 4px;margin:0 0 12px;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+.guruNav button{flex:0 0 auto;border:0;border-radius:9px 9px 0 0;background:transparent;color:#536575;padding:12px 14px;font:700 14px/1.2 system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+.guruNav button.active{background:#e4f2ff;color:#145b8d;box-shadow:inset 0 -3px #1685c7}
+.guruNav button:focus-visible{outline:2px solid #1685c7;outline-offset:-2px}
+@media(max-width:520px){.guruNav{margin-left:-9px;margin-right:-9px;padding:6px 7px;gap:2px}.guruNav button{padding:12px 11px;font-size:13px}}
+</style>
+
 </head>
 <body>
 <div class="wrap">
   <div class="guruPageHero"><div class="guruPageMark" aria-hidden="true"><img src="kp-icon-192.png" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:inherit"></div><div class="guruPageTitle"><div class="guruPageEyebrow">KP ASTROLOGY · V3.3.1</div><h1>GuruAgasthiya <span class="guruVersion">V3.3</span></h1><p>KP Lagna sub-lord timings</p></div></div>
+
+  <nav class="guruNav" id="guruNav" aria-label="GuruAgasthiya navigation">
+    <button type="button" class="active" id="dataTab">Data</button>
+  </nav>
 
   <div class="panel">
     <div class="grid">
@@ -186,11 +200,11 @@ body.shared-kp-context .wrap > .panel:has(#date){padding-top:10px!important}
       <button id="loc" type="button">Use my location</button>
       <button id="lostBtn" type="button">Lost &amp; found · தொலைந்த பொருள் மீட்பு</button>
       <button id="cuspBtn" type="button">Cuspal chart · பாவ கஸ்ப் விவரம்</button>
-      <button id="rangeBtn" type="button">Date-range muhurtham · தேதி வரம்பு முகூர்த்தம்</button>
+      <button id="rangeBtn" type="button">Muhurtham · முகூர்த்தம்</button>
       <button id="raceBtn" type="button">Horse race · குதிரைப் பந்தயம்</button>
       <button id="gpBtn" type="button">GMP Prasnam · ஜிஎம்பி பிரசன்னம்</button>
       <button id="cmBtn" type="button">Chandra muhurtham · சந்திர முகூர்த்தம்</button>
-      <button id="abBtn" type="button">About · இந்த செயலி பற்றி</button>
+      <button id="abBtn" type="button" hidden>About · இந்த செயலி பற்றி</button>
     </div>
     <div class="msg" id="msg" role="status"></div>
   </div>
@@ -2050,5 +2064,57 @@ function copyText(){
 }
 })();
 </script>
+
+<script id="guru-navigation-script-v36">
+(function(){
+  const nav=document.getElementById('guruNav');
+  const dataTab=document.getElementById('dataTab');
+  const formPanel=document.querySelector('.wrap > .panel:has(#date)');
+  if(!nav || !dataTab || !formPanel) return;
+
+  const toolDefs=[
+    ['lostBtn','Lost & Found'],
+    ['cuspBtn','Cuspal chart'],
+    ['rangeBtn','Muhurtham'],
+    ['raceBtn','Horse race'],
+    ['gpBtn','GMP Prasnam'],
+    ['cmBtn','Chandra Muhurtham']
+  ];
+  const panels=['lostPanel','cuspPanel','rangePanel','racePanel','gpPanel','cmPanel','abPanel'];
+  function hideAll(){
+    panels.forEach(id=>{const el=document.getElementById(id);if(el)el.classList.add('hide');});
+  }
+  function setActive(id){
+    nav.querySelectorAll('button').forEach(b=>b.classList.toggle('active',b.id===id));
+  }
+
+  toolDefs.forEach(([id,label])=>{
+    const button=document.getElementById(id);
+    if(!button) return;
+    button.textContent=label;
+    button.setAttribute('aria-label',label);
+    nav.appendChild(button);
+    button.addEventListener('click',()=>setActive(id));
+  });
+
+
+  dataTab.addEventListener('click',()=>{
+    hideAll();
+    setActive('dataTab');
+    formPanel.scrollIntoView({block:'start',behavior:'smooth'});
+  });
+
+  // Hide other tool panels before the original button handler opens its panel.
+  nav.addEventListener('click',event=>{
+    const button=event.target.closest('button');
+    if(!button || button.id==='dataTab') return;
+    hideAll();
+  },true);
+
+  // Start on Data and ensure the navigation remains separate from the input form.
+  setActive('dataTab');
+})();
+</script>
+
 </body>
 </html>
