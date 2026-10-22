@@ -129,55 +129,40 @@ table{max-width:100%;border-collapse:collapse}
 @media(max-width:520px){.row .l{gap:6px}.row .l .n{font-size:16px}.row .l .ta{font-size:14px}.row .p{gap:5px 10px}}
 </style>
 
-<style id="guru-standalone-options-repair-v255">
-/* Standalone GuruAgasthiya: retain the complete form and all tools.
-   Only the embedded view is reduced to timing output. */
-body.shared-kp-context .panel:first-of-type > .grid{display:none!important}
-body.shared-kp-context .btns button:not(#go){display:none!important}
-body.shared-kp-context .guruPageTitle p{display:none!important}
-body.shared-kp-context .panel:has(#lostPanel),
-body.shared-kp-context #lostPanel,
-body.shared-kp-context #cuspPanel,
-body.shared-kp-context #rangePanel,
-body.shared-kp-context #racePanel,
-body.shared-kp-context #gpPanel,
-body.shared-kp-context #cmPanel,
-body.shared-kp-context #aboutPanel{display:none!important}
-body.shared-kp-context .guruPageHero{padding:12px 14px;margin-bottom:10px}
-@media(max-width:520px){
- body.shared-kp-context .guruPageHero{padding:10px 12px;margin:0 0 8px}
- body.shared-kp-context .guruPageMark{width:40px;height:40px;flex-basis:40px;font-size:25px}
- body.shared-kp-context .guruPageTitle h1{font-size:19px}
- body.shared-kp-context .panel{padding:12px}
-}
+<style id="guru-minimal-timing-only-v251">
+/* Web 2.53: keep the integrated GuruAgasthiya view focused on timing output.
+   The shared KP Data tab remains the source for date/time/place when embedded. */
+body.shared-kp-context .panel:first-of-type > .grid,
+body:not(.shared-kp-context) .panel:first-of-type > .grid{display:none!important}
+.btns button:not(#go){display:none!important}
+.guruPageTitle p{display:none!important}
+.guruPageHero{padding:12px 14px;margin-bottom:10px}
+.panel:has(#lostPanel), #lostPanel, #cuspPanel, #rangePanel, #racePanel, #gpPanel, #cmPanel, #aboutPanel{display:none!important}
+@media(max-width:520px){.guruPageHero{padding:10px 12px;margin:0 0 8px}.guruPageMark{width:40px;height:40px;flex-basis:40px;font-size:25px}.guruPageTitle h1{font-size:19px}.panel{padding:12px}}
 </style>
 
 
-<style id="guru-shared-data-form-hide-v255">
-/* Hide duplicate inputs only when embedded inside KP Muhurat. */
-body.shared-kp-context .wrap > .panel:has(#date) > .grid{display:none!important}
-body.shared-kp-context .wrap > .panel:has(#date) #loc{display:none!important}
-body.shared-kp-context .wrap > .panel:has(#date) .btns button:not(#go){display:none!important}
-body.shared-kp-context .wrap > .panel:has(#date){padding-top:10px!important}
-@media(max-width:520px){body.shared-kp-context .wrap > .panel:has(#date){padding:8px!important;margin-bottom:8px!important}}
+<style id="guru-shared-data-form-hide-v254">
+/* Web 2.54: hide duplicate Guru date/place controls in the embedded KP app.
+   The KP Muhurat Data tab is the single source of date, time and location. */
+.wrap > .panel:has(#date) > .grid{display:none!important}
+.wrap > .panel:has(#date) #loc{display:none!important}
+.wrap > .panel:has(#date) .btns button:not(#go){display:none!important}
+.wrap > .panel:has(#date){padding-top:10px!important}
+@media(max-width:520px){.wrap > .panel:has(#date){padding:8px!important;margin-bottom:8px!important}}
+
+/* Web 2.55 brand polish — presentation only. */
+.guruPageMark{overflow:hidden;padding:0}
+.guruPageMark img{display:block;width:100%;height:100%;object-fit:cover;border-radius:inherit}
+.guruPageHero{box-shadow:0 10px 28px #102c501b}
+@media(max-width:520px){.guruPageHero{border-radius:15px}.guruPageTitle h1{letter-spacing:-.02em}}
+
 </style>
 
-<style id="professional-navigation-v391">
-.guruNav{position:sticky;top:0;z-index:100;display:flex;flex-wrap:nowrap;gap:3px;overflow-x:auto;white-space:nowrap;background:rgba(255,255,255,.98);border-bottom:1px solid #d8e2ea;box-shadow:0 3px 12px rgba(17,42,67,.07);padding:7px 7px;margin:0 -2px 14px;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
-.guruNav button{flex:0 0 auto;border:0!important;border-radius:11px 11px 0 0!important;background:transparent!important;color:#536575!important;padding:12px 13px!important;font:700 14px/1.2 system-ui,-apple-system,"Segoe UI",Arial,sans-serif!important;min-height:46px}
-.guruNav button.active{background:#e6f3ff!important;color:#145c8b!important;box-shadow:inset 0 -4px #1988c5!important}
-.guruNav button:focus-visible{outline:2px solid #1988c5;outline-offset:-2px}
-.shared-hidden{display:none!important}
-#dataPanel,#lostPanel,#cuspPanel,#rangePanel,#racePanel,#gpPanel,#cmPanel,#chartPanel,#results{scroll-margin-top:78px}
-#abBtn,#abPanel,#alarmPanel{display:none!important}
-@media(max-width:520px){.guruNav{margin-left:-8px;margin-right:-8px;padding:6px 5px;gap:1px}.guruNav button{padding:11px 10px!important;font-size:13px!important;min-height:44px}.guruPageHero{margin-bottom:12px}}
-</style>
 </head>
 <body>
 <div class="wrap">
-  <div class="guruPageHero"><div class="guruPageMark" aria-hidden="true"><img src="kp-icon-192.png" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:inherit"></div><div class="guruPageTitle"><div class="guruPageEyebrow">KP ASTROLOGY · V3.9.1</div><h1>GuruAgasthiya <span class="guruVersion">V3.9.1</span></h1><p>KP Lagna sub-lord timings</p></div></div>
-  <nav class="guruNav" id="guruNav" aria-label="GuruAgasthiya navigation"><button type="button" id="dataTab" class="active">Data</button></nav>
-
+  <div class="guruPageHero"><div class="guruPageMark"><img src="kp-icon-192.png" alt="GuruAgasthiya logo" width="54" height="54"></div><div class="guruPageTitle"><div class="guruPageEyebrow">KP ASTROLOGY · V3.3.1</div><h1>GuruAgasthiya <span class="guruVersion">V3.3</span></h1><p>KP Lagna sub-lord timings</p></div></div>
 
   <div class="panel">
     <div class="grid">
@@ -185,8 +170,8 @@ body.shared-kp-context .wrap > .panel:has(#date){padding-top:10px!important}
       <div><label for="time">Start time</label><input type="time" id="time" value="00:00"></div>
       <div class="full"><label for="place">Place</label>
         <select id="place"></select></div>
-      <div><label for="lat">Latitude (north +)</label><input id="lat" inputmode="decimal" value="11"></div>
-      <div><label for="lon">Longitude (east +)</label><input id="lon" inputmode="decimal" value="76.9666666667"></div>
+      <div><label for="lat">Latitude (north +)</label><input id="lat" inputmode="decimal" value="13.0827"></div>
+      <div><label for="lon">Longitude (east +)</label><input id="lon" inputmode="decimal" value="80.2707"></div>
       <div><label for="tz">UTC offset (hours)</label><input id="tz" inputmode="decimal" value="5.5"></div>
       <div><label for="ayan">Ayanamsa</label>
         <select id="ayan"><option value="kp">KP (Krishnamurti)</option><option value="lahiri">Lahiri</option></select></div>
@@ -752,7 +737,6 @@ window.addEventListener('message',ev=>{if(ev.origin===location.origin && ev.data
 (function init(){
   const sel=$('place');
   PLACES.forEach((p,i)=>{const o=document.createElement('option');o.value=i;o.textContent=p[0];sel.appendChild(o);});
-  const coimbatoreIndex=PLACES.findIndex(p=>p[0]==='Coimbatore'); if(coimbatoreIndex>=0) sel.value=String(coimbatoreIndex);
   const oc=document.createElement('option');oc.value='custom';oc.textContent='Custom (enter coordinates)';sel.appendChild(oc);
   sel.addEventListener('change',()=>{
     if(sel.value==='custom')return;
@@ -770,7 +754,7 @@ window.addEventListener('message',ev=>{if(ev.origin===location.origin && ev.data
   $('copy').addEventListener('click',copyText);
   $('loc').addEventListener('click',useLocation);
   const c=Intl.DateTimeFormat().resolvedOptions().timeZone;
-  $('msg').textContent='';
+  $('msg').textContent='Pick a place, or use your location, then tap Show timings.'+(c?'':'');
 })();
 
 function setMsg(t,bad){const m=$('msg');m.textContent=t;m.className='msg'+(bad?' err':'');}
@@ -1260,8 +1244,7 @@ function lostFound(){
   if(isNaN(lat)||isNaN(lon)||isNaN(tz)){out.innerHTML='<p class="msg err">Choose a place (or enter latitude, longitude and UTC offset) above first.</p>';return;}
   if(Math.abs(lat)>62){out.innerHTML='<p class="msg err">Latitude beyond 62° is not supported.</p>';return;}
   if(typeof Astronomy==='undefined'){out.innerHTML='<p class="msg err">Planet positions need the astronomy library, which did not load. Check your connection and reload.</p>';return;}
-  const ms=guruDataMoment();
-  TZ=parseFloat($('tz').value)||5.5;
+  const ms=Date.now();
   CFG={lat:lat,lon:lon,kind:$('ayan').value};
   const asc=sidAsc(ms,lat,lon,CFG.kind), A=Math.floor(asc/30)%12, ag=SEGS[findSeg(asc)];
   const P={}; CODES.forEach(c=>{P[c]=sidLon(c,ms);});
@@ -1412,7 +1395,7 @@ function cuspRefresh(full){
   if(Math.abs(lat)>62){head.innerHTML='<span class="err">Latitude beyond 62° is not supported.</span>';return;}
   if(typeof Astronomy==='undefined'){head.innerHTML='<span class="err">Planet positions need the astronomy library, which did not load. Check your connection and reload.</span>';return;}
   CFG={lat:lat,lon:lon,kind:$('ayan').value};
-  if(!CU.frozen)CU.ms=guruDataMoment();
+  if(!CU.frozen)CU.ms=Date.now();
   const d=new Date(CU.ms+tz*3600000), hms=p2(d.getUTCHours())+':'+p2(d.getUTCMinutes())+':'+p2(d.getUTCSeconds());
   const asc=sidAsc(CU.ms,lat,lon,CFG.kind), g=SEGS[findSeg(asc)];
   head.innerHTML='<b>'+(CU.frozen?'Frozen at':'Present transit time')+':</b> '+d.getUTCDate()+' '+MON[d.getUTCMonth()]+' '+d.getUTCFullYear()+', '+hms+' (UTC'+(tz>=0?'+':'-')+Math.floor(Math.abs(tz))+':'+p2(Math.round((Math.abs(tz)%1)*60))+')<br><b>Rising:</b> '+SIGNS[g.sign][0]+' '+inSign(asc)+' · '+NAME[g.lord]+'/'+NAME[g.star]+'/'+NAME[g.sub]+' · <span style="font-family:var(--ta)">'+TLAG[g.sign]+' லக்னம்</span>';
@@ -1839,13 +1822,12 @@ function gpMoonSegs(ms,days){
 }
 function gpRun(){
   const out=$('gpOut'), err=m=>{out.innerHTML='<p class="msg err">'+m+'</p>';};
-  const lat=parseFloat($('lat').value), lon=parseFloat($('lon').value), tzs=$('tz').value.trim();
+  const lat=parseFloat($('gpLat').value), lon=parseFloat($('gpLon').value), tzs=$('gpTz').value.trim();
   if(isNaN(lat)||isNaN(lon)||!tzs)return err('Choose a city (or use your location), or enter latitude, longitude and time zone.');
   if(Math.abs(lat)>62)return err('Latitude beyond 62° is not supported.');
   if(typeof Astronomy==='undefined')return err('Planet positions need the astronomy library, which did not load. Check your connection and reload.');
   let tf; try{tf=tzFn(tzs);}catch(e){return err('The time zone was not recognised. Use a name such as Asia/Kolkata or hours such as 5.5.');}
-  const ms=guruDataMoment(), kind=$('ayan').value;
-  TZ=parseFloat($('tz').value)||5.5; CFG={lat:lat,lon:lon,kind:kind};
+  const ms=Date.now(), kind=$('ayan').value; CFG={lat:lat,lon:lon,kind:kind};
   const off=tf(ms);
   const asc=sidAsc(ms,lat,lon,kind), g=SEGS[findSeg(asc)], A=g.sign;
   const P={}; CODES.forEach(c=>{P[c]=sidLon(c,ms);});
@@ -2061,67 +2043,6 @@ function copyText(){
     catch(e){setMsg('Copy is not available here.',true);}
   }
 }
-})();
-</script>
-<script id="shared-data-time-helper-v391">
-function guruDataMoment(){
-  const ds=document.getElementById('date')?.value;
-  const ts=document.getElementById('time')?.value||'00:00';
-  const tz=parseFloat(document.getElementById('tz')?.value);
-  if(!ds||!Number.isFinite(tz)) return Date.now();
-  const [y,m,d]=ds.split('-').map(Number),[hh,mm]=ts.split(':').map(Number);
-  return Date.UTC(y,m-1,d,hh||0,mm||0)-tz*3600000;
-}
-</script>
-<script id="professional-shared-data-navigation-v391">
-(function(){
- const $=id=>document.getElementById(id), nav=$('guruNav'), dataTab=$('dataTab');
- if(!nav||!dataTab||!$('date'))return;
- const dataPanel=$('date').closest('.panel'); dataPanel.id='dataPanel';
- const tabs=[['lostBtn','lostPanel','Lost & Found'],['cuspBtn','cuspPanel','Cuspal chart'],['rangeBtn','rangePanel','Muhurtham'],['raceBtn','racePanel','Horse race'],['gpBtn','gpPanel','GMP Prasnam'],['cmBtn','cmPanel','Chandra Muhurtham']];
- const hideIds=['lostPanel','cuspPanel','rangePanel','racePanel','gpPanel','cmPanel','abPanel','chartPanel','results','alarmPanel'];
- function hideAll(){dataPanel.classList.add('hide');hideIds.forEach(id=>{const e=$(id);if(e)e.classList.add('hide');});}
- function setActive(id){nav.querySelectorAll('button').forEach(b=>b.classList.toggle('active',b.id===id));}
- function showData(){hideAll();dataPanel.classList.remove('hide');setActive('dataTab');}
- function syncData(){
-   const date=$('date').value, time=$('time').value||'00:00', lat=$('lat').value, lon=$('lon').value, tz=$('tz').value;
-   // Shared Data is the single source of truth for these fields on every tab.
-   ['rgFrom','rgTo','rcDate','cmFrom','cmTo'].forEach(id=>{if($(id))$(id).value=date;});
-   if($('rcTime'))$('rcTime').value=time;
-   [['rcLat',lat],['gpLat',lat],['rcLon',lon],['gpLon',lon],['rcTz',tz],['gpTz',tz]].forEach(([id,v])=>{if($(id))$(id).value=v;});
- }
- dataTab.addEventListener('click',showData);
- tabs.forEach(([bid,pid,label])=>{
-   const b=$(bid), panel=$(pid); if(!b||!panel)return;
-   b.textContent=label;b.setAttribute('aria-label',label);nav.appendChild(b);
-   b.addEventListener('click',()=>{
-     syncData();hideAll();panel.classList.remove('hide');setActive(bid);
-     // Run the selected tool with Data values, so the tab opens with results rather than another input form.
-     try{
-       if(bid==='lostBtn'&&typeof lostFound==='function')lostFound();
-       else if(bid==='cuspBtn'&&typeof cuspRefresh==='function')cuspRefresh(true);
-       else if(bid==='rangeBtn'&&typeof rangeRun==='function'){if(typeof run==='function')run();rangeRun();}
-       else if(bid==='raceBtn'&&typeof raceRun==='function')raceRun();
-       else if(bid==='gpBtn'&&typeof gpRun==='function')gpRun();
-       else if(bid==='cmBtn'&&typeof cmRun==='function')cmRun();
-     }catch(e){console.error('Tool calculation error:',e);}
-     b.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});
-   });
- });
- // Remove duplicate tool-button rows from Data while retaining the same original buttons in navigation.
- const btns=$('go')?.closest('.btns');
- if(btns)btns.querySelectorAll('#lostBtn,#cuspBtn,#rangeBtn,#raceBtn,#gpBtn,#cmBtn,#abBtn').forEach(e=>{if(e.parentElement!==nav)e.remove();});
- const about=$('abBtn');if(about)about.remove();
- // Hide redundant date/time/location controls on tool pages; their values remain in the DOM for existing calculation functions.
- ['rgFrom','rgTo','rcDate','rcTime','rcSearch','rcCountry','rcCity','rcLat','rcLon','rcTz','gpSearch','gpCountry','gpCity','gpLat','gpLon','gpTz','cmFrom','cmTo'].forEach(id=>{
-   const e=$(id);if(!e)return;const wrapper=e.closest('.grid')&&e.parentElement;if(wrapper)wrapper.classList.add('shared-hidden');
- });
- // On the Horse Race page only the horse count is a unique input; date/time/location come from Data.
- // On GMP Prasnam, the place search/coordinate fields are shared from Data; only the question-time action remains.
- ['date','time','lat','lon','tz','place','ayan'].forEach(id=>{const e=$(id);if(e){e.addEventListener('input',syncData);e.addEventListener('change',syncData);}});
- // If a shared value changes while viewing a tool, refresh the current tab's result with the new Data.
- ['date','time','lat','lon','tz','ayan'].forEach(id=>{const e=$(id);if(e)e.addEventListener('change',()=>{syncData();const active=nav.querySelector('button.active');if(active&&active.id!=='dataTab')active.click();});});
- showData();syncData();
 })();
 </script>
 </body>

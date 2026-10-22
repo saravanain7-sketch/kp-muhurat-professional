@@ -1,12 +1,26 @@
-const CACHE_NAME = 'guruagasthiya-v3-9-1-professional';
-const APP_SHELL = ['./','./index.html','./guruagasthiya.html','./manifest.webmanifest','./kp-icon-192.png','./kp-icon-512.png'];
-self.addEventListener('install', e => e.waitUntil(caches.open(CACHE_NAME).then(c=>c.addAll(APP_SHELL)).then(()=>self.skipWaiting())));
-self.addEventListener('activate', e => e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('guru-agasthiya-')&&k!==CACHE_NAME).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
-self.addEventListener('fetch', e => {
- if(e.request.method!=='GET') return;
- const u=new URL(e.request.url); if(u.origin!==self.location.origin) return;
- if(e.request.mode==='navigate'||/\\.html?$/.test(u.pathname)){
-   e.respondWith(fetch(e.request).then(r=>{if(r.ok)caches.open(CACHE_NAME).then(c=>c.put(e.request,r.clone()));return r;}).catch(()=>caches.match(e.request).then(r=>r||caches.match('./guruagasthiya.html')))); return;
- }
- e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request)));
+/* Web 2.45: invalidate older cached app shells so GitHub Pages serves the corrected combined app. */
+const CACHE_NAME = 'kp-muhurat-combined-v2-55';
+const APP_SHELL = ['./', './index.html', './guruagasthiya.html', './manifest.webmanifest', './kp-icon-192.png', './kp-icon-512.png'];
+self.addEventListener('install', event => {
+  event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(APP_SHELL)).then(() => self.skipWaiting()));
+});
+self.addEventListener('activate', event => {
+  event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(key => key.startsWith('kp-muhurat-') && key !== CACHE_NAME).map(key => caches.delete(key)))).then(() => self.clients.claim()));
+});
+self.addEventListener('fetch', event => {
+  if (event.request.method !== 'GET') return;
+  const url = new URL(event.request.url);
+  if (url.origin !== self.location.origin) return;
+  // HTML/navigation must be network-first to avoid showing a stale dashboard or embedded page.
+  if (event.request.mode === 'navigate' || /\\.html?$/.test(url.pathname) || url.pathname.endsWith('/')) {
+    event.respondWith(fetch(event.request).then(response => {
+      if (response && response.ok) caches.open(CACHE_NAME).then(cache => cache.put(event.request, response.clone()));
+      return response;
+    }).catch(() => caches.match(event.request).then(cached => cached || caches.match('./index.html'))));
+    return;
+  }
+  event.respondWith(caches.match(event.request).then(cached => cached || fetch(event.request).then(response => {
+    if (response && response.ok) caches.open(CACHE_NAME).then(cache => cache.put(event.request, response.clone()));
+    return response;
+  })));
 });
