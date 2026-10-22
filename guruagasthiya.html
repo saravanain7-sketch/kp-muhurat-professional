@@ -137,8 +137,10 @@ body:not(.shared-kp-context) .panel:first-of-type > .grid{display:none!important
 .btns button:not(#go){display:none!important}
 .guruPageTitle p{display:none!important}
 .guruPageHero{padding:12px 14px;margin-bottom:10px}
-.panel:has(#lostPanel), #lostPanel, #cuspPanel, #rangePanel, #racePanel, #gpPanel, #cmPanel, #aboutPanel{display:none!important}
+#lostPanel.hide, #cuspPanel.hide, #rangePanel.hide, #racePanel.hide, #gpPanel.hide, #cmPanel.hide, #aboutPanel.hide{display:none!important}
 @media(max-width:520px){.guruPageHero{padding:10px 12px;margin:0 0 8px}.guruPageMark{width:40px;height:40px;flex-basis:40px;font-size:25px}.guruPageTitle h1{font-size:19px}.panel{padding:12px}}
+/* Web 2.60: English-only display for tool panels opened from KP Muhurat tabs. */
+[style*="var(--ta)"], .ta, [lang="ta"]{display:none!important}
 </style>
 
 
@@ -158,7 +160,7 @@ body:not(.shared-kp-context) .panel:first-of-type > .grid{display:none!important
 @media(max-width:520px){.guruPageHero{border-radius:15px}.guruPageTitle h1{letter-spacing:-.02em}}
 
 
-/* Web 2.58 — English-only interface display; computation code unchanged. */
+/* Web 2.59 — English-only visible text; computation code unchanged. */
 .ta,[style*="--ta"],.guruTamil,.tamil{display:none!important}
 button{overflow-wrap:anywhere}
 @media(max-width:520px){.wrap{padding-bottom:22px}}
@@ -2047,6 +2049,25 @@ function copyText(){
     catch(e){setMsg('Copy is not available here.',true);}
   }
 }
+})();
+</script>
+<script id="english-display-only-259">
+(function(){
+  const tamil=/[\u0B80-\u0BFF]/;
+  function clean(node){
+    if(!node||!node.isConnected)return;
+    node.nodeValue=(node.nodeValue||'').replace(/[\u0B80-\u0BFF]+/g,'').replace(/\s*\/\s*\/\s*/g,' / ').replace(/\s*[·•|]\s*(?=[·•|])/g,' ').replace(/\s{2,}/g,' ').trim();
+  }
+  function sweep(root){
+    const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT),arr=[];
+    while(w.nextNode())if(tamil.test(w.currentNode.nodeValue||''))arr.push(w.currentNode);
+    arr.forEach(clean);
+  }
+  sweep(document.body);
+  new MutationObserver(records=>records.forEach(r=>{
+    if(r.type==='characterData'&&tamil.test(r.target.nodeValue||''))clean(r.target);
+    r.addedNodes&&r.addedNodes.forEach(n=>{if(n.nodeType===Node.TEXT_NODE){if(tamil.test(n.nodeValue||''))clean(n);}else if(n.nodeType===Node.ELEMENT_NODE)sweep(n);});
+  })).observe(document.body,{subtree:true,childList:true,characterData:true});
 })();
 </script>
 </body>
