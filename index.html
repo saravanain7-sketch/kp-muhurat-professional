@@ -1,7 +1,7 @@
 <!doctype html><html><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#1976a8"><meta http-equiv="Permissions-Policy" content="geolocation=(self)"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="kp-icon-192.png">
-<title>KP Muhurat Web 2.57 — KP Muhurat V1.5.11</title>
+<title>KP Muhurat Web 2.58 — KP Muhurat V1.5.11</title>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#eaf6fc;color:#17313d;font:14px Arial}
 header{padding:12px 14px;background:#f7f7f7;border-bottom:1px solid #9bb9c7;position:sticky;top:0;z-index:3}
@@ -669,36 +669,55 @@ input,select,textarea{min-height:43px}
 }
 @media(min-width:701px){.mobileBottomNav{display:none}}
 
+
+/* Web 2.58 — clean, reference-inspired home cards; presentation only. */
+.homeWelcome{padding:18px 18px 14px;margin:3px 0 16px;border:1px solid #d9e3ed;border-radius:18px;background:linear-gradient(125deg,#fff 0%,#f8fbff 65%,#edf8f7 100%);box-shadow:0 4px 16px rgba(24,45,62,.045)}
+.homeWelcomeEyebrow{font-size:10px;font-weight:800;letter-spacing:2px;color:#277d88}
+.homeWelcome h2{margin:5px 0 4px;color:#17324b;font-size:25px;line-height:1.2}
+.homeWelcome p{margin:0;color:#64778b;font-size:13px}
+.homeGroup{margin:0 0 16px}
+.homeGroupTitle{display:flex;align-items:center;gap:10px;margin:0 2px 12px}
+.homeGroupAccent{width:5px;height:38px;flex:0 0 5px;border-radius:8px;background:#e5b74c}
+.homeGroupTitle h3{margin:0;color:#203c52;font-size:19px;font-weight:600;line-height:1.25}
+.homeGroupTitle p{margin:3px 0 0;color:#6b7b87;font-size:12px;line-height:1.35}
+.kp-shortcut-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0}
+.kp-shortcut-card{appearance:none;display:flex;align-items:center;gap:12px;min-height:86px;width:100%;padding:13px 12px;border:1px solid #dededb;border-radius:18px;background:#fff;color:#263746;text-align:left;font:700 15px/1.25 Arial,sans-serif;box-shadow:0 4px 12px rgba(24,45,62,.075);cursor:pointer}
+.kp-shortcut-card:active{transform:scale(.99);background:#f7fbff}
+.kp-shortcut-icon{flex:0 0 39px;width:39px;height:39px;border-radius:14px;display:grid;place-items:center;font-size:22px;font-weight:700;background:#edf3fc;color:#2f5786}
+.icon-results{background:#e8f7ef;color:#17875d}.icon-chart{background:#e8f5f2;color:#248579}.icon-muhurtham{background:#fff2dc;color:#b17b25}.icon-analysis{background:#edf5e9;color:#438b5a}.icon-guru{background:#f0edfc;color:#6b5db5}.icon-home{background:#e8f3fc;color:#2376a8}
+.homeQuickInfo{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0 8px;padding:14px;border:1px solid #dce5ed;border-radius:16px;background:#fff;box-shadow:0 3px 12px rgba(24,45,62,.04)}
+.homeQuickInfo>div{display:flex;align-items:center;gap:9px;min-width:0}.homeInfoIcon{display:grid;place-items:center;flex:0 0 34px;height:34px;border-radius:11px;background:#edf5f9;color:#287c91;font-size:20px}.homeQuickInfo>div div{min-width:0}.homeQuickInfo b,.homeQuickInfo span:not(.homeInfoIcon){display:block}.homeQuickInfo b{font-size:11px;color:#637589;margin-bottom:3px}.homeQuickInfo div div span{font-size:12px;color:#233b4f;overflow-wrap:anywhere}.homeEditButton{grid-column:1/-1;width:100%;margin:0;border:1px solid #d7e2ec;border-radius:11px;background:#f7fafc;color:#1b5684;font-weight:700;min-height:42px}
+@media(max-width:520px){.homeWelcome{padding:15px 14px;margin-bottom:14px;border-radius:15px}.homeWelcome h2{font-size:22px}.homeGroupTitle h3{font-size:18px}.kp-shortcut-grid{gap:9px}.kp-shortcut-card{min-height:82px;padding:12px 10px;gap:9px;border-radius:16px;font-size:14px}.kp-shortcut-icon{flex-basis:36px;width:36px;height:36px;font-size:20px;border-radius:12px}.homeQuickInfo{gap:9px;padding:11px}.homeQuickInfo>div{align-items:flex-start;gap:7px}.homeInfoIcon{flex-basis:29px;height:29px;font-size:17px}.homeQuickInfo b{font-size:10px}.homeQuickInfo div div span{font-size:11px}}
+/* English-only display: hide translated Tamil helper spans without touching calculations. */
+#guruagasthiyaFrame{color-scheme:light}
+
 </style>
 
 </head><body>
-<header><div class="headerBrand"><img class="headerLogo" src="kp-icon-192.png" alt="GuruAgasthiya astrology logo" width="36" height="36"><div><b>KP Muhurat</b> <small>V 1.5.11 — Web 2.57</small></div></div></header>
+<header><div class="headerBrand"><img class="headerLogo" src="kp-icon-192.png" alt="GuruAgasthiya astrology logo" width="36" height="36"><div><b>KP Muhurat</b> <small>V 1.5.11 — Web 2.58</small></div></div></header>
 <nav><button class="active" data-t="dashboard">Home</button><button data-t="data">Data</button><button data-t="results">Results</button><button data-t="muhurtham">Muhurtham</button><button data-t="chart">Chart</button><button data-t="analysis">Analysis</button><button class="guruNavButton" data-t="guruagasthiya"><span class="guruNavIcon" aria-hidden="true">✦</span><span>GuruAgasthiya</span></button></nav>
 <main>
 <section id="dashboard" class="active">
-  <div class="dashboard-hero">
-    <div><div class="dash-chip">✦ KP MUHURAT · V1.5.11 RECONSTRUCTION</div><h2>Your Muhurat dashboard</h2><p>One place to review selected Muhurats, calculation inputs and verification status. Live astronomical calculations and selection rules remain the source of truth.</p><div class="dash-actions"><button class="btn primary" type="button" data-go="data">＋ Set event inputs</button><button class="btn ghost" type="button" data-go="results">View chosen Muhurats →</button><button class="btn ghost" type="button" data-go="analysis">Open analysis</button></div></div>
+  <div class="homeWelcome">
+    <div class="homeWelcomeEyebrow">KP ASTROLOGY</div>
+    <h2>KP Muhurat</h2>
+    <p>Choose a tool to continue.</p>
   </div>
-  <div class="dash-grid">
-    <div class="dash-card"><div class="dash-card-top"><span>Chosen Muhurats</span><span class="dash-icon">◷</span></div><div class="dash-value" id="dashChosen">—</div><div class="dash-sub">Selected rows from the latest calculation</div></div>
-    <div class="dash-card"><div class="dash-card-top"><span>Transitions checked</span><span class="dash-icon">⌁</span></div><div class="dash-value" id="dashTransitions">—</div><div class="dash-sub">Lagna / Sub-level transitions evaluated</div></div>
-    <div class="dash-card"><div class="dash-card-top"><span>Calculation date</span><span class="dash-icon">▦</span></div><div class="dash-value" id="dashDate" style="font-size:21px">Choose date</div><div class="dash-sub" id="dashDateRange">Set the date range in Data</div></div>
-    <div class="dash-card"><div class="dash-card-top"><span>Verification</span><span class="dash-icon">✓</span></div><div class="dash-value" id="dashVerify" style="font-size:21px">Not run</div><div class="dash-sub">Regression checks are diagnostics only</div></div>
+  <div class="homeGroup">
+    <div class="homeGroupTitle"><span class="homeGroupAccent"></span><div><h3>KP Muhurat Tools</h3><p>Calculation, timing and chart tools</p></div></div>
+    <div class="kp-shortcut-grid" aria-label="KP Muhurat tools">
+      <button class="kp-shortcut-card" type="button" data-go="data"><span class="kp-shortcut-icon icon-home">☷</span><span>Event Data</span></button>
+      <button class="kp-shortcut-card" type="button" data-go="results"><span class="kp-shortcut-icon icon-results">◷</span><span>Results</span></button>
+      <button class="kp-shortcut-card" type="button" data-go="muhurtham"><span class="kp-shortcut-icon icon-muhurtham">▤</span><span>Muhurtham</span></button>
+      <button class="kp-shortcut-card" type="button" data-go="chart"><span class="kp-shortcut-icon icon-chart">▦</span><span>Chart</span></button>
+      <button class="kp-shortcut-card" type="button" data-go="analysis"><span class="kp-shortcut-icon icon-analysis">⌁</span><span>Analysis</span></button>
+      <button class="kp-shortcut-card" type="button" data-go="guruagasthiya"><span class="kp-shortcut-icon icon-guru">✦</span><span>GuruAgasthiya</span></button>
+    </div>
   </div>
-  <div class="dash-columns">
-    <div class="panel"><h3 class="dash-section-title">Current calculation setup</h3><div class="dash-list">
-      <div class="dash-row"><span>Place</span><strong id="dashPlace">Coimbatore, Tamil Nadu, India</strong></div>
-      <div class="dash-row"><span>Coordinates</span><strong id="dashCoords">11:00:00 N · 76:58:00 E</strong></div>
-      <div class="dash-row"><span>Time zone</span><strong id="dashTimezone">05:30:00 East of UT</strong></div>
-      <div class="dash-row"><span>Time window</span><strong id="dashWindow">09:00–22:00</strong></div>
-      <div class="dash-row"><span>Event</span><strong id="dashEvent">Loading event…</strong></div>
-    </div><p class="dash-note">These values mirror the Data tab. Change them there, then press Show to calculate.</p></div>
-    <div class="panel"><h3 class="dash-section-title">Engine & source verification</h3><div class="dash-list">
-      <div class="dash-row"><span>Selection engine</span><strong><i class="dash-status-dot"></i>Live calculation</strong></div>
-      <div class="dash-row"><span>Reference timestamps</span><strong>Validation only</strong></div>
-      <div class="dash-row"><span>Advanced diagnostics</span><strong>Available in Results</strong></div>
-      <div class="dash-row"><span>Last run</span><strong id="dashLastRun">Not calculated yet</strong></div>
-    </div><p class="dash-note">No Windows reference timestamp is inserted into the live Muhurat selector. Use Advanced Diagnostics to compare the live output with reference fixtures.</p><button class="btn" type="button" data-go="results">Open Results & diagnostics →</button></div>
+  <div class="homeQuickInfo">
+    <div><span class="homeInfoIcon">⌖</span><div><b>Calculation location</b><span id="dashPlace">Coimbatore, Tamil Nadu, India</span></div></div>
+    <div><span class="homeInfoIcon">◷</span><div><b>Time window</b><span id="dashWindow">09:00–22:00</span></div></div>
+    <button type="button" class="homeEditButton" data-go="data">Edit event data →</button>
   </div>
 </section>
 <section id="data"><div class="panel blue"><h3>Event data</h3>

@@ -50,3 +50,12 @@ Mobile layout repair (2.46): restores the GuruAgasthiya base layout primitives, 
 - Shortcuts open existing Results, Chart, Muhurtham, Analysis, GuruAgasthiya, and Home sections.
 - Updated the visible build label and service-worker cache namespace.
 - Only markup, CSS, version text, and cache name were changed; KP astronomy, transition, selection, and timing code were not intentionally modified.
+
+
+## Web 2.58 — Home interface and English-only display
+- Replaced the Home dashboard with compact, responsive shortcut cards modeled on the approved reference layout.
+- Added quick location/time-window information and an Edit Event Data action.
+- Kept existing KP Muhurat calculation, transition, selection, and timing JavaScript unchanged.
+- Hid GuruAgasthiya Tamil helper translations in the embedded display; underlying astronomy and timing functions were not changed.
+- Updated the service-worker cache name to invalidate the older 2.57 interface.
+- Validation: see the accompanying package; JavaScript syntax and ZIP integrity are checked before deployment.

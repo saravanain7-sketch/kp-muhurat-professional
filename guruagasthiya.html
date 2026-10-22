@@ -157,6 +157,11 @@ body:not(.shared-kp-context) .panel:first-of-type > .grid{display:none!important
 .guruPageHero{box-shadow:0 10px 28px #102c501b}
 @media(max-width:520px){.guruPageHero{border-radius:15px}.guruPageTitle h1{letter-spacing:-.02em}}
 
+
+/* Web 2.58 — English-only interface display; computation code unchanged. */
+.ta,[style*="--ta"],.guruTamil,.tamil{display:none!important}
+button{overflow-wrap:anywhere}
+@media(max-width:520px){.wrap{padding-bottom:22px}}
 </style>
 
 </head>
@@ -179,27 +184,27 @@ body:not(.shared-kp-context) .panel:first-of-type > .grid{display:none!important
     <div class="btns">
       <button class="primary" id="go">Show timings</button>
       <button id="loc" type="button">Use my location</button>
-      <button id="lostBtn" type="button">Lost &amp; found · தொலைந்த பொருள் மீட்பு</button>
-      <button id="cuspBtn" type="button">Cuspal chart · பாவ கஸ்ப் விவரம்</button>
-      <button id="rangeBtn" type="button">Date-range muhurtham · தேதி வரம்பு முகூர்த்தம்</button>
-      <button id="raceBtn" type="button">Horse race · குதிரைப் பந்தயம்</button>
-      <button id="gpBtn" type="button">GMP Prasnam · ஜிஎம்பி பிரசன்னம்</button>
-      <button id="cmBtn" type="button">Chandra muhurtham · சந்திர முகூர்த்தம்</button>
-      <button id="abBtn" type="button">About · இந்த செயலி பற்றி</button>
+      <button id="lostBtn" type="button">Lost &amp; found</button>
+      <button id="cuspBtn" type="button">Cuspal chart</button>
+      <button id="rangeBtn" type="button">Date-range muhurtham</button>
+      <button id="raceBtn" type="button">Horse race</button>
+      <button id="gpBtn" type="button">GMP Prasnam</button>
+      <button id="cmBtn" type="button">Chandra muhurtham</button>
+      <button id="abBtn" type="button">About</button>
     </div>
     <div class="msg" id="msg" role="status"></div>
   </div>
 
   <div class="panel hide" id="lostPanel" style="margin-top:14px">
-    <div class="chead"><h2>Lost and found</h2><span class="ta" style="font:600 15px var(--ta);color:var(--accent)">தொலைந்த பொருள் மீட்பு</span></div>
+    <div class="chead"><h2>Lost and found</h2></div>
     <p class="legend">Keep the lost article in mind and tap the time button. The moment you tap is taken as the question time, and the rising sign at that moment for the place selected above is read. Choose your place first.</p>
     <p class="legend" style="font-family:var(--ta);color:var(--accent)">தொலைந்த பொருளை நினைத்துக்கொண்டு நேரப் பொத்தானை அழுத்துங்கள். அழுத்தும் நேரமே கேள்வி நேரமாக எடுத்துக்கொள்ளப்பட்டு, மேலே தேர்ந்த இடத்திற்கான அந்த நேர லக்னம் ஆராயப்படும். முதலில் உங்கள் இடத்தைத் தேர்ந்தெடுங்கள்.</p>
-    <div class="btns"><button class="primary" id="lostTime" type="button">Note the time now · நேரத்தைப் பதிவு செய்</button><button id="lostClose" type="button">Close</button></div>
+    <div class="btns"><button class="primary" id="lostTime" type="button">Note the time now</button><button id="lostClose" type="button">Close</button></div>
     <div id="lostOut" aria-live="polite"></div>
   </div>
 
   <div class="panel hide" id="rangePanel" style="margin-top:14px">
-    <div class="chead"><h2>Date-range muhurtham</h2><span class="ta" style="font:600 15px var(--ta);color:var(--accent)">தேதி வரம்பு முகூர்த்தம்</span></div>
+    <div class="chead"><h2>Date-range muhurtham</h2></div>
     <p class="legend">Pick a from date and a to date (up to 31 days). The place, UTC offset and ayanamsa from the form above are used. Every ascendant timing is checked, and those where the star lord and sub lord of the ascendant carry the 2nd, 3rd and 11th lord connection, with the 3rd lord and the 11th lord planets in kendra to each other (so never 6th or 8th from each other) and not in the star of the 8th or 12th lord, are listed as auspicious lagna muhurtham.</p>
     <p class="legend" style="font-family:var(--ta);color:var(--accent)">தொடக்க தேதி, முடிவு தேதியைத் தேர்ந்தெடுங்கள் (அதிகபட்சம் 31 நாட்கள்). மேலே உள்ள இடம், UTC நேர வேறுபாடு, அயனாம்சம் பயன்படுத்தப்படும். லக்னத்தின் நட்சத்திராதிபதி, உப அதிபதி 2, 3, 11-ஆம் அதிபதி தொடர்பு கொண்டு, 3-ஆம் அதிபதியும் 11-ஆம் அதிபதியும் ஒருவருக்கொருவர் கேந்திரத்தில் (6, 8-ஆக அல்லாமல்) இருந்து, 8, 12-ஆம் அதிபதிகளின் நட்சத்திரத்தில் இல்லாத லக்ன நேரங்கள் சுப லக்ன முகூர்த்தமாகப் பட்டியலிடப்படும்.</p>
     <div class="grid"><div><label for="rgFrom">From date</label><input type="date" id="rgFrom"></div><div><label for="rgTo">To date</label><input type="date" id="rgTo"></div></div>
@@ -209,7 +214,7 @@ body:not(.shared-kp-context) .panel:first-of-type > .grid{display:none!important
   </div>
 
   <div class="panel hide" id="racePanel" style="margin-top:14px">
-    <div class="chead"><h2>Horse race</h2><span class="ta" style="font:600 15px var(--ta);color:var(--accent)">குதிரைப் பந்தயம்</span></div>
+    <div class="chead"><h2>Horse race</h2></div>
     <p class="legend">Enter the race start time, choose the race location (racecourses or any of about 7,000 world cities) and the number of horses. The transit chart of that moment and place is analysed to find the horse numbers with winning chances and name hints.</p>
     <p class="legend" style="font-family:var(--ta);color:var(--accent)">பந்தயம் தொடங்கும் நேரம், இடம் (ரேஸ் கோர்ஸ் அல்லது உலக நகரம்), குதிரைகளின் எண்ணிக்கையை உள்ளிடுங்கள். அந்த நேரம், இடத்தின் கோசார ஜாதகம் ஆராயப்பட்டு வெற்றி வாய்ப்புள்ள குதிரை எண்கள், பெயர் குறிப்புகள் காட்டப்படும்.</p>
     <div class="grid">
@@ -228,7 +233,7 @@ body:not(.shared-kp-context) .panel:first-of-type > .grid{display:none!important
   </div>
 
   <div class="panel hide" id="gpPanel" style="margin-top:14px">
-    <div class="chead"><h2>GMP Prasnam</h2><span class="ta" style="font:600 15px var(--ta);color:var(--accent)">ஜிஎம்பி பிரசன்னம்</span></div>
+    <div class="chead"><h2>GMP Prasnam</h2></div>
     <p class="legend">Keep your question in mind, choose the place, and tap <b>Note the question time</b>. The moment you tap is the question time. The rising sign of that moment is read: the 3rd lord and 11th lord (and the star lord and sub lord of the rising degree) are checked for kendra, their distance to each other, the timing number, the Moon's transit of their stars and any Saturn delay.</p>
     <p class="legend" style="font-family:var(--ta);color:var(--accent)">கேள்வியை மனதில் நினைத்து, இடத்தைத் தேர்ந்தெடுத்து <b>கேள்வி நேரத்தைப் பதிவு செய்</b> பொத்தானை அழுத்துங்கள். அழுத்தும் நேரமே கேள்வி நேரம். அந்த நேர லக்னத்தின் 3-ஆம், 11-ஆம் அதிபதிகள் (மற்றும் லக்ன நட்சத்திர, உப அதிபதிகள்) கேந்திரம், ஒன்றுக்கொன்று உள்ள தூரம், கால எண், சந்திரன் அவர்களின் நட்சத்திரத்தில் செல்லும் நாட்கள், சனி தாமதம் ஆகியவை ஆராயப்படும்.</p>
     <div class="grid">
@@ -240,12 +245,12 @@ body:not(.shared-kp-context) .panel:first-of-type > .grid{display:none!important
       <div class="full"><label for="gpTz">Time zone (picked automatically for a city; or type hours like 5.5)</label><input id="gpTz" autocomplete="off"></div>
     </div>
     <div class="msg" id="gpOff" role="status"></div>
-    <div class="btns"><button class="primary" id="gpTime" type="button">Note the question time · கேள்வி நேரத்தை பதிவு செய்</button><button id="gpLoc" type="button">Use my location · என் இடம்</button><button id="gpClose" type="button">Close</button></div>
+    <div class="btns"><button class="primary" id="gpTime" type="button">Note the question time</button><button id="gpLoc" type="button">Use my location</button><button id="gpClose" type="button">Close</button></div>
     <div id="gpOut" aria-live="polite"></div>
   </div>
 
   <div class="panel hide" id="cmPanel" style="margin-top:14px">
-    <div class="chead"><h2>Chandra muhurtham</h2><span class="ta" style="font:600 15px var(--ta);color:var(--accent)">சந்திர முகூர்த்தம்</span></div>
+    <div class="chead"><h2>Chandra muhurtham</h2></div>
     <p class="legend">Pick a from date and a to date (up to 31 days). The place, UTC offset and ayanamsa from the form above are used. For every ascendant timing the Moon is read: its star, the owner of that star, and its sub lord. A timing is listed when the star owner of the Moon is the 3rd lord or the 11th lord of the transit ascendant, that planet is not in the 8th or 12th house from the ascendant, and the ascendant star lord or sub lord is the Moon, the Moon's star owner or the Moon's sub lord.</p>
     <p class="legend" style="font-family:var(--ta);color:var(--accent)">தொடக்க தேதி, முடிவு தேதியைத் தேர்ந்தெடுங்கள் (அதிகபட்சம் 31 நாட்கள்). ஒவ்வொரு லக்ன நேரத்திலும் சந்திரனின் நட்சத்திரம், அந்த நட்சத்திர அதிபதி, சந்திரனின் உப அதிபதி ஆகியவை ஆராயப்படும். சந்திரனுக்கு நட்சத்திரம் தரும் கிரகம் கோசார லக்னத்திற்கு 3-ஆம் அல்லது 11-ஆம் அதிபதியாக இருந்து, லக்னத்திலிருந்து 8, 12-ஆம் வீட்டில் இல்லாமல், லக்னத்தின் நட்சத்திர அல்லது உப அதிபதி சந்திரன், சந்திரனின் நட்சத்திர அதிபதி அல்லது சந்திரனின் உப அதிபதியாக இருந்தால் பட்டியலிடப்படும்.</p>
     <div class="grid"><div><label for="cmFrom">From date</label><input type="date" id="cmFrom"></div><div><label for="cmTo">To date</label><input type="date" id="cmTo"></div>
@@ -256,22 +261,22 @@ body:not(.shared-kp-context) .panel:first-of-type > .grid{display:none!important
   </div>
 
   <div class="panel hide ab" id="abPanel" style="margin-top:14px">
-    <div class="chead"><h2>About GuruAgasthiya</h2><span class="ta" style="font:600 15px var(--ta);color:var(--accent)">குரு அகஸ்தியா பற்றி</span></div>
+    <div class="chead"><h2>About GuruAgasthiya</h2></div>
     <p class="ded">With folded hands, this application is dedicated to the lotus feet of<br>Lord Mahaganapathi, Lord Murugan, Lord Iyappa upon the Tiger, Lord Karuppar and Devi Durga upon the Tiger,<br>and to Pudukkottai Ariyanachi, Pudukkottai Santhamurthi Vedhanayaki, Pudukkottai Bhuvaneswari and Pudukkottai Brahadambal.</p>
     <p>It is offered, with reverence, to all the Rishis, Munis and sages who laboured upon the science of astrology so that hope and light might reach human lives, and to every great soul whose grace has carried this ancient lamp down to our day.</p>
     </div>
 
   <div class="panel hide" id="cuspPanel" style="margin-top:14px">
-    <div class="chead"><h2>Cuspal chart (bhava)</h2><span class="ta" style="font:600 15px var(--ta);color:var(--accent)">பாவ கஸ்ப் விவரம்</span></div>
+    <div class="chead"><h2>Cuspal chart (bhava)</h2></div>
     <div class="lf-time" id="cuspHead"></div>
     <div class="btns" style="margin-top:6px"><button id="cuspFreeze" type="button">Freeze</button><button id="cuspClose" type="button">Close</button></div>
     <div class="tscroll"><table class="ctab" id="cuspTab"></table></div>
     <div id="cuspLords" class="lf-sec"></div>
-    <p class="lf-note" id="cuspNote">Placidus cusps, sidereal (KP), for the present moment and the place selected above. The house lord is the sign lord of that house's cusp. A cusp "indicates" a house when its star lord or sub lord is that house lord. A lord is in the 8th or 12th house when its sign is the 8th or 12th sign from the rising sign, and a result that depends on such a lord is cancelled. Green blinking rows show financial gain. The luck and speculation rule is applied to the 6th cusp.<br><span class="ta" style="font-family:var(--ta);color:var(--accent)">தற்போதைய நேரத்திற்கும் மேலே தேர்ந்த இடத்திற்கும் பிளாசிடஸ் கஸ்ப் (நிரயனம், கே.பி.). பாவாதிபதி என்பது அந்த பாவ கஸ்ப் அமைந்த ராசியின் அதிபதி. கஸ்பின் நட்சத்திராதிபதி அல்லது உப அதிபதி அந்த பாவாதிபதியாக இருந்தால் அது அந்த பாவத்தைக் குறிக்கும். 8, 12-ஆம் வீட்டில் (லக்னத்திலிருந்து அந்த ராசியில்) நிற்கும் அதிபதியைச் சார்ந்த பலன் ரத்தாகும். பச்சை நிறத்தில் மின்னும் வரிசை பண லாபத்தைக் காட்டும். அதிர்ஷ்டம்-ஊக வணிக விதி 6-ஆம் கஸ்புக்குப் பொருந்தும்.</span></p>
+    <p class="lf-note" id="cuspNote">Placidus cusps, sidereal (KP), for the present moment and the place selected above. The house lord is the sign lord of that house's cusp. A cusp "indicates" a house when its star lord or sub lord is that house lord. A lord is in the 8th or 12th house when its sign is the 8th or 12th sign from the rising sign, and a result that depends on such a lord is cancelled. Green blinking rows show financial gain. The luck and speculation rule is applied to the 6th cusp.<br></p>
   </div>
 
   <div class="panel" id="alarmPanel" style="margin-bottom:12px">
-    <label class="opt" style="display:flex;gap:8px;align-items:center;font-weight:700"><input type="checkbox" id="almOn"> Muhurtham alarm <span class="ta">முகூர்த்த அலாரம்</span></label>
+    <label class="opt" style="display:flex;gap:8px;align-items:center;font-weight:700"><input type="checkbox" id="almOn"> Muhurtham alarm </label>
     <div id="almOpts" class="hide" style="margin-top:8px">
       <label for="almSound" style="display:inline">Sound </label>
       <select id="almSound" style="width:auto"><option value="0">1 · Beep</option><option value="1">2 · Double beep</option><option value="2">3 · Buzz</option><option value="3">4 · Siren</option></select>
@@ -323,28 +328,28 @@ body:not(.shared-kp-context) .panel:first-of-type > .grid{display:none!important
     <ul id="anaList" class="hide"></ul>
     <ul id="rulList" class="hide"></ul>
     <div class="cond hide" id="cond">
-      <h3>Conditions<span class="ta">நிபந்தனைகள்</span></h3>
+      <h3>Conditions</h3>
       <ol>
-        <li>The star lord and sub lord should not be in the star of the 8th lord or the 12th lord of the ascendant.<span class="ta">நட்சத்திராதிபதியும் உப அதிபதியும் லக்னத்தின் 8-ஆம், 12-ஆம் அதிபதிகளின் நட்சத்திரத்தில் இருக்கக்கூடாது.</span></li>
-        <li>The ascendant star lord and sub lord should not be in the 8th house or the 12th house.<span class="ta">லக்ன நட்சத்திராதிபதியும் உப அதிபதியும் 8-ஆம் அல்லது 12-ஆம் பாவத்தில் இருக்கக்கூடாது.</span></li>
-        <li>The ascendant star lord and sub lord should not be in the star of planets placed in the 8th or 12th house.<span class="ta">லக்ன நட்சத்திராதிபதியும் உப அதிபதியும் 8-ஆம், 12-ஆம் பாவங்களில் நிற்கும் கிரகங்களின் நட்சத்திரத்தில் இருக்கக்கூடாது.</span></li>
+        <li>The star lord and sub lord should not be in the star of the 8th lord or the 12th lord of the ascendant.</li>
+        <li>The ascendant star lord and sub lord should not be in the 8th house or the 12th house.</li>
+        <li>The ascendant star lord and sub lord should not be in the star of planets placed in the 8th or 12th house.</li>
       </ol>
     </div>
     <div class="cond hide" id="cond3">
-      <h3>More filters<span class="ta">கூடுதல் வடிகட்டிகள்</span></h3>
-      <p class="legend"><b>Dhana muhurtham</b> (Muhurtham part 1, GMP 3,11 and Muhurtham on rules): the 2nd lord or the 11th lord of the transit ascendant is in its own star and in the 1st, 3rd or 11th house; the 2nd and 11th lords are in the same house or both in kendra (so kendra to each other); and the transit Moon is in the star of the 2nd lord or the 11th lord.<span class="ta" style="display:block;font:500 13.5px/1.6 var(--ta);color:var(--accent)">தன முகூர்த்தம்: லக்னத்தின் 2-ஆம் அல்லது 11-ஆம் அதிபதி தன் சொந்த நட்சத்திரத்தில் 1, 3 அல்லது 11-ஆம் வீட்டில் இருக்க வேண்டும்; 2, 11-ஆம் அதிபதிகள் ஒரே வீட்டில் அல்லது இருவரும் கேந்திரத்தில் இருக்க வேண்டும்; கோசார சந்திரன் 2 அல்லது 11-ஆம் அதிபதியின் நட்சத்திரத்தில் இருக்க வேண்டும்.</span></p>
-      <p class="legend"><b>Highly auspicious</b> (GMP 3,11 and Muhurtham on rules): the star lord and the sub lord of the ascendant are each the 3rd lord or the 11th lord; they are in the same house or in kendra to each other; neither is in the 8th or 12th house; and neither is in the star of the 8th or 12th lord.<span class="ta" style="display:block;font:500 13.5px/1.6 var(--ta);color:var(--accent)">மிகச் சிறந்த சுப முகூர்த்தம்: லக்னத்தின் நட்சத்திராதிபதியும் உப அதிபதியும் தலா 3-ஆம் அல்லது 11-ஆம் அதிபதியாக இருக்க வேண்டும்; இருவரும் ஒரே வீட்டில் அல்லது ஒருவருக்கொருவர் கேந்திரத்தில் இருக்க வேண்டும்; இருவரும் 8, 12-ஆம் வீட்டிலோ 8, 12-ஆம் அதிபதிகளின் நட்சத்திரத்திலோ இருக்கக்கூடாது.</span></p>
+      <h3>More filters</h3>
+      <p class="legend"><b>Dhana muhurtham</b> (Muhurtham part 1, GMP 3,11 and Muhurtham on rules): the 2nd lord or the 11th lord of the transit ascendant is in its own star and in the 1st, 3rd or 11th house; the 2nd and 11th lords are in the same house or both in kendra (so kendra to each other); and the transit Moon is in the star of the 2nd lord or the 11th lord.</p>
+      <p class="legend"><b>Highly auspicious</b> (GMP 3,11 and Muhurtham on rules): the star lord and the sub lord of the ascendant are each the 3rd lord or the 11th lord; they are in the same house or in kendra to each other; neither is in the 8th or 12th house; and neither is in the star of the 8th or 12th lord.</p>
     </div>
     <div class="cond hide" id="cond2">
-      <h3>Rules<span class="ta">விதிகள்</span></h3>
+      <h3>Rules</h3>
       <ol type="a">
-        <li>The transit ascendant lord, star lord and sub lord should not be placed in the 8th or 12th house from the transit ascendant.<span class="ta">கோசார லக்னாதிபதி, நட்சத்திராதிபதி, உப அதிபதி மூவரும் கோசார லக்னத்திலிருந்து 8-ஆம் அல்லது 12-ஆம் பாவத்தில் இருக்கக்கூடாது.</span></li>
-        <li>The transit ascendant lord, star lord and sub lord should not be in the star of the 8th lord or the 12th lord.<span class="ta">மூவரும் 8-ஆம், 12-ஆம் அதிபதிகளின் நட்சத்திரத்தில் இருக்கக்கூடாது.</span></li>
-        <li>The transit ascendant lord, star lord and sub lord should not be in the star of any planet placed in the 8th or 12th house.<span class="ta">மூவரும் 8-ஆம் அல்லது 12-ஆம் பாவத்தில் நிற்கும் எந்த கிரகத்தின் நட்சத்திரத்திலும் இருக்கக்கூடாது.</span></li>
-        <li>The transit ascendant lord, star lord and sub lord should not be retrograde. Rahu and Ketu, which always move backward, are not counted.<span class="ta">மூவரும் வக்ரத்தில் இருக்கக்கூடாது. ராகு, கேது எப்போதும் வக்ரம் என்பதால் கணக்கில் கொள்ளப்படாது.</span></li>
+        <li>The transit ascendant lord, star lord and sub lord should not be placed in the 8th or 12th house from the transit ascendant.</li>
+        <li>The transit ascendant lord, star lord and sub lord should not be in the star of the 8th lord or the 12th lord.</li>
+        <li>The transit ascendant lord, star lord and sub lord should not be in the star of any planet placed in the 8th or 12th house.</li>
+        <li>The transit ascendant lord, star lord and sub lord should not be retrograde. Rahu and Ketu, which always move backward, are not counted.</li>
       </ol>
-      <p class="legend" style="margin-top:10px"><b>Financial gain:</b> the star lord and sub lord of a passing ascendant are both the 2nd lord or 11th lord.<span class="ta" style="display:block;font:500 13.5px/1.6 var(--ta);color:var(--accent)">தேர்வான லக்னத்தின் நட்சத்திராதிபதியும் உப அதிபதியும் 2-ஆம் அல்லது 11-ஆம் அதிபதிகளாக இருந்தால் "பண லாபம்".</span></p>
-      <p class="legend"><b>Auspicious financial gain:</b> the lagna lord, star lord and sub lord are each in the star of the 2nd lord or 11th lord (a planet that is also the 8th or 12th lord is not counted).<span class="ta" style="display:block;font:500 13.5px/1.6 var(--ta);color:var(--accent)">லக்னாதிபதி, நட்சத்திராதிபதி, உப அதிபதி மூவரும் 2-ஆம் அல்லது 11-ஆம் அதிபதியின் நட்சத்திரத்தில் இருந்தால் (8-ஆம், 12-ஆம் அதிபதியாகவும் உள்ள கிரகம் தவிர) "சுப பண லாபம்".</span></p>
+      <p class="legend" style="margin-top:10px"><b>Financial gain:</b> the star lord and sub lord of a passing ascendant are both the 2nd lord or 11th lord.</p>
+      <p class="legend"><b>Auspicious financial gain:</b> the lagna lord, star lord and sub lord are each in the star of the 2nd lord or 11th lord (a planet that is also the 8th or 12th lord is not counted).</p>
     </div>
     <div class="btns"><button id="copy" type="button">Copy as text</button></div>
   </div>
@@ -795,7 +800,7 @@ function render(){
     li.style.setProperty('--h',HUE[g.sub]);
     li.innerHTML=
       '<div class="t"><b>'+clock(r.start)+'</b><span>to '+clock(r.end)+'</span></div>'+
-      '<div class="l"><span class="n">'+NAME[g.lord]+'/'+NAME[g.star]+'/'+NAME[g.sub]+'</span><span class="ta">'+tl(g)+'</span><span class="c">'+SIGNS[g.sign][0]+' ascendant · '+TLAG[g.sign]+' லக்னம்</span></div>'+
+      '<div class="l"><span class="n">'+NAME[g.lord]+'/'+NAME[g.star]+'/'+NAME[g.sub]+'</span><span class="c">'+SIGNS[g.sign][0]+' ascendant · '+TLAG[g.sign]+' லக்னம்</span></div>'+
       '<div class="p"><span>'+span(g)+' · '+NAKS[g.nak]+'</span><span>'+dur(r.end-r.start)+' · division '+g.i+' of '+SEGS.length+'</span></div>';
     li.addEventListener('click',()=>{stopPlay();setChartTime(Math.min(r.start+1000,endAll-1));$('chartPanel').scrollIntoView({block:'start'});});
     ul.appendChild(li);
@@ -976,7 +981,7 @@ function drawChart(ms){
   let h='<div class="tr th"><span>Body</span><span>Position</span><span>Sign / star / sub lord</span></div>';
   const row=(name,tn,lon,retro)=>{
     const g=SEGS[findSeg(lon)];
-    return '<div class="tr"><span><b>'+name+'</b><span class="nk ta">'+tn+'</span></span><span>'+SIGNS[g.sign][0]+' '+inSign(lon)+(retro?' R':'')+'<span class="nk">'+NAKS[g.nak]+' · <span class="ta">'+TSIGN[g.sign]+'</span></span></span><span>'+NAME[g.lord]+'/'+NAME[g.star]+'/'+NAME[g.sub]+'<span class="nk ta">'+tl(g)+'</span></span></div>';
+    return '<div class="tr"><span><b>'+name+'</b><span class="nk ta">'+tn+'</span></span><span>'+SIGNS[g.sign][0]+' '+inSign(lon)+(retro?' R':'')+'<span class="nk">'+NAKS[g.nak]+' · </span></span><span>'+NAME[g.lord]+'/'+NAME[g.star]+'/'+NAME[g.sub]+'<span class="nk ta">'+tl(g)+'</span></span></div>';
   };
   h+=row('Lagna','லக்னம்',asc,false);
   pl.forEach(p=>{h+=row(NAME[p.c],TA[p.c],p.lon,p.retro);});
@@ -1026,7 +1031,7 @@ function buildGmp(){
     li.className='row gm'; li.dataset.idx=idx; li.style.setProperty('--h',HUE[g.sub]);
     li.innerHTML=
       '<div class="t2"><div><span>Begin</span><b>'+clock(r.start)+'</b></div><div><span>End</span><b>'+clock(r.end)+'</b></div></div>'+
-      '<div class="l"><span class="n">'+NAME[g.lord]+'/'+NAME[g.star]+'/'+NAME[g.sub]+'</span>'+xtPills(xt,true)+'<span class="ta">'+tl(g)+'</span><span class="c">'+SIGNS[g.sign][0]+' ascendant · '+TLAG[g.sign]+' லக்னம்</span></div>'+
+      '<div class="l"><span class="n">'+NAME[g.lord]+'/'+NAME[g.star]+'/'+NAME[g.sub]+'</span>'+xtPills(xt,true)+'<span class="c">'+SIGNS[g.sign][0]+' ascendant · '+TLAG[g.sign]+' லக்னம்</span></div>'+
       (xtInfo(xt,true)?'<div class="chk">'+xtInfo(xt,true)+'</div>':'')+'<div class="p"><span>'+span(g)+' · '+NAKS[g.nak]+'</span><span>lasts '+dur(r.end-r.start)+'</span></div>';
     li.addEventListener('click',()=>{stopPlay();setChartTime(Math.min(r.start+1000,endAll-1));$('chartPanel').scrollIntoView({block:'start'});});
     ul.appendChild(li);
@@ -1106,7 +1111,7 @@ function buildAna(){
     li.className='row gm'+(a.ok?'':' bad'); li.dataset.idx=idx; li.style.setProperty('--h',HUE[g.sub]);
     li.innerHTML=
       '<div class="t2"><div><span>Begin</span><b>'+clock(r.start)+'</b></div><div><span>End</span><b>'+clock(r.end)+'</b></div></div>'+
-      '<div class="l"><span class="n">'+NAME[g.lord]+'/'+NAME[g.star]+'/'+NAME[g.sub]+'</span>'+(a.ok?'<span class="pl"><span class="pill">Muhurtham part 1</span>'+xtPillsRaw(extraTags(idx),false)+'</span>':'')+'<span class="ta">'+tl(g)+'</span><span class="c">'+SIGNS[g.sign][0]+' ascendant · '+TLAG[g.sign]+' லக்னம்</span></div>'+
+      '<div class="l"><span class="n">'+NAME[g.lord]+'/'+NAME[g.star]+'/'+NAME[g.sub]+'</span>'+(a.ok?'<span class="pl"><span class="pill">Muhurtham part 1</span>'+xtPillsRaw(extraTags(idx),false)+'</span>':'')+'<span class="c">'+SIGNS[g.sign][0]+' ascendant · '+TLAG[g.sign]+' லக்னம்</span></div>'+
       '<div class="chk">'+(a.ok?a.info+(xtInfo(extraTags(idx),false)?'<br>'+xtInfo(extraTags(idx),false):''):a.fails.map(f=>'✗ '+f).join('<br>'))+'</div>'+
       '<div class="p"><span>'+span(g)+' · '+NAKS[g.nak]+'</span><span>lasts '+dur(r.end-r.start)+'</span></div>';
     li.addEventListener('click',()=>{stopPlay();setChartTime(Math.min(r.start+1000,endAll-1));$('chartPanel').scrollIntoView({block:'start'});});
@@ -1176,7 +1181,7 @@ function buildRul(){
       '<div class="t2"><div><span>Begin</span><b>'+clock(r.start)+'</b></div><div><span>End</span><b>'+clock(r.end)+'</b></div></div>'+
       '<div class="l"><span class="n">'+NAME[g.lord]+'/'+NAME[g.star]+'/'+NAME[g.sub]+'</span>'+
         (a.ok?'<span class="pl"><span class="pill">Muhurtham on rules</span>'+(a.fin?'<span class="pill gain">Financial gain · பண லாபம்</span>':'')+(a.aus?'<span class="pill gain">Auspicious financial gain · சுப பண லாபம்</span>':'')+xtPillsRaw(xt,true)+'</span>':'')+
-        '<span class="ta">'+tl(g)+'</span><span class="c">'+SIGNS[g.sign][0]+' ascendant · '+TLAG[g.sign]+' லக்னம்</span></div>'+
+        '<span class="c">'+SIGNS[g.sign][0]+' ascendant · '+TLAG[g.sign]+' லக்னம்</span></div>'+
       '<div class="chk">'+(a.ok?a.info+(xtInfo(xt,true)?'<br>'+xtInfo(xt,true):''):a.fails.map(f=>'✗ '+f).join('<br>'))+'</div>'+
       '<div class="p"><span>'+span(g)+' · '+NAKS[g.nak]+'</span><span>lasts '+dur(r.end-r.start)+'</span></div>';
     li.addEventListener('click',()=>{stopPlay();setChartTime(Math.min(r.start+1000,endAll-1));$('chartPanel').scrollIntoView({block:'start'});});
@@ -1236,7 +1241,7 @@ const LF_THIEF={
  Ve:{en:'Glowing attractive face, lovely prominent eyes, curly hair, graceful and charming proportions.',ta:'ஒளிரும் அழகான முகம், கவர்ச்சியான கண்கள், சுருள் முடி, நளினமான வசீகரத் தோற்றம்.'},
  Sa:{en:'Lanky or bony face, deep-set eyes, dark complexion, thick hair, a stiff or disciplined posture.',ta:'ஒல்லியான அல்லது எலும்பு தெரியும் முகம், உள்வாங்கிய கண்கள், கருமை நிறம், அடர்ந்த முடி, விறைப்பான ஒழுக்கமான நிலை.'}};
 
-function lfItem(cls,en,ta){return '<div class="lf-item '+cls+'">'+en+'<span class="ta">'+ta+'</span></div>';}
+function lfItem(cls,en,ta){return '<div class="lf-item '+cls+'">'+en+'</div>';}
 
 function lostFound(){
   const out=$('lostOut');
@@ -1271,17 +1276,17 @@ function lostFound(){
 
   const d=new Date(ms+tz*3600000), hms=p2(d.getUTCHours())+':'+p2(d.getUTCMinutes())+':'+p2(d.getUTCSeconds());
   let h='<div class="lf-time"><b>Question time:</b> '+d.getUTCDate()+' '+MON[d.getUTCMonth()]+' '+d.getUTCFullYear()+', '+hms+' (UTC'+(tz>=0?'+':'-')+Math.floor(Math.abs(tz))+':'+p2(Math.round((Math.abs(tz)%1)*60))+') · '+lat+', '+lon+'<br>'+
-    '<b>Rising:</b> '+SIGNS[A][0]+' '+inSign(asc)+' · '+NAME[ag.lord]+'/'+NAME[ag.star]+'/'+NAME[ag.sub]+' · <span class="ta" style="font-family:var(--ta)">'+TLAG[A]+' லக்னம்</span><br>'+
+    '<b>Rising:</b> '+SIGNS[A][0]+' '+inSign(asc)+' · '+NAME[ag.lord]+'/'+NAME[ag.star]+'/'+NAME[ag.sub]+' · <br>'+
     '<b>4th house:</b> '+SIGNS[(A+3)%12][0]+', 4th lord <b>'+NAME[c4]+'</b> ('+TA[c4]+') is in '+SIGNS[sg4][0]+', the '+ORD(h4)+' house, star of '+NAME[st4]+'.</div>';
-  h+='<div class="lf-verdict '+cls+'" role="status"><b>'+ven+'</b><span class="ta">'+vta+'</span></div>';
-  h+='<div class="lf-sec"><h3>Why<span class="ta">காரணங்கள்</span></h3>';
+  h+='<div class="lf-verdict '+cls+'" role="status"><b>'+ven+'</b></div>';
+  h+='<div class="lf-sec"><h3>Why</h3>';
   good.forEach(g=>{h+=lfItem('good',g[0],g[1]);});
   bad.forEach(g=>{h+=lfItem('badc',g[0],g[1]);});
   if(!good.length&&!bad.length) h+=lfItem('info','The 4th lord is not in the 4th, 11th, 8th or 12th house and is not in the star of the 8th, 11th or 12th lord or of a planet in the 8th or 12th house.','4-ஆம் அதிபதி 4, 11, 8, 12-ஆம் வீடுகளில் இல்லை; 8, 11, 12-ஆம் அதிபதிகளின் அல்லது 8, 12-ஆம் வீட்டுக் கிரகங்களின் நட்சத்திரத்திலும் இல்லை.');
   h+='</div>';
 
   const hl=LF_HOUSE[h4], sl=LF_SIGN[sg4], tb=LF_TABLE[sg4];
-  h+='<div class="lf-sec"><h3>Possible location<span class="ta">சாத்தியமான இடம்</span></h3>';
+  h+='<div class="lf-sec"><h3>Possible location</h3>';
   h+=lfItem('info','<b>By house ('+ORD(h4)+'):</b> '+hl.en+'<br>Inside the house: '+hl.pl,'<b>வீட்டின் அடிப்படையில் ('+TH(h4)+'):</b> '+hl.ta+'<br>வீட்டிற்குள்: '+hl.pt);
   if(h4===7&&['Ra','Ke'].some(c=>house(c)===7)) h+=lfItem('info','Rahu or Ketu is also in the 7th house: look near water pipes.','ராகு அல்லது கேதுவும் 7-ஆம் வீட்டில் உள்ளதால் தண்ணீர்க் குழாய்கள் அருகில் பாருங்கள்.');
   if(h4===7&&house(l7)===7) h+=lfItem('info','The 4th lord and the 7th lord are both in the 7th house: possibly it is with a co-worker.','4-ஆம் அதிபதியும் 7-ஆம் அதிபதியும் 7-ஆம் வீட்டில் உள்ளதால் உடன் பணிபுரிபவரிடம் இருக்கலாம்.');
@@ -1290,11 +1295,11 @@ function lostFound(){
 
   if(h4===7){
     const t=LF_THIEF[l7];
-    h+='<div class="lf-sec"><h3>Possibility of theft<span class="ta">திருட்டு சாத்தியம்</span></h3>'+
+    h+='<div class="lf-sec"><h3>Possibility of theft</h3>'+
       lfItem('badc','The 4th lord is in the 7th house, so the article may have been taken. The 7th lord is <b>'+NAME[l7]+'</b> ('+TA[l7]+'), so the person may look like this: '+t.en,'4-ஆம் அதிபதி 7-ஆம் வீட்டில் உள்ளதால் பொருள் எடுக்கப்பட்டிருக்க வாய்ப்பு உண்டு. 7-ஆம் அதிபதி <b>'+TA[l7]+'</b> என்பதால் அந்த நபரின் தோற்றம்: '+t.ta)+'</div>';
   }
-  h+='<details class="lf-det"><summary>Planet positions at the question time</summary>'+CODES.map(c=>'<div class="lf-item info">'+NAME[c]+' · <span class="ta" style="font-family:var(--ta)">'+TA[c]+'</span>: '+SIGNS[sgn(c)][0]+' '+inSign(P[c])+', '+ORD(house(c))+' house, star of '+NAME[starOf(c)]+'</div>').join('')+'</details>';
-  h+='<p class="lf-note">Traditional guidance from the 4th lord at the question time. It is not a guarantee, so search patiently as well.<br><span class="ta" style="font-family:var(--ta);color:var(--accent)">கேள்வி நேரத்தின் 4-ஆம் அதிபதி அடிப்படையிலான பாரம்பரிய வழிகாட்டுதல் இது; உறுதியான முடிவு அல்ல. பொறுமையாகத் தேடவும் செய்யுங்கள்.</span></p>';
+  h+='<details class="lf-det"><summary>Planet positions at the question time</summary>'+CODES.map(c=>'<div class="lf-item info">'+NAME[c]+' · : '+SIGNS[sgn(c)][0]+' '+inSign(P[c])+', '+ORD(house(c))+' house, star of '+NAME[starOf(c)]+'</div>').join('')+'</details>';
+  h+='<p class="lf-note">Traditional guidance from the 4th lord at the question time. It is not a guarantee, so search patiently as well.<br></p>';
   out.innerHTML=h;
 }
 $('lostBtn').addEventListener('click',()=>{
@@ -1368,21 +1373,21 @@ function cuspBuild(ms){
     const blink=tags.some(t=>t.r.blink&&!t.cancel.length);
     if(blink)nblink++;
     const cls=blink?' class="blink green" style="--bd:-'+(Date.now()%1000)+'ms"':'';
-    rows+='<tr'+cls+'><td class="hn">'+x.n+'</td><td>'+dms(x.lon-g.sign*30)+'</td><td>'+SIGNS[g.sign][0]+'<span class="ta">'+TSIGN[g.sign]+'</span></td><td>'+NAKS[g.nak]+'</td>'+
-      '<td>'+NAME[g.lord]+'<span class="ta">'+TA[g.lord]+'</span></td><td>'+NAME[g.star]+'<span class="ta">'+TA[g.star]+'</span></td><td>'+NAME[g.sub]+'<span class="ta">'+TA[g.sub]+'</span></td></tr>';
+    rows+='<tr'+cls+'><td class="hn">'+x.n+'</td><td>'+dms(x.lon-g.sign*30)+'</td><td>'+SIGNS[g.sign][0]+'</td><td>'+NAKS[g.nak]+'</td>'+
+      '<td>'+NAME[g.lord]+'</td><td>'+NAME[g.star]+'</td><td>'+NAME[g.sub]+'</td></tr>';
     if(tags.length){
       rows+='<tr class="tg'+(blink?' blink green':'')+'"'+(blink?' style="--bd:-'+(Date.now()%1000)+'ms"':'')+'><td></td><td colspan="6">'+tags.map(t=>{
         if(t.cancel.length){
           const why=t.cancel.map(k=>ORD(k.h)+' lord '+NAME[k.c]+' is in the '+ORD(k.pos)+' house').join('; ');
           const whyt=t.cancel.map(k=>TH(k.h)+' அதிபதி '+TA[k.c]+' '+TH(k.pos)+' வீட்டில் உள்ளார்').join('; ');
-          return '<span class="ctag no">'+t.r.tag+' · '+t.r.ta+'</span><span class="ctd">Cancelled: '+why+'.<span class="ta">ரத்து: '+whyt+'.</span></span>';
+          return '<span class="ctag no">'+t.r.tag+' · '+t.r.ta+'</span><span class="ctd">Cancelled: '+why+'.</span>';
         }
-        return '<span class="ctag ok">'+t.r.tag+' · '+t.r.ta+'</span><span class="ctd">'+t.en+'.<span class="ta">'+t.ta+'.</span></span>';
+        return '<span class="ctag ok">'+t.r.tag+' · '+t.r.ta+'</span><span class="ctd">'+t.en+'.</span>';
       }).join('')+'</td></tr>';
     }
   });
   rows+='</tbody>';
-  let lords='<h3>2nd, 3rd and 11th lords from the transit ascendant<span class="ta">லக்னத்திலிருந்து 2, 3, 11-ஆம் அதிபதிகள்</span></h3>'+
+  let lords='<h3>2nd, 3rd and 11th lords from the transit ascendant</h3>'+
     checks.map(k=>lfItem(k.bad?'badc':'good',ORD(k.h)+' lord <b>'+NAME[k.c]+'</b> is in the '+ORD(k.pos)+' house'+(k.bad?': should not be in the 8th or 12th house.':'.'),TH(k.h)+' அதிபதி <b>'+TA[k.c]+'</b> '+TH(k.pos)+' வீட்டில் உள்ளார்'+(k.bad?': 8 அல்லது 12-ஆம் வீட்டில் இருக்கக்கூடாது.':'.'))).join('');
   return {rows:rows,lords:lords,nblink:nblink,asc:hs[0],ms:ms};
 }
@@ -1522,7 +1527,7 @@ function rangeShow(){
     const g=SEGS[it.r.k];
     if(it.day!==last){h+='<div class="lf-sec"><h3>'+fmtDate(it.day,tz)+'</h3></div>';last=it.day;}
     h+='<ul style="margin-top:6px"><li class="row gm" style="--h:'+HUE[g.sub]+'"><div class="t2"><div><span>Begin</span><b>'+fmtHMS(it.r.start,tz)+'</b></div><div><span>End</span><b>'+fmtHMS(it.r.end,tz)+'</b></div></div>'+
-      '<div class="l"><span class="n">'+NAME[g.lord]+'/'+NAME[g.star]+'/'+NAME[g.sub]+'</span><span class="pl"><span class="pill gain">Auspicious lagna muhurtham · சுப லக்ன முகூர்த்தம்</span></span><span class="ta">'+tl(g)+'</span><span class="c">'+SIGNS[g.sign][0]+' ascendant · '+TLAG[g.sign]+' லக்னம்</span></div>'+
+      '<div class="l"><span class="n">'+NAME[g.lord]+'/'+NAME[g.star]+'/'+NAME[g.sub]+'</span><span class="pl"><span class="pill gain">Auspicious lagna muhurtham · சுப லக்ன முகூர்த்தம்</span></span><span class="c">'+SIGNS[g.sign][0]+' ascendant · '+TLAG[g.sign]+' லக்னம்</span></div>'+
       '<div class="chk">'+it.x+'</div><div class="p"><span>'+span(g)+' · '+NAKS[g.nak]+'</span><span>lasts '+dur(it.r.end-it.r.start)+'</span></div></li></ul>';
   });
   $('rgMsg').textContent=RG.items.length+' auspicious lagna timings from '+RG.f+' to '+RG.t+'.';
@@ -1611,8 +1616,8 @@ function localToUtc(y,m,d,hh,mi,tz){
   return {ms:u,off:off};
 }
 const rcNum=(c,N,cls)=>{const n=HN[c].filter(x=>x<=N);return n.length?n.map(x=>'<span class="hnum'+(cls?' '+cls:'')+'">'+x+'</span>').join(''):'<span class="ctd" style="display:inline">(no number up to '+N+')</span>';};
-const rcRow=(b,en,ta)=>'<div class="lf-item info rc-row">'+b+' '+en+'<span class="ta">'+ta+'</span></div>';
-const rcSec=(en,ta)=>'<div class="lf-sec"><h3>'+en+'<span class="ta">'+ta+'</span></h3>';
+const rcRow=(b,en,ta)=>'<div class="lf-item info rc-row">'+b+' '+en+'</div>';
+const rcSec=(en,ta)=>'<div class="lf-sec"><h3>'+en+'</h3>';
 
 function raceAnalyse(ms,lat,lon,N,kind,off){
   const old=CFG; CFG={lat:lat,lon:lon,kind:kind};
@@ -1658,7 +1663,7 @@ function raceAnalyse(ms,lat,lon,N,kind,off){
     if(!picks.length) h+=rcRow('','No horse number within '+N+' has a winning sign.','வெற்றி அறிகுறி உள்ள குதிரை எண் எதுவும் '+N+'க்குள் இல்லை.');
     picks.forEach(c=>{
       h+='<div class="lf-item info rc-row">'+rcNum(c,N,I[c].pts===top?'top':'')+' <b>'+NAME[c]+'</b> · <span style="font-family:var(--ta)">'+TA[c]+'</span> · score '+I[c].pts+' · '+ORD(I[c].h)+' house'+
-        I[c].why.map(w=>'<span class="ctd" style="margin:2px 0 0">'+w[0]+'<span class="ta">'+w[1]+'</span></span>').join('')+'</div>';
+        I[c].why.map(w=>'<span class="ctd" style="margin:2px 0 0">'+w[0]+'</span>').join('')+'</div>';
     });
     h+='</div>';
 
@@ -1842,15 +1847,15 @@ function gpRun(){
   const d0=new Date(ms+off*3600000), hms=p2(d0.getUTCHours())+':'+p2(d0.getUTCMinutes())+':'+p2(d0.getUTCSeconds());
   const E3=gpPairEval(A,L3,L11,sgn), E2=gpPairEval(A,SL,BL,sgn);
   let h='<div class="lf-time"><b>Question time:</b> '+d0.getUTCDate()+' '+MON[d0.getUTCMonth()]+' '+d0.getUTCFullYear()+', '+hms+' ('+utcTxt(off)+') · '+lat+', '+lon+'<br>'+
-    '<b>Rising:</b> '+SIGNS[A][0]+' '+inSign(asc)+' · lagna lord / star lord / sub lord: '+NAME[lagL]+'/'+NAME[SL]+'/'+NAME[BL]+' · <span class="ta" style="font-family:var(--ta)">'+TLAG[A]+' லக்னம் · '+TA[lagL]+'/'+TA[SL]+'/'+TA[BL]+'</span></div>';
+    '<b>Rising:</b> '+SIGNS[A][0]+' '+inSign(asc)+' · lagna lord / star lord / sub lord: '+NAME[lagL]+'/'+NAME[SL]+'/'+NAME[BL]+' · </div>';
   // verdict for the 3rd and 11th lords
   const vkey=E3.positive?'pos':E3.cat, vm=GP_MSG[vkey];
   const cls=E3.positive?'':(E3.cat==='68'?'hard':'mixed');
   const verdEn=E3.positive?'Positive: the event will take place':(E3.cat==='68'?'The event will not take place, or the chance is small':E3.cat==='59'?'A duplicate or similar event may take place':E3.cat==='212'?'The event needs more effort':E3.cat==='311'?'The event is delayed and needs more effort':'Moderate chance');
   const verdTa=E3.positive?'சாதகம்: காரியம் நடக்கும்':(E3.cat==='68'?'காரியம் நடக்காது அல்லது வாய்ப்பு குறைவு':E3.cat==='59'?'அதே போன்ற இரட்டிப்பு நிகழ்வு நடக்கலாம்':E3.cat==='212'?'கூடுதல் முயற்சி தேவை':E3.cat==='311'?'தாமதம், கூடுதல் முயற்சி தேவை':'நடுத்தர வாய்ப்பு');
-  h+='<div class="lf-verdict '+cls+'" role="status"><b>'+verdEn+'</b><span class="ta">'+verdTa+'</span></div>';
+  h+='<div class="lf-verdict '+cls+'" role="status"><b>'+verdEn+'</b></div>';
   const pairHtml=(titleEn,titleTa,aE,aT,bE,bT,a,b,E,main)=>{
-    let x='<div class="lf-sec"><h3>'+titleEn+'<span class="ta">'+titleTa+'</span></h3>';
+    let x='<div class="lf-sec"><h3>'+titleEn+'</h3>';
     x+=lfItem('info','<b>'+aE+'</b> '+pos(a),'<b>'+aT+'</b> '+posTa(a));
     x+=lfItem('info','<b>'+bE+'</b> '+pos(b),'<b>'+bT+'</b> '+posTa(b));
     x+=lfItem(kenH(E.ha)?'good':'badc',aE+' '+NAME[a]+' is in the '+ORD(E.ha)+' house from the lagna'+(kenH(E.ha)?' (kendra).':' (not kendra).'),aT+' '+TA[a]+' லக்னத்திலிருந்து '+TH(E.ha)+' வீட்டில்'+(kenH(E.ha)?' (கேந்திரம்).':' (கேந்திரம் அல்ல).'));
@@ -1865,7 +1870,7 @@ function gpRun(){
   // timing numbers
   const addMonths=(t,n)=>{const o=tf(t), d=new Date(t+o*3600000); d.setUTCMonth(d.getUTCMonth()+n); return d.getTime()-o*3600000;};
   const timing=(E,aE,bE,aT,bT,a,b)=>{
-    let x='<div class="lf-sec"><h3>Timing number: '+aE+' + '+bE+'<span class="ta">கால எண்: '+aT+' + '+bT+'</span></h3>';
+    let x='<div class="lf-sec"><h3>Timing number: '+aE+' + '+bE+'</h3>';
     x+=lfItem('info','Distance of '+NAME[a]+' ('+SIGNS[sgn(a)][0]+') to the 11th house ('+SIGNS[(A+10)%12][0]+') = <b>'+E.da+'</b> houses; distance of '+NAME[b]+' ('+SIGNS[sgn(b)][0]+') = <b>'+E.db+'</b> houses. Added: '+E.da+' + '+E.db+' = <b>'+E.x+'</b> (the sign itself is counted as 1).','11-ஆம் வீட்டிற்கு ('+TSIGN[(A+10)%12]+') '+TA[a]+' ('+TSIGN[sgn(a)]+') இருந்து தூரம் = <b>'+E.da+'</b>; '+TA[b]+' ('+TSIGN[sgn(b)]+') இருந்து தூரம் = <b>'+E.db+'</b>. கூட்டுத்தொகை = <b>'+E.x+'</b> (அந்த ராசியே 1 என எண்ணப்படும்).');
     const n=E.x;
     x+=lfItem('info','The event may take place in <b>'+n+' minutes</b> (about '+fmt(ms+n*60000)+'), <b>'+n+' hours</b> ('+fmt(ms+n*3600000)+'), <b>'+n+' days</b> ('+fmtD(ms+n*86400000)+'), <b>'+n+' weeks</b> ('+fmtD(ms+n*7*86400000)+') or <b>'+n+' months</b> ('+fmtD(addMonths(ms,n))+'), or on the days when the Moon moves through the stars listed below.','காரியம் <b>'+n+' நிமிடங்கள்</b> ('+fmt(ms+n*60000)+'), <b>'+n+' மணி</b> ('+fmt(ms+n*3600000)+'), <b>'+n+' நாட்கள்</b> ('+fmtD(ms+n*86400000)+'), <b>'+n+' வாரங்கள்</b> ('+fmtD(ms+n*7*86400000)+') அல்லது <b>'+n+' மாதங்கள்</b> ('+fmtD(addMonths(ms,n))+') ஆகியவற்றில் நடக்கலாம்; அல்லது கீழே உள்ள நட்சத்திரங்களில் சந்திரன் செல்லும் நாட்களில் நடக்கலாம்.');
@@ -1878,13 +1883,13 @@ function gpRun(){
   addRole(L3,'3rd lord','3-ஆம் அதிபதி'); addRole(L11,'11th lord','11-ஆம் அதிபதி'); addRole(SL,'star lord','நட்சத்திர அதிபதி'); addRole(BL,'sub lord','உப அதிபதி');
   const segs=gpMoonSegs(ms,90).filter(sg=>roles[ORDER[sg.n%9]]);
   const marks=[]; [[E3.x,'3rd+11th'],[E2.x,'star+sub']].forEach(m=>{[['days',m[0]*86400000],['weeks',m[0]*7*86400000]].forEach(u=>marks.push([ms+u[1],m[0]+' '+u[0]+' ('+m[1]+')']));marks.push([addMonths(ms,m[0]),m[0]+' months ('+m[1]+')']);});
-  h+='<div class="lf-sec"><h3>Moon in the stars of these planets (next 90 days)<span class="ta">இந்த கிரகங்களின் நட்சத்திரங்களில் சந்திரன் (அடுத்த 90 நாட்கள்)</span></h3><div class="tscroll"><table class="ctab"><tr><th>From</th><th>To</th><th>Star</th><th>Star lord · role</th><th>Timing match</th></tr>';
+  h+='<div class="lf-sec"><h3>Moon in the stars of these planets (next 90 days)</h3><div class="tscroll"><table class="ctab"><tr><th>From</th><th>To</th><th>Star</th><th>Star lord · role</th><th>Timing match</th></tr>';
   segs.forEach(sg=>{
     const c=ORDER[sg.n%9], isNow=sg.s<=ms&&ms<sg.e;
     const hit=marks.filter(m=>m[0]>=sg.s&&m[0]<sg.e).map(m=>m[1]);
     h+='<tr'+(isNow?' class="now"':'')+'><td>'+(isNow?'now':fmt(sg.s))+'</td><td>'+fmt(sg.e)+'</td><td>'+NAKS[sg.n]+' · '+GP_NAKT[sg.n]+'</td><td>'+NAME[c]+' ('+TA[c]+') · '+roles[c].map(r=>r[0]).join(', ')+'</td><td>'+(hit.length?'≈ '+hit.join('; '):'')+'</td></tr>';
   });
-  h+='</table></div><p class="lf-note">Dates are in the time zone of the place chosen. “Timing match” shows a row that contains the day reached by the timing number counted in days, weeks or months.<br><span class="ta" style="font-family:var(--ta);color:var(--accent)">தேதிகள் தேர்ந்தெடுத்த இடத்தின் நேர மண்டலத்தில் உள்ளன. கால எண்ணை நாட்கள், வாரங்கள், மாதங்களாக எண்ணி வரும் நாள் இருக்கும் வரிசை “Timing match” இல் காட்டப்படும்.</span></p></div>';
+  h+='</table></div><p class="lf-note">Dates are in the time zone of the place chosen. “Timing match” shows a row that contains the day reached by the timing number counted in days, weeks or months.<br></p></div>';
   // Saturn delay
   const sS=sgn('Sa'), asp=[(sS+2)%12,(sS+6)%12,(sS+9)%12];
   const tg=[['the ascendant (lagna)','லக்னம்',A],['the 3rd house','3-ஆம் வீடு',(A+2)%12],['the 11th house','11-ஆம் வீடு',(A+10)%12],
@@ -1892,14 +1897,14 @@ function gpRun(){
             ['the star lord '+NAME[SL],'நட்சத்திர அதிபதி '+TA[SL],sgn(SL)],['the sub lord '+NAME[BL],'உப அதிபதி '+TA[BL],sgn(BL)]];
   const hits=tg.filter(t=>t[2]!==sS&&asp.indexOf(t[2])>=0);
   const inH=CODES.filter(c=>c!=='Sa'&&asp.indexOf(sgn(c))>=0).map(c=>NAME[c]);
-  h+='<div class="lf-sec"><h3>Saturn delay<span class="ta">சனி தாமதம்</span></h3>';
+  h+='<div class="lf-sec"><h3>Saturn delay</h3>';
   h+=lfItem('info','Saturn is in '+SIGNS[sS][0]+' ('+ORD(house('Sa'))+' house'+(isRetro('Sa',ms)?', retrograde':'')+'). Its aspects (3rd, 7th and 10th from it) fall on '+asp.map(a=>SIGNS[a][0]+' ('+ORD(relH(A,a))+' house)').join(', ')+'.','சனி '+TSIGN[sS]+' ராசியில் ('+TH(house('Sa'))+' வீடு'+(isRetro('Sa',ms)?', வக்ரம்':'')+') உள்ளார். அவரது பார்வை (3, 7, 10-ஆம் இடங்கள்) '+asp.map(a=>TSIGN[a]+' ('+TH(relH(A,a))+' வீடு)').join(', ')+' மீது விழுகிறது.');
   if(hits.length){
     h+=lfItem('badc','Saturn aspects '+hits.map(t=>t[0]).join(', ')+'. This delays the event by about <b>2 minutes, 2 days or 2 months</b> (in the same unit as the timing above).'+(inH.length?' Planets under the aspect: '+inH.join(', ')+'.':''),'சனி '+hits.map(t=>t[1]).join(', ')+' ஐப் பார்க்கிறார். இதனால் காரியம் மேற்கண்ட கால அலகிலேயே சுமார் <b>2 நிமிடங்கள், 2 நாட்கள் அல்லது 2 மாதங்கள்</b> தாமதமாகும்.'+(inH.length?' பார்வையில் உள்ள கிரகங்கள்: '+inH.join(', ')+'.':''));
   }else h+=lfItem('good','Saturn does not aspect the ascendant, the 3rd or 11th house, the 3rd lord, the 11th lord, the star lord or the sub lord: no Saturn delay.','சனி லக்னம், 3, 11-ஆம் வீடுகள், 3, 11-ஆம் அதிபதிகள், நட்சத்திர அதிபதி, உப அதிபதி ஆகியோரைப் பார்க்கவில்லை: சனி தாமதம் இல்லை.');
   h+='</div>';
-  h+='<details class="lf-det"><summary>Planet positions at the question time</summary>'+CODES.map(c=>'<div class="lf-item info">'+NAME[c]+' · <span class="ta" style="font-family:var(--ta)">'+TA[c]+'</span>: '+SIGNS[sgn(c)][0]+' '+inSign(P[c])+', '+ORD(house(c))+' house, star of '+NAME[starOf(c)]+'</div>').join('')+'</details>';
-  h+='<p class="lf-note">Traditional prasnam guidance from the transit ascendant at the question time. It is a guide, not a guarantee.<br><span class="ta" style="font-family:var(--ta);color:var(--accent)">கேள்வி நேர கோசார லக்னத்தின் அடிப்படையிலான பாரம்பரிய பிரசன்ன வழிகாட்டுதல். இது உறுதியான முடிவு அல்ல.</span></p>';
+  h+='<details class="lf-det"><summary>Planet positions at the question time</summary>'+CODES.map(c=>'<div class="lf-item info">'+NAME[c]+' · : '+SIGNS[sgn(c)][0]+' '+inSign(P[c])+', '+ORD(house(c))+' house, star of '+NAME[starOf(c)]+'</div>').join('')+'</details>';
+  h+='<p class="lf-note">Traditional prasnam guidance from the transit ascendant at the question time. It is a guide, not a guarantee.<br></p>';
   out.innerHTML=h;
 }
 function isRetro(c,ms){
@@ -1991,8 +1996,7 @@ function cmShow(){
       n++; const g=SEGS[it.r.k], x=it.x;
       const pills=(x.high?'<span class="pill gain">Highly auspicious · மிக சுபம்</span>':'<span class="pill gain">Chandra muhurtham · சந்திர முகூர்த்தம்</span>')+(x.money?'<span class="pill gain">Money muhurtham · தன முகூர்த்தம்</span>':'')+(x.flow?'<span class="pill gain">Money flow · தன வரவு</span>':'');
       h+='<ul style="margin-top:6px"><li class="row gm" style="--h:'+HUE[g.sub]+'"><div class="t2"><div><span>Begin</span><b>'+fmtHMS(it.r.start,tz)+'</b></div><div><span>End</span><b>'+fmtHMS(it.r.end,tz)+'</b></div></div>'+
-        '<div class="l"><span class="n">'+NAME[g.lord]+'/'+NAME[g.star]+'/'+NAME[g.sub]+'</span><span class="pl">'+pills+'</span><span class="ta">'+tl(g)+
-        '<div class="chk">'+x.info+(x.why.length?'<br>'+x.why.join('<br>'):'')+'</div><div class="p"><span>'+SIGNS[g.sign][0]+' ascendant · '+span(g)+' · '+NAKS[g.nak]+'</span><span>lasts '+dur(it.r.end-it.r.start)+'</span></div></li></ul>';
+        '<div class="l"><span class="n">'+NAME[g.lord]+'/'+NAME[g.star]+'/'+NAME[g.sub]+'</span><span class="pl">'+pills+'</span><span>lasts '+dur(it.r.end-it.r.start)+'</span></div></li></ul>';
     });
   });
   $('cmMsg').textContent=n+' Chandra muhurtham timings from '+CM.f+' to '+CM.t+'.';
