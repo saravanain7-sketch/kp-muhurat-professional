@@ -1,22 +1,10 @@
-# GuruAgasthiya Standalone v3.4
+# GuruAgasthiya Standalone v3.9.1 — Professional Shared-Data UI
 
-This is the standalone GuruAgasthiya app, separate from KP Muhurat.
+- Professional compact mobile navigation: Data → Lost & Found → Cuspal chart → Muhurtham → Horse race → GMP Prasnam → Chandra Muhurtham.
+- Data is the single input source; date/time/location/coordinates/UTC offset/ayanamsa are reused by the tool tabs.
+- Repeated date/time/location fields are hidden in tool tabs, while tool-specific options such as number of horses and Chandra display filter remain available.
+- Tabs open the relevant tool and trigger its existing calculation using shared Data values.
+- Removed About, the initial prompt, and alarm panel from the visible UI.
+- Calculation source is based on the original standalone v3.4 file; time source for Lost & Found, Cuspal chart and GMP Prasnam now follows Data. Please regression-test astronomy timings before replacing production.
 
-## Changes
-- Restored the standalone date, time, place, latitude, longitude, UTC offset and ayanamsa form.
-- Restored the standalone tool buttons and panels (Lost & Found, Cuspal Chart, Date-range Muhurtham, Horse Race, GMP Prasnam, Chandra Muhurtham and About).
-- Limited the compact timing-only presentation and duplicate-input hiding to embedded mode only.
-- Set Coimbatore as the default place using latitude 11.000000, longitude 76.9666667, UTC offset +5.5.
-- Used the supplied gold astrological-wheel icon in the page header and app icons.
-- No astronomy or Muhurtham calculation functions were intentionally changed.
-
-## Deploy
-Upload the files in this folder to a separate GitHub repository. Keep `guruagasthiya.html`, `manifest.webmanifest`, `sw.js`, `kp-icon-192.png`, and `kp-icon-512.png` at repository root. Enable GitHub Pages for `main` / root, then open `guruagasthiya.html` at the deployed site.
-
-Note: Visual verification on a phone and side-by-side calculation regression tests are still recommended.
-
-
-## Web v3.6 navigation update
-- Added a horizontal navigation bar: Data, Lost & Found, Cuspal chart, Muhurtham, Horse race, GMP Prasnam, Chandra Muhurtham.
-- Removed the About button from visible navigation.
-- Existing tool buttons and calculation handlers are reused; no astronomical calculation routines were intentionally changed.
+Deploy all files to the repository root and open the deployed page in an incognito tab after GitHub Pages finishes.

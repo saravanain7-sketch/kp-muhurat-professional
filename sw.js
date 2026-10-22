@@ -1,4 +1,4 @@
-const CACHE_NAME = 'guru-agasthiya-standalone-v3-4';
+const CACHE_NAME = 'guruagasthiya-v3-9-1-professional';
 const APP_SHELL = ['./','./index.html','./guruagasthiya.html','./manifest.webmanifest','./kp-icon-192.png','./kp-icon-512.png'];
 self.addEventListener('install', e => e.waitUntil(caches.open(CACHE_NAME).then(c=>c.addAll(APP_SHELL)).then(()=>self.skipWaiting())));
 self.addEventListener('activate', e => e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('guru-agasthiya-')&&k!==CACHE_NAME).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
