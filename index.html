@@ -733,8 +733,19 @@ nav:not(.mobileBottomNav) button.active{background:#e8f3ff;color:#075ca0;border-
 @media(max-width:520px){nav:not(.mobileBottomNav) button{padding:13px 14px;font-size:13px}}
 </style>
 
+<style id="web263-dashboard-recovery">
+/* Web 2.63: restore the dashboard hidden by a legacy GuruAgasthiya-only override. UI/navigation only. */
+#dashboard.active{display:block!important}
+nav:not(.mobileBottomNav){display:none!important}
+.mobileBottomNav{display:grid!important}
+header{background:linear-gradient(110deg,#12375a,#0a2547)!important;color:#fff!important}
+header b{color:#fff!important}
+header small{color:#d6e4f2!important}
+.headerLogo{flex:0 0 44px}
+@media(min-width:701px){.mobileBottomNav{display:grid!important}}
+</style>
 </head><body>
-<header><div class="headerBrand"><img class="headerLogo" src="kp-icon-192.png" alt="GuruAgasthiya astrology logo" width="36" height="36"><div><b>KP Muhurat</b> <small>V 1.5.11 — Web 2.62</small></div></div></header>
+<header><div class="headerBrand"><img class="headerLogo" src="kp-icon-192.png" alt="GuruAgasthiya astrology logo" width="36" height="36"><div><b>KP Muhurat</b> <small>V 1.5.11 — Web 2.63</small></div></div></header>
 <nav aria-label="KP Muhurat sections"><button class="active" data-t="data">Data</button><button data-t="results">Results</button><button data-t="muhurtham">Muhurtham</button><button data-t="chart">Chart</button><button data-t="analysis">Analysis</button><button data-tool="lostBtn">Lost &amp; Found</button><button data-tool="cuspBtn">Cuspal Chart</button><button data-tool="rangeBtn">Date-wise Muhurtham</button><button data-tool="raceBtn">Horse Race</button><button data-tool="gpBtn">GMP Prasnam</button><button data-tool="cmBtn">Chandra Muhurtham</button></nav>
 <main>
 <section id="dashboard" class="active">
