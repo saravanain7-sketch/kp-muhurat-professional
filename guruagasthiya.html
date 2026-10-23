@@ -160,6 +160,13 @@ body:not(.shared-kp-context) .panel:first-of-type > .grid{display:none!important
 @media(max-width:520px){.guruPageHero{border-radius:15px}.guruPageTitle h1{letter-spacing:-.02em}}
 
 
+/* Web 2.61: when a secondary tool is opened from KP Muhurat navigation,
+   remove the repeated GuruAgasthiya banner and timing button so the selected
+   tool starts directly below the shared KP Muhurat header. Presentation only. */
+body.kp-tool-mode .guruPageHero,
+body.kp-tool-mode .wrap > .panel:has(#date){display:none!important}
+body.kp-tool-mode .wrap{padding-top:10px!important}
+
 /* Web 2.59 — English-only visible text; computation code unchanged. */
 .ta,[style*="--ta"],.guruTamil,.tamil{display:none!important}
 button{overflow-wrap:anywhere}

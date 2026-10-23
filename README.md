@@ -52,7 +52,7 @@ Mobile layout repair (2.46): restores the GuruAgasthiya base layout primitives, 
 - Only markup, CSS, version text, and cache name were changed; KP astronomy, transition, selection, and timing code were not intentionally modified.
 
 
-## Web 2.60 — English-only display and navigation cleanup
+## Web 2.61 — English-only display and navigation cleanup
 - Replaced the Home dashboard with compact, responsive shortcut cards modeled on the approved reference layout.
 - Added quick location/time-window information and an Edit Event Data action.
 - Kept existing KP Muhurat calculation, transition, selection, and timing JavaScript unchanged.
@@ -61,4 +61,7 @@ Mobile layout repair (2.46): restores the GuruAgasthiya base layout primitives, 
 - Validation: see the accompanying package; JavaScript syntax and ZIP integrity are checked before deployment.
 
 
-Web 2.60 update: horizontal 11-section navigation in the requested order: Data, Results, Muhurtham, Chart, Analysis, Lost & Found, Cuspal Chart, Date-wise Muhurtham, Horse Race, GMP Prasnam, and Chandra Muhurtham. UI/navigation only; KP calculation functions were not intentionally edited.
+Web 2.61 update: horizontal 11-section navigation in the requested order: Data, Results, Muhurtham, Chart, Analysis, Lost & Found, Cuspal Chart, Date-wise Muhurtham, Horse Race, GMP Prasnam, and Chandra Muhurtham. UI/navigation only; KP calculation functions were not intentionally edited.
+
+
+Web 2.61 UI fix: when opening Lost & Found, Cuspal Chart, Date-wise Muhurtham, Horse Race, GMP Prasnam, or Chandra Muhurtham from the main tabs, the embedded GuruAgasthiya banner and Show timings card are hidden so the selected tool is the first visible content. Calculation logic is unchanged.

@@ -701,7 +701,7 @@ nav:not(.mobileBottomNav) button.active{background:#e8f3ff;color:#075ca0;border-
 </style>
 
 </head><body>
-<header><div class="headerBrand"><img class="headerLogo" src="kp-icon-192.png" alt="GuruAgasthiya astrology logo" width="36" height="36"><div><b>KP Muhurat</b> <small>V 1.5.11 — Web 2.60</small></div></div></header>
+<header><div class="headerBrand"><img class="headerLogo" src="kp-icon-192.png" alt="GuruAgasthiya astrology logo" width="36" height="36"><div><b>KP Muhurat</b> <small>V 1.5.11 — Web 2.61</small></div></div></header>
 <nav aria-label="KP Muhurat sections"><button class="active" data-t="data">Data</button><button data-t="results">Results</button><button data-t="muhurtham">Muhurtham</button><button data-t="chart">Chart</button><button data-t="analysis">Analysis</button><button data-tool="lostBtn">Lost &amp; Found</button><button data-tool="cuspBtn">Cuspal Chart</button><button data-tool="rangeBtn">Date-wise Muhurtham</button><button data-tool="raceBtn">Horse Race</button><button data-tool="gpBtn">GMP Prasnam</button><button data-tool="cmBtn">Chandra Muhurtham</button></nav>
 <main>
 <section id="dashboard">
@@ -1204,8 +1204,8 @@ document.querySelectorAll('nav:not(.mobileBottomNav) button').forEach(b=>b.oncli
   b.classList.add('active');
   if(b.dataset.tool){
     const frame=$('guruAgasthiyaFrame'); const targetSection=$('guruagasthiya'); if(targetSection)targetSection.classList.add('active');
-    if(frame&&frame.contentWindow){ try{const doc=frame.contentDocument; const tool=doc&&doc.getElementById(b.dataset.tool); if(tool){tool.click(); setTimeout(()=>{const id=({lostBtn:'lostPanel',cuspBtn:'cuspPanel',rangeBtn:'rangePanel',raceBtn:'racePanel',gpBtn:'gpPanel',cmBtn:'cmPanel'})[b.dataset.tool];const panel=id&&doc.getElementById(id);if(panel)panel.scrollIntoView({block:'start',behavior:'auto'});},80);} }catch(e){} }
-  } else { const target=$(b.dataset.t); if(target)target.classList.add('active'); }
+    if(frame&&frame.contentWindow){ try{const doc=frame.contentDocument; if(doc&&doc.body)doc.body.classList.add('kp-tool-mode'); const tool=doc&&doc.getElementById(b.dataset.tool); if(tool){tool.click(); setTimeout(()=>{const id=({lostBtn:'lostPanel',cuspBtn:'cuspPanel',rangeBtn:'rangePanel',raceBtn:'racePanel',gpBtn:'gpPanel',cmBtn:'cmPanel'})[b.dataset.tool];const panel=id&&doc.getElementById(id);if(panel)panel.scrollIntoView({block:'start',behavior:'auto'});},80);} }catch(e){} }
+  } else { const frame=$('guruAgasthiyaFrame'); if(frame&&frame.contentDocument&&frame.contentDocument.body)frame.contentDocument.body.classList.remove('kp-tool-mode'); const target=$(b.dataset.t); if(target)target.classList.add('active'); }
   if(b.dataset.t==='guruagasthiya'){ syncGuruContext(true); }
   if(b.dataset.t==='results'){
     const first=(window.__selectionRows||[])[0];
