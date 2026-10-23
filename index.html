@@ -1,7 +1,7 @@
 <!doctype html><html><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#1976a8"><meta http-equiv="Permissions-Policy" content="geolocation=(self)"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="kp-icon-192.png">
-<title>KP Muhurat Web 2.59 — KP Muhurat V1.5.11</title>
+<title>KP Muhurat Web 2.62 — KP Muhurat V1.5.11</title>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#eaf6fc;color:#17313d;font:14px Arial}
 header{padding:12px 14px;background:#f7f7f7;border-bottom:1px solid #9bb9c7;position:sticky;top:0;z-index:3}
@@ -388,6 +388,39 @@ nav .guruNavButton{display:inline-flex;align-items:center;gap:7px;color:#14577f}
 @media(max-width:520px){.kp-shortcut-grid{gap:10px;margin-top:14px}.kp-shortcut-card{min-height:88px;padding:14px 12px;gap:11px;border-radius:21px;font-size:15px}.kp-shortcut-icon{flex-basis:40px;width:40px;height:40px;font-size:22px}}
 @media(min-width:701px){.kp-shortcut-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.kp-shortcut-card{min-height:78px}}
 
+
+/* Web 2.62 — Dashboard-first app shell inspired by the supplied reference screenshot. */
+:root{--app-cream:#f7f3e7;--app-yellow:#f5b900;--app-ink:#243747;--app-muted:#697783;--app-card:#fff;--app-line:#e2dfd4}
+html,body{min-height:100%;background:var(--app-cream);color:var(--app-ink)}
+header{position:relative;top:auto;background:#fff;border:0;border-bottom:1px solid #e7e2d5;padding:15px 18px;box-shadow:0 2px 8px #382c120a}
+.headerBrand{display:flex;align-items:center;justify-content:center;gap:11px}
+.headerLogo{width:44px!important;height:44px!important;border:1px solid #d9bb5b;border-radius:14px!important;background:#061632}
+header b{font-size:21px!important;color:#263747;letter-spacing:-.3px}
+header small{display:block;margin-top:3px;color:#7a858e;font-size:11px!important}
+nav:not(.mobileBottomNav){display:none!important}
+main{max-width:1000px;padding:16px 16px 92px!important}
+.homeWelcome{border:0;border-radius:18px;background:linear-gradient(125deg,#fffdf8,#f4e7d9);padding:22px 20px;margin:0 0 20px;box-shadow:0 5px 16px #43331a10}
+.homeWelcomeEyebrow{color:#b18725;letter-spacing:1.7px}
+.homeWelcome h2{font-size:28px;color:#21374a}
+.homeWelcome p{font-size:14px;color:#687783}
+.homeGroup{margin-bottom:21px}
+.homeGroupTitle{gap:11px;margin-bottom:13px}
+.homeGroupAccent{height:42px;background:#d4a12b}
+.homeGroupTitle h3{font-size:21px;color:#263d50;font-weight:500}
+.homeGroupTitle p{font-size:13px;color:#75818a}
+.kp-shortcut-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.kp-shortcut-card{min-height:88px;padding:15px;border:1px solid var(--app-line);border-radius:17px;background:#fff;color:#293b4a;box-shadow:0 4px 12px #2b26180f;font-size:15px}
+.kp-shortcut-icon{flex-basis:40px;width:40px;height:40px;border-radius:13px;background:#f3e9cc;color:#a97d1c}
+.icon-results{background:#e5f4ed;color:#21815d}.icon-chart{background:#e3f3ef;color:#238d7d}.icon-muhurtham{background:#fff0d7;color:#b78024}.icon-analysis{background:#e9f3e5;color:#4c8a56}.icon-guru{background:#f0eafc;color:#765bb0}.icon-home{background:#e5effb;color:#3478a8}
+.homeQuickInfo{border-radius:16px;border-color:#e3dfd4;background:#fff}
+.mobileBottomNav{position:fixed!important;left:0;right:0;bottom:0;z-index:50;display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:0;padding:7px 8px calc(7px + env(safe-area-inset-bottom))!important;background:#fffffff5!important;border-top:1px solid #e4e1d8!important;box-shadow:0 -4px 18px #2c28130e!important;backdrop-filter:blur(14px)}
+.mobileBottomNav button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-width:0;min-height:54px;margin:0;padding:5px 2px;border:0;border-radius:10px;background:transparent;color:#6e7479;font:600 11px/1.15 system-ui,Arial,sans-serif;white-space:nowrap}
+.mobileBottomNav button .bottomIcon{font-size:24px;line-height:1.1;color:inherit}
+.mobileBottomNav button.active{background:transparent;color:#253442}
+.mobileBottomNav button.active .bottomIcon{color:#b58a1c}
+@media(min-width:701px){.mobileBottomNav{display:grid!important;max-width:1000px;left:50%;right:auto;width:100%;transform:translateX(-50%);border-radius:16px 16px 0 0}}
+@media(max-width:520px){main{padding:12px 18px 95px!important}.homeWelcome{padding:19px 16px;border-radius:17px}.homeWelcome h2{font-size:25px}.homeGroupTitle h3{font-size:19px}.kp-shortcut-grid{gap:10px}.kp-shortcut-card{min-height:88px;padding:13px 11px;gap:10px;font-size:14px}.kp-shortcut-icon{flex-basis:36px;width:36px;height:36px;font-size:20px}.panel{border-radius:16px}}
+
 </style>
 <style id="hide-results-diagnostics-v210">
 /* Web 2.10: keep the normal Results view focused on chosen Muhurats and controls.
@@ -701,17 +734,12 @@ nav:not(.mobileBottomNav) button.active{background:#e8f3ff;color:#075ca0;border-
 </style>
 
 </head><body>
-<header><div class="headerBrand"><img class="headerLogo" src="kp-icon-192.png" alt="GuruAgasthiya astrology logo" width="36" height="36"><div><b>KP Muhurat</b> <small>V 1.5.11 — Web 2.61</small></div></div></header>
+<header><div class="headerBrand"><img class="headerLogo" src="kp-icon-192.png" alt="GuruAgasthiya astrology logo" width="36" height="36"><div><b>KP Muhurat</b> <small>V 1.5.11 — Web 2.62</small></div></div></header>
 <nav aria-label="KP Muhurat sections"><button class="active" data-t="data">Data</button><button data-t="results">Results</button><button data-t="muhurtham">Muhurtham</button><button data-t="chart">Chart</button><button data-t="analysis">Analysis</button><button data-tool="lostBtn">Lost &amp; Found</button><button data-tool="cuspBtn">Cuspal Chart</button><button data-tool="rangeBtn">Date-wise Muhurtham</button><button data-tool="raceBtn">Horse Race</button><button data-tool="gpBtn">GMP Prasnam</button><button data-tool="cmBtn">Chandra Muhurtham</button></nav>
 <main>
-<section id="dashboard">
-  <div class="homeWelcome">
-    <div class="homeWelcomeEyebrow">KP ASTROLOGY</div>
-    <h2>KP Muhurat</h2>
-    <p>Choose a tool to continue.</p>
-  </div>
-  <div class="homeGroup">
-    <div class="homeGroupTitle"><span class="homeGroupAccent"></span><div><h3>KP Muhurat Tools</h3><p>Calculation, timing and chart tools</p></div></div>
+<section id="dashboard" class="active">
+  <div class="homeWelcome"><div class="homeWelcomeEyebrow">KP ASTROLOGY</div><h2>KP Muhurat</h2><p>Choose a calculation, chart, or timing tool.</p></div>
+  <div class="homeGroup"><div class="homeGroupTitle"><span class="homeGroupAccent"></span><div><h3>KP Muhurat</h3><p>Core calculations and chart tools</p></div></div>
     <div class="kp-shortcut-grid" aria-label="KP Muhurat tools">
       <button class="kp-shortcut-card" type="button" data-go="data"><span class="kp-shortcut-icon icon-home">☷</span><span>Event Data</span></button>
       <button class="kp-shortcut-card" type="button" data-go="results"><span class="kp-shortcut-icon icon-results">◷</span><span>Results</span></button>
@@ -721,13 +749,19 @@ nav:not(.mobileBottomNav) button.active{background:#e8f3ff;color:#075ca0;border-
       <button class="kp-shortcut-card" type="button" data-go="guruagasthiya"><span class="kp-shortcut-icon icon-guru">✦</span><span>GuruAgasthiya</span></button>
     </div>
   </div>
-  <div class="homeQuickInfo">
-    <div><span class="homeInfoIcon">⌖</span><div><b>Calculation location</b><span id="dashPlace">Coimbatore, Tamil Nadu, India</span></div></div>
-    <div><span class="homeInfoIcon">◷</span><div><b>Time window</b><span id="dashWindow">09:00–22:00</span></div></div>
-    <button type="button" class="homeEditButton" data-go="data">Edit event data →</button>
+  <div class="homeGroup"><div class="homeGroupTitle"><span class="homeGroupAccent" style="background:#5ab7a5"></span><div><h3>Additional Tools</h3><p>Specialized astrology tools</p></div></div>
+    <div class="kp-shortcut-grid" aria-label="Additional astrology tools">
+      <button class="kp-shortcut-card" type="button" data-home-tool="lostBtn"><span class="kp-shortcut-icon">⌕</span><span>Lost &amp; Found</span></button>
+      <button class="kp-shortcut-card" type="button" data-home-tool="cuspBtn"><span class="kp-shortcut-icon icon-chart">▦</span><span>Cuspal Chart</span></button>
+      <button class="kp-shortcut-card" type="button" data-home-tool="rangeBtn"><span class="kp-shortcut-icon icon-muhurtham">◷</span><span>Date-wise Muhurtham</span></button>
+      <button class="kp-shortcut-card" type="button" data-home-tool="raceBtn"><span class="kp-shortcut-icon" style="background:#f0eafa;color:#7962b6">♜</span><span>Horse Race</span></button>
+      <button class="kp-shortcut-card" type="button" data-home-tool="gpBtn"><span class="kp-shortcut-icon icon-results">◉</span><span>GMP Prasnam</span></button>
+      <button class="kp-shortcut-card" type="button" data-home-tool="cmBtn"><span class="kp-shortcut-icon" style="background:#eaf0ff;color:#647ac1">☾</span><span>Chandra Muhurtham</span></button>
+    </div>
   </div>
+  <div class="homeQuickInfo"><div><span class="homeInfoIcon">⌖</span><div><b>Calculation location</b><span id="dashPlace">Coimbatore, Tamil Nadu, India</span></div></div><div><span class="homeInfoIcon">◷</span><div><b>Time window</b><span id="dashWindow">09:00–22:00</span></div></div><button type="button" class="homeEditButton" data-go="data">Settings / Edit event data →</button></div>
 </section>
-<section id="data" class="active"><div class="panel blue"><h3>Event data</h3>
+<section id="data"><div class="panel blue"><h3>Event data</h3>
 <div class="grid2"><label>Date<input id="date" type="date"></label><label>To date<input id="todate" type="date"></label></div>
 <div class="grid2"><label>From time<input id="from" type="time" step="1" value="09:00:00"></label><label>To time<input id="to" type="time" step="1" value="22:00:00"></label></div>
 <label>Place<div class="placeRow"><input id="place" value="Coimbatore, Tamil Nadu, India"><button class="btn gpsBtn" id="findPlace" type="button">🔎 Find</button><button class="btn gpsBtn" id="gps" type="button">📍 GPS</button></div></label>
@@ -3563,12 +3597,11 @@ if('serviceWorker' in navigator){ navigator.serviceWorker.register('./sw.js?v=2.
 })();
 </script>
 
-<nav class="mobileBottomNav" aria-label="Quick navigation">
+<nav class="mobileBottomNav" aria-label="Main navigation">
  <button type="button" data-bottom="dashboard" class="active"><span class="bottomIcon" aria-hidden="true">⌂</span><span>Home</span></button>
- <button type="button" data-bottom="data"><span class="bottomIcon" aria-hidden="true">☷</span><span>Data</span></button>
- <button type="button" data-bottom="results"><span class="bottomIcon" aria-hidden="true">◷</span><span>Results</span></button>
- <button type="button" data-bottom="chart"><span class="bottomIcon" aria-hidden="true">▦</span><span>Chart</span></button>
- <button type="button" data-bottom="guruagasthiya"><span class="bottomIcon" aria-hidden="true">✧</span><span>GuruAgasthiya</span></button>
+ <button type="button" data-bottom="chart"><span class="bottomIcon" aria-hidden="true">◴</span><span>Chart</span></button>
+ <button type="button" data-bottom="notifications"><span class="bottomIcon" aria-hidden="true">♧</span><span>Notifications</span></button>
+ <button type="button" data-bottom="settings"><span class="bottomIcon" aria-hidden="true">⚙</span><span>Settings</span></button>
 </nav>
 <script id="web259-english-display-only">
 (function(){
@@ -3598,21 +3631,27 @@ if('serviceWorker' in navigator){ navigator.serviceWorker.register('./sw.js?v=2.
 })();
 </script>
 
-<script id="web255-mobile-navigation">
+<script id="web262-mobile-navigation">
 (function(){
  const quick=[...document.querySelectorAll('[data-bottom]')];
  function syncQuick(target){quick.forEach(b=>b.classList.toggle('active',b.dataset.bottom===target));}
- quick.forEach(b=>b.addEventListener('click',()=>{
-  const target=b.dataset.bottom;
+ function activateSection(target){
+  if(target==='notifications') target='results';
+  if(target==='settings') target='data';
   if(target==='dashboard'){
-   const original=document.querySelector('nav:not(.mobileBottomNav) button[data-t="dashboard"]');if(original)original.click();
+   document.querySelectorAll('section').forEach(x=>x.classList.remove('active'));
+   const home=document.getElementById('dashboard');if(home)home.classList.add('active');
+   document.querySelectorAll('nav:not(.mobileBottomNav) button').forEach(x=>x.classList.remove('active'));
   }else{
    const original=document.querySelector('nav:not(.mobileBottomNav) button[data-t="'+target+'"]');if(original)original.click();
   }
-  syncQuick(target);window.scrollTo({top:0,behavior:'smooth'});
+ }
+ quick.forEach(b=>b.addEventListener('click',()=>{const target=b.dataset.bottom;activateSection(target);syncQuick(target);window.scrollTo({top:0,behavior:'smooth'});}));
+ document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>{syncQuick(b.dataset.go==='chart'?'chart':'dashboard');}));
+ document.querySelectorAll('[data-home-tool]').forEach(b=>b.addEventListener('click',()=>{
+  const key=b.dataset.homeTool;const original=document.querySelector('nav:not(.mobileBottomNav) button[data-tool="'+key+'"]');
+  if(original){original.click();syncQuick('dashboard');window.scrollTo({top:0,behavior:'smooth'});}
  }));
- document.querySelectorAll('nav:not(.mobileBottomNav) button').forEach(b=>b.addEventListener('click',()=>syncQuick(b.dataset.t)));
- document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>syncQuick(b.dataset.go)));
 })();
 </script>
 </body></html>
