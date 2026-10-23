@@ -1,5 +1,5 @@
-/* Web 2.60: invalidate older cached app shells so GitHub Pages serves the corrected combined app. */
-const CACHE_NAME = 'kp-muhurat-combined-v2-60';
+/* Web 2.64: invalidate older cached app shells so GitHub Pages serves the corrected combined app. */
+const CACHE_NAME = 'kp-muhurat-combined-v2-64';
 const APP_SHELL = ['./', './index.html', './guruagasthiya.html', './manifest.webmanifest', './kp-icon-192.png', './kp-icon-512.png'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(APP_SHELL)).then(() => self.skipWaiting()));
