@@ -745,8 +745,32 @@ header small{color:#d6e4f2!important}
 .headerLogo{flex:0 0 44px}
 @media(min-width:701px){.mobileBottomNav{display:grid!important}}
 </style>
+
+<style id="web265-fixed-bottom-navigation">
+/* Web 2.65: force the four primary controls to the viewport bottom; no top navigation. UI only. */
+html body nav.mobileBottomNav{position:fixed!important;top:auto!important;bottom:0!important;left:0!important;right:0!important;margin:0!important;z-index:9999!important;display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;width:100%!important;max-width:none!important;transform:none!important;box-sizing:border-box!important;padding:7px 8px calc(7px + env(safe-area-inset-bottom))!important;background:rgba(255,255,255,.97)!important;border-top:1px solid #e4e1d8!important;border-bottom:0!important;box-shadow:0 -4px 18px rgba(44,40,19,.08)!important;backdrop-filter:blur(14px)!important;overflow:visible!important;white-space:normal!important}
+html body nav.mobileBottomNav button{position:relative!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;min-width:0!important;min-height:54px!important;margin:0!important;padding:5px 2px!important;border:0!important;border-radius:10px!important;background:transparent!important;color:#6e7479!important;font:600 11px/1.15 system-ui,Arial,sans-serif!important;white-space:nowrap!important}
+html body nav.mobileBottomNav button .bottomIcon{font-size:24px!important;line-height:1.1!important;color:inherit!important}
+html body nav.mobileBottomNav button.active{background:#eaf4ff!important;color:#075ca0!important}
+html body nav.mobileBottomNav button.active .bottomIcon{color:#0c76b8!important}
+html body nav:not(.mobileBottomNav){display:none!important}
+body{padding-bottom:calc(76px + env(safe-area-inset-bottom))!important}
+@media(min-width:701px){html body nav.mobileBottomNav{left:50%!important;right:auto!important;width:min(100%,1000px)!important;transform:translateX(-50%)!important;border-radius:16px 16px 0 0!important}}
+</style>
+
+<style id="web265-fixed-bottom-navigation">
+/* Web 2.65: force the four primary controls to the viewport bottom; no top navigation. UI only. */
+html body nav.mobileBottomNav{position:fixed!important;top:auto!important;bottom:0!important;left:0!important;right:0!important;margin:0!important;z-index:9999!important;display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;width:100%!important;max-width:none!important;transform:none!important;box-sizing:border-box!important;padding:7px 8px calc(7px + env(safe-area-inset-bottom))!important;background:rgba(255,255,255,.97)!important;border-top:1px solid #e4e1d8!important;border-bottom:0!important;box-shadow:0 -4px 18px rgba(44,40,19,.08)!important;backdrop-filter:blur(14px)!important;overflow:visible!important;white-space:normal!important}
+html body nav.mobileBottomNav button{position:relative!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;min-width:0!important;min-height:54px!important;margin:0!important;padding:5px 2px!important;border:0!important;border-radius:10px!important;background:transparent!important;color:#6e7479!important;font:600 11px/1.15 system-ui,Arial,sans-serif!important;white-space:nowrap!important}
+html body nav.mobileBottomNav button .bottomIcon{font-size:24px!important;line-height:1.1!important;color:inherit!important}
+html body nav.mobileBottomNav button.active{background:#eaf4ff!important;color:#075ca0!important}
+html body nav.mobileBottomNav button.active .bottomIcon{color:#0c76b8!important}
+html body nav:not(.mobileBottomNav){display:none!important}
+body{padding-bottom:calc(76px + env(safe-area-inset-bottom))!important}
+@media(min-width:701px){html body nav.mobileBottomNav{left:50%!important;right:auto!important;width:min(100%,1000px)!important;transform:translateX(-50%)!important;border-radius:16px 16px 0 0!important}}
+</style>
 </head><body>
-<header><div class="headerBrand"><img class="headerLogo" src="kp-icon-192.png" alt="GuruAgasthiya astrology logo" width="36" height="36"><div><b>KP Muhurat</b> <small>V 1.5.11 — Web 2.64</small></div></div></header>
+<header><div class="headerBrand"><img class="headerLogo" src="kp-icon-192.png" alt="GuruAgasthiya astrology logo" width="36" height="36"><div><b>KP Muhurat</b> <small>V 1.5.11 — Web 2.65</small></div></div></header>
 <nav aria-label="KP Muhurat sections"><button class="active" data-t="data">Data</button><button data-t="results">Results</button><button data-t="muhurtham">Muhurtham</button><button data-t="chart">Chart</button><button data-t="analysis">Analysis</button><button data-tool="lostBtn">Lost &amp; Found</button><button data-tool="cuspBtn">Cuspal Chart</button><button data-tool="rangeBtn">Date-wise Muhurtham</button><button data-tool="raceBtn">Horse Race</button><button data-tool="gpBtn">GMP Prasnam</button><button data-tool="cmBtn">Chandra Muhurtham</button></nav>
 <main>
 <section id="dashboard" class="active">
@@ -3578,7 +3602,7 @@ initEngine();
     });
   }
 })();
-if('serviceWorker' in navigator){ navigator.serviceWorker.register('./sw.js?v=2.59').catch(function(e){console.warn('SW registration failed',e);}); }
+if('serviceWorker' in navigator){ navigator.serviceWorker.register('./sw.js?v=2.65').catch(function(e){console.warn('SW registration failed',e);}); }
   var b=document.getElementById('install');
   var deferred=null;
   function updateInstallState(){
