@@ -775,11 +775,18 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom))!important}
 @media(max-width:520px){.appInstallButton{width:100%;min-height:46px}.appInstallActions{gap:6px}.appInstallActions>span{width:100%;text-align:center}}
 </style>
 </head><body>
-<header><div class="headerBrand"><img class="headerLogo" src="kp-icon-512.png" alt="KP Muhurat gold astrology logo"><div><b>KP Muhurat</b> <small>V 1.5.11 — Web 2.69</small></div></div></header>
+<header><div class="headerBrand"><img class="headerLogo" src="kp-icon-512.png" alt="KP Muhurat gold astrology logo"><div><b>KP Muhurat</b> <small>V 1.5.11 — Web 2.70</small></div></div></header>
 <nav aria-label="KP Muhurat sections"><button class="active" data-t="data">Data</button><button data-t="results">Results</button><button data-t="muhurtham">Muhurtham</button><button data-t="chart">Chart</button><button data-t="analysis">Analysis</button><button data-tool="lostBtn">Lost &amp; Found</button><button data-tool="cuspBtn">Cuspal Chart</button><button data-tool="rangeBtn">Date-wise Muhurtham</button><button data-tool="raceBtn">Horse Race</button><button data-tool="gpBtn">GMP Prasnam</button><button data-tool="cmBtn">Chandra Muhurtham</button></nav>
 <main>
 <section id="dashboard" class="active">
   <div class="homeWelcome"><div class="homeWelcomeEyebrow">KP ASTROLOGY</div><h2>KP Muhurat</h2><p>Choose a calculation, chart, or timing tool.</p><div class="appInstallActions"><button class="appInstallButton" id="install" type="button">⬇ Install app</button><span>Install on your Android home screen</span></div></div>
+<dialog id="installHelp" aria-labelledby="installHelpTitle" style="width:min(92vw,420px);border:0;border-radius:18px;padding:22px;color:#17313d;box-shadow:0 20px 60px #071b2b55">
+  <h3 id="installHelpTitle" style="margin:0 0 10px;font-size:20px">Install KP Muhurat</h3>
+  <p style="line-height:1.5;margin:0 0 10px">Your browser has not offered the automatic install prompt yet. To install on Android:</p>
+  <ol style="padding-left:22px;line-height:1.65;margin:0 0 16px"><li>Open this website in <b>Google Chrome</b>.</li><li>Tap the <b>⋮</b> menu in the top-right corner.</li><li>Choose <b>Install app</b> or <b>Add to Home screen</b>.</li></ol>
+  <p style="font-size:12px;color:#61727a;line-height:1.5">This installs KP Muhurat as a web app. It does not download an APK file. If the install option is missing, refresh the website and check again.</p>
+  <button id="installHelpClose" type="button" style="display:block;margin-left:auto;padding:10px 20px;border:0;border-radius:10px;background:#174a83;color:#fff;font-weight:700">OK</button>
+</dialog>
   <div class="homeGroup"><div class="homeGroupTitle"><span class="homeGroupAccent"></span><div><h3>KP Muhurat</h3><p>Core calculations and chart tools</p></div></div>
     <div class="kp-shortcut-grid" aria-label="KP Muhurat tools">
       <button class="kp-shortcut-card" type="button" data-go="data"><span class="kp-shortcut-icon icon-home">☷</span><span>Event Data</span></button>
@@ -3607,34 +3614,45 @@ initEngine();
     });
   }
 })();
-if('serviceWorker' in navigator){ navigator.serviceWorker.register('./sw.js?v=2.69').catch(function(e){console.warn('SW registration failed',e);}); }
+if('serviceWorker' in navigator){ navigator.serviceWorker.register('./sw.js?v=2.70').catch(function(e){console.warn('SW registration failed',e);}); }
   var b=document.getElementById('install');
   var deferred=null;
+  var installHelp=document.getElementById('installHelp');
+  var installHelpClose=document.getElementById('installHelpClose');
+  function isInstalled(){
+    return !!((window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) || window.navigator.standalone === true);
+  }
   function updateInstallState(){
-    var standalone=window.matchMedia && window.matchMedia('(display-mode: standalone)').matches;
-    if(standalone){ if(b)b.hidden=true; return; }
-    if(b)b.hidden=false;
+    if(isInstalled()){if(b){b.hidden=true;}return;}
+    if(b){b.hidden=false;b.disabled=false;b.textContent='⬇ Install app';}
+  }
+  function showInstallHelp(){
+    if(installHelp && typeof installHelp.showModal==='function') installHelp.showModal();
+    else if(installHelp) installHelp.setAttribute('open','');
   }
   updateInstallState();
   window.addEventListener('beforeinstallprompt',function(e){
     e.preventDefault();
     deferred=e;
-    if(b){b.hidden=false;b.disabled=false;b.textContent='Install app';}
+    if(b){b.hidden=false;b.disabled=false;b.textContent='⬇ Install app';}
   });
-  window.addEventListener('appinstalled',function(){
-    deferred=null;
-    if(b){b.hidden=true;}
-  });
-  if(b)b.onclick=async function(){
+  window.addEventListener('appinstalled',function(){deferred=null;updateInstallState();});
+  if(installHelpClose)installHelpClose.addEventListener('click',function(){if(installHelp && installHelp.open)installHelp.close();else if(installHelp)installHelp.removeAttribute('open');});
+  if(installHelp)installHelp.addEventListener('click',function(e){if(e.target===installHelp && installHelp.open)installHelp.close();});
+  if(b)b.addEventListener('click',async function(){
+    if(isInstalled()){updateInstallState();return;}
     if(deferred){
-      var p=deferred;
-      deferred=null;
-      try{await p.prompt(); await p.userChoice;}catch(e){console.warn('Install prompt failed',e);}
+      var promptEvent=deferred;deferred=null;
+      try{
+        await promptEvent.prompt();
+        var choice=await promptEvent.userChoice;
+        if(choice && choice.outcome==='accepted') {b.textContent='Installing…';}
+      }catch(e){console.warn('PWA install prompt failed',e);}
       updateInstallState();
       return;
     }
-    alert('To install KP Muhurat on Android: open this website in Chrome, tap ⋮ in the top-right corner, then choose Install app or Add to Home screen. If you do not see that option, refresh the website and try again. This is a web app installation, not an APK download.');
-  };
+    showInstallHelp();
+  });
 })();
 </script>
 

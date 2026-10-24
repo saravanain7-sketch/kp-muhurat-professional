@@ -96,3 +96,12 @@ Web 2.67 branding update: the existing gold astrology logo is shown in the KP Mu
 - Kept the existing web manifest and high-resolution app icons. This installs the website as a PWA; it does not provide a standalone APK file.
 - Updated service-worker cache version to refresh the new Home screen install control.
 - No KP astronomy or Muhurtham calculation functions were intentionally changed.
+
+
+## Web 2.70 — Installation button fallback improvement
+- The Install app button uses the browser's native PWA install prompt when the browser fires `beforeinstallprompt`.
+- When that event is not available, a readable in-page installation guide is shown instead of a JavaScript alert.
+- Detects standalone/PWA mode and hides the install button after the app is installed.
+- Updated the service-worker cache name and script query to Web 2.70.
+- No KP astronomy, Muhurtham selection, transition, or timing functions were intentionally changed.
+- This remains a PWA installation, not an APK download.
