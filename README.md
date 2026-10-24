@@ -131,3 +131,11 @@ Web 2.67 branding update: the existing gold astrology logo is shown in the KP Mu
 - Bumped service-worker cache namespace to refresh the new embedded page.
 - No KP Muhurat calculation source in `index.html` was intentionally changed.
 - Static syntax and ZIP integrity checks are recorded with this package; live timing parity and visual testing on Android are still required.
+
+
+## Web 2.74 — GuruAgasthiya 4.7 dashboard shortcuts
+- Updated the visible app version to Web 2.74 and the embedded GuruAgasthiya label to V4.7.
+- Added Home dashboard shortcut cards for all 12 tools shown in the supplied screenshot: Live transit chart, Lost & Found, Cuspal chart, Date-range muhurtham, Horse race, GMP Prasnam, Birth chart, Astrocartography, Lottery rules, Money manifestation, Cricket wicket, and Chandra muhurtham.
+- Added Tamil labels to each shortcut. Each shortcut opens the embedded GuruAgasthiya page and activates the corresponding existing tool button.
+- Bumped the service-worker cache name to v2-74 to reduce stale-version issues after deployment.
+- No KP Muhurat calculation functions or GuruAgasthiya tool calculation functions were intentionally modified.

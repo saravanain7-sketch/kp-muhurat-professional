@@ -773,9 +773,15 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom))!important}
 .dataActionRow #show{margin:0}
 .dataActionRow #placeDbStatus{font-size:12px}
 @media(max-width:520px){.dataActionRow{gap:8px}.dataActionRow #show{width:auto;flex:1;min-width:0;padding-left:10px;padding-right:10px}.dataActionRow #placeDbStatus{width:100%;margin-left:0!important}}
+
+/* Web 2.74: bilingual GuruAgasthiya 4.7 shortcuts on the Home dashboard. */
+.kp-shortcut-card [data-unused]{display:none}
+.kp-shortcut-card span:last-child{min-width:0;line-height:1.25}
+.kp-shortcut-card span:last-child small{display:block;margin-top:4px;font-size:12px;font-weight:600;line-height:1.35;color:#647784}
+@media(max-width:520px){.kp-shortcut-card span:last-child small{font-size:11px}.kp-shortcut-card{min-height:96px}}
 </style>
 </head><body>
-<header><div class="headerBrand"><img class="headerLogo" src="kp-icon-512.png" alt="KP Muhurat gold astrology logo"><div><b>KP Muhurat</b> <small>V 1.5.11 — Web 2.73</small></div></div></header>
+<header><div class="headerBrand"><img class="headerLogo" src="kp-icon-512.png" alt="KP Muhurat gold astrology logo"><div><b>KP Muhurat</b> <small>V 1.5.11 — Web 2.74</small></div></div></header>
 <nav aria-label="KP Muhurat sections"><button class="active" data-t="data">Data</button><button data-t="results">Results</button><button data-t="muhurtham">Muhurtham</button><button data-t="chart">Chart</button><button data-t="analysis">Analysis</button><button data-tool="lostBtn">Lost &amp; Found</button><button data-tool="cuspBtn">Cuspal Chart</button><button data-tool="rangeBtn">Date-wise Muhurtham</button><button data-tool="raceBtn">Horse Race</button><button data-tool="gpBtn">GMP Prasnam</button><button data-tool="cmBtn">Chandra Muhurtham</button></nav>
 <main>
 <section id="dashboard" class="active">
@@ -792,12 +798,18 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom))!important}
   </div>
   <div class="homeGroup"><div class="homeGroupTitle"><span class="homeGroupAccent" style="background:#5ab7a5"></span><div><h3>Additional Tools</h3><p>Specialized astrology tools</p></div></div>
     <div class="kp-shortcut-grid" aria-label="Additional astrology tools">
-      <button class="kp-shortcut-card" type="button" data-home-tool="lostBtn"><span class="kp-shortcut-icon">⌕</span><span>Lost &amp; Found</span></button>
-      <button class="kp-shortcut-card" type="button" data-home-tool="cuspBtn"><span class="kp-shortcut-icon icon-chart">▦</span><span>Cuspal Chart</span></button>
-      <button class="kp-shortcut-card" type="button" data-home-tool="rangeBtn"><span class="kp-shortcut-icon icon-muhurtham">◷</span><span>Date-wise Muhurtham</span></button>
-      <button class="kp-shortcut-card" type="button" data-home-tool="raceBtn"><span class="kp-shortcut-icon" style="background:#f0eafa;color:#7962b6">♜</span><span>Horse Race</span></button>
-      <button class="kp-shortcut-card" type="button" data-home-tool="gpBtn"><span class="kp-shortcut-icon icon-results">◉</span><span>GMP Prasnam</span></button>
-      <button class="kp-shortcut-card" type="button" data-home-tool="cmBtn"><span class="kp-shortcut-icon" style="background:#eaf0ff;color:#647ac1">☾</span><span>Chandra Muhurtham</span></button>
+      <button class="kp-shortcut-card" type="button" data-guru-tool="liveBtn"><span class="kp-shortcut-icon icon-chart">◉</span><span>Live transit chart <small>நேரலை சக்கரம்</small></span></button>
+      <button class="kp-shortcut-card" type="button" data-guru-tool="lostBtn"><span class="kp-shortcut-icon">⌕</span><span>Lost &amp; Found <small>தொலைந்த பொருள் மீட்பு</small></span></button>
+      <button class="kp-shortcut-card" type="button" data-guru-tool="cuspBtn"><span class="kp-shortcut-icon icon-chart">▦</span><span>Cuspal chart <small>பாவ கஸ்ப் விவரம்</small></span></button>
+      <button class="kp-shortcut-card" type="button" data-guru-tool="rangeBtn"><span class="kp-shortcut-icon icon-muhurtham">◷</span><span>Date-range muhurtham <small>தேதி வரம்பு முகூர்த்தம்</small></span></button>
+      <button class="kp-shortcut-card" type="button" data-guru-tool="raceBtn"><span class="kp-shortcut-icon" style="background:#f0eafa;color:#7962b6">♜</span><span>Horse race <small>குதிரைப் பந்தயம்</small></span></button>
+      <button class="kp-shortcut-card" type="button" data-guru-tool="gpBtn"><span class="kp-shortcut-icon icon-results">◉</span><span>GMP Prasnam <small>ஜிஎம்பி பிரசன்னம்</small></span></button>
+      <button class="kp-shortcut-card" type="button" data-guru-tool="bpBtn"><span class="kp-shortcut-icon icon-muhurtham">☼</span><span>Birth chart <small>பிறப்பு ஜாதகம்</small></span></button>
+      <button class="kp-shortcut-card" type="button" data-guru-tool="acBtn"><span class="kp-shortcut-icon icon-chart">⌖</span><span>Astrocartography <small>ஜோதிட வரைபடம்</small></span></button>
+      <button class="kp-shortcut-card" type="button" data-guru-tool="ltBtn"><span class="kp-shortcut-icon icon-results">★</span><span>Lottery rules <small>லாட்டரி விதிகள்</small></span></button>
+      <button class="kp-shortcut-card" type="button" data-guru-tool="mmBtn"><span class="kp-shortcut-icon icon-muhurtham">₹</span><span>Money manifestation <small>பணம் ஈர்ப்பு</small></span></button>
+      <button class="kp-shortcut-card" type="button" data-guru-tool="ckBtn"><span class="kp-shortcut-icon icon-chart">♟</span><span>Cricket wicket <small>கிரிக்கெட் விக்கெட்</small></span></button>
+      <button class="kp-shortcut-card" type="button" data-guru-tool="cmBtn"><span class="kp-shortcut-icon" style="background:#eaf0ff;color:#647ac1">☾</span><span>Chandra muhurtham <small>சந்திர முகூர்த்தம்</small></span></button>
     </div>
   </div>
   <div class="homeQuickInfo"><div><span class="homeInfoIcon">⌖</span><div><b>Calculation location</b><span id="dashPlace">Coimbatore, Tamil Nadu, India</span></div></div><div><span class="homeInfoIcon">◷</span><div><b>Time window</b><span id="dashWindow">09:00–22:00</span></div></div><button type="button" class="homeEditButton" data-go="data">Settings / Edit event data →</button></div>
@@ -827,12 +839,12 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom))!important}
   <div class="panel guruEmbeddedIntro">
     <div class="guruHero">
       <div class="guruHeroIcon"><img src="kp-icon-192.png" alt="GuruAgasthiya logo" width="58" height="58" loading="eager"></div>
-      <div class="guruHeroCopy"><div class="guruEyebrow">INTEGRATED TOOL</div><h2>GuruAgasthiya</h2><p>V3.3.1 · 249 KP Sub-lord Timings</p></div>
+      <div class="guruHeroCopy"><div class="guruEyebrow">INTEGRATED TOOL</div><h2>GuruAgasthiya</h2><p>V4.7 · English &amp; தமிழ் · KP Astrology Tools</p></div>
       <div class="guruInlineBadge"><span></span> In this app</div>
     </div>
-    <p class="guruIntroText">Use the complete GuruAgasthiya timing tool below without opening a separate page. Its calculations remain independent of the KP Muhurat V1.5.11 selection engine.</p>
+    <p class="guruIntroText">Use GuruAgasthiya 4.7 tools in English and Tamil below. Its calculations remain independent of the KP Muhurat V1.5.11 selection engine.</p>
   </div>
-  <div class="guruEmbeddedFrameWrap"><iframe id="guruAgasthiyaFrame" title="GuruAgasthiya 3.3.1 KP Lagna sub-lord timing tool embedded in KP Muhurat" src="./guruagasthiya.html" loading="eager" referrerpolicy="same-origin" allow="geolocation" ></iframe></div>
+  <div class="guruEmbeddedFrameWrap"><iframe id="guruAgasthiyaFrame" title="GuruAgasthiya 4.7 KP Astrology tools embedded in KP Muhurat" src="./guruagasthiya.html" loading="eager" referrerpolicy="same-origin" allow="geolocation" ></iframe></div>
 </section>
 
 <section id="results"><div class="panel"><div class="chosenResultsHeader"><div class="titlebar">Chosen Muhurats</div><div class="chosenTimeControl"><label for="chosenChartTime">Time</label><input id="chosenChartTime" type="text" inputmode="numeric" autocomplete="off" maxlength="8" pattern="(?:[01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]" aria-label="Chart time in 24-hour HH:MM:SS format" value="06:10:44" title="24-hour time, HH:MM:SS"></div></div><div class="wide chosenWide"><table id="chosenTable"><thead><tr><th>Date</th><th>Time</th><th>SnL</th><th>StL</th><th>SbL</th><th>Y/N</th><th>Reason</th></tr></thead><tbody id="chosen"></tbody></table></div></div>
@@ -3665,6 +3677,16 @@ if('serviceWorker' in navigator){ navigator.serviceWorker.register('./sw.js?v=2.
  document.querySelectorAll('[data-home-tool]').forEach(b=>b.addEventListener('click',()=>{
   const key=b.dataset.homeTool;const original=document.querySelector('nav:not(.mobileBottomNav) button[data-tool="'+key+'"]');
   if(original){original.click();syncQuick('dashboard');window.scrollTo({top:0,behavior:'smooth'});}
+ }));
+ document.querySelectorAll('[data-guru-tool]').forEach(b=>b.addEventListener('click',()=>{
+  const section=document.getElementById('guruagasthiya');
+  document.querySelectorAll('section').forEach(x=>x.classList.remove('active'));
+  if(section)section.classList.add('active');
+  syncQuick('dashboard');
+  const frame=document.getElementById('guruAgasthiyaFrame');
+  const openTool=()=>{try{const target=frame.contentDocument&&frame.contentDocument.getElementById(b.dataset.guruTool);if(target)target.click();}catch(e){}}
+  if(frame){if(frame.contentDocument&&frame.contentDocument.readyState==='complete')openTool();else frame.addEventListener('load',openTool,{once:true});}
+  window.scrollTo({top:0,behavior:'smooth'});
  }));
 })();
 </script>
