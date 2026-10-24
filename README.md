@@ -121,3 +121,13 @@ Web 2.67 branding update: the existing gold astrology logo is shown in the KP Mu
 - Kept the gold astrology logo in the app header and retained PWA manifest/icons/service worker for the already-installed app.
 - Updated the visible version and service-worker cache namespace to Web 2.72.
 - No KP astronomy, calculation, transition, or Muhurtham-selection functions were intentionally changed.
+
+
+## Web 2.73 — GuruAgasthiya 4.7 integration
+- Replaced the embedded GuruAgasthiya 3.3-era web module with the supplied GuruAgasthiya 4.7 APK's `assets/index.html`.
+- Retains the v4.7 interface and its English/Tamil labels and tools from the supplied APK.
+- Keeps the KP Muhurat Data tab as the shared source for date, start time, latitude, longitude, timezone, and KP ayanamsa when GuruAgasthiya is embedded.
+- Hides duplicate GuruAgasthiya date/location controls in the embedded view; the full v4.7 form remains available when the HTML is opened standalone.
+- Bumped service-worker cache namespace to refresh the new embedded page.
+- No KP Muhurat calculation source in `index.html` was intentionally changed.
+- Static syntax and ZIP integrity checks are recorded with this package; live timing parity and visual testing on Android are still required.
