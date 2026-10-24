@@ -88,3 +88,11 @@ Web 2.67 branding update: the existing gold astrology logo is shown in the KP Mu
 - The existing header and manifest already reference these assets, so the same emblem is used in the header, favicon, and installable app icon.
 - Updated the service-worker cache version to `kp-muhurat-combined-v2-68` so browsers can refresh cached assets.
 - No astronomical calculation functions were intentionally changed.
+
+
+## Web 2.69 — Mobile app installation
+- Added a prominent Install app button to the Home screen, using the existing PWA install prompt when supported by the browser.
+- If the browser does not provide an install prompt, the button explains the Android Chrome menu path: Install app / Add to Home screen.
+- Kept the existing web manifest and high-resolution app icons. This installs the website as a PWA; it does not provide a standalone APK file.
+- Updated service-worker cache version to refresh the new Home screen install control.
+- No KP astronomy or Muhurtham calculation functions were intentionally changed.
