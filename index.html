@@ -772,10 +772,14 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom))!important}
 .appInstallActions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:14px}
 .appInstallButton{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:11px 18px;border:0;border-radius:12px;background:linear-gradient(120deg,#176da4,#0b3e70);color:#fff;font-weight:800;font-size:14px;box-shadow:0 4px 12px rgba(13,76,122,.2);cursor:pointer}
 .appInstallActions>span{font-size:12px;color:#61727a}
-@media(max-width:520px){.appInstallButton{width:100%;min-height:46px}.appInstallActions{gap:6px}.appInstallActions>span{width:100%;text-align:center}}
+.dataActionRow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px}
+.dataActionRow #show{margin:0}
+.dataInstallButton{min-height:46px;padding:11px 15px;white-space:nowrap}
+.dataActionRow #placeDbStatus{font-size:12px}
+@media(max-width:520px){.appInstallButton{width:100%;min-height:46px}.appInstallActions{gap:6px}.appInstallActions>span{width:100%;text-align:center}.dataActionRow{gap:8px}.dataActionRow #show,.dataActionRow .dataInstallButton{width:auto;flex:1;min-width:0;padding-left:10px;padding-right:10px}.dataActionRow #placeDbStatus{width:100%;margin-left:0!important}}
 </style>
 </head><body>
-<header><div class="headerBrand"><img class="headerLogo" src="kp-icon-512.png" alt="KP Muhurat gold astrology logo"><div><b>KP Muhurat</b> <small>V 1.5.11 — Web 2.70</small></div></div></header>
+<header><div class="headerBrand"><img class="headerLogo" src="kp-icon-512.png" alt="KP Muhurat gold astrology logo"><div><b>KP Muhurat</b> <small>V 1.5.11 — Web 2.71</small></div></div></header>
 <nav aria-label="KP Muhurat sections"><button class="active" data-t="data">Data</button><button data-t="results">Results</button><button data-t="muhurtham">Muhurtham</button><button data-t="chart">Chart</button><button data-t="analysis">Analysis</button><button data-tool="lostBtn">Lost &amp; Found</button><button data-tool="cuspBtn">Cuspal Chart</button><button data-tool="rangeBtn">Date-wise Muhurtham</button><button data-tool="raceBtn">Horse Race</button><button data-tool="gpBtn">GMP Prasnam</button><button data-tool="cmBtn">Chandra Muhurtham</button></nav>
 <main>
 <section id="dashboard" class="active">
@@ -817,7 +821,7 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom))!important}
 <div class="grid3"><label>Longitude<input id="lon" value="76:58:00"></label><select id="londir"><option>E</option><option>W</option></select></div>
 <div class="grid3"><label>Time Zone<input id="tz" value="05:30:00"></label><select id="tzdir"><option>East of UT</option><option>West of UT</option></select></div>
 <label>Event<select id="event"><option>Loading extracted events…</option></select></label>
-<button class="btn" id="show" disabled>Loading engine…</button><span id="placeDbStatus" class="muted" style="margin-left:8px">Place DB: local package</span>
+<div class="dataActionRow"><button class="btn" id="show" disabled>Loading engine…</button><button class="appInstallButton dataInstallButton" id="installData" type="button">⬇ Install app</button><span id="placeDbStatus" class="muted">Place DB: local package</span></div>
 <div id="status" class="status">Browser-only mode. No Python server is required.</div>
 <!-- Web 2.59: removed duplicate navigation cards from Data; shortcuts live on Home only. -->
 </div>
@@ -3615,7 +3619,7 @@ initEngine();
   }
 })();
 if('serviceWorker' in navigator){ navigator.serviceWorker.register('./sw.js?v=2.70').catch(function(e){console.warn('SW registration failed',e);}); }
-  var b=document.getElementById('install');
+  var installButtons=[document.getElementById('install'),document.getElementById('installData')].filter(Boolean);
   var deferred=null;
   var installHelp=document.getElementById('installHelp');
   var installHelpClose=document.getElementById('installHelpClose');
@@ -3623,8 +3627,10 @@ if('serviceWorker' in navigator){ navigator.serviceWorker.register('./sw.js?v=2.
     return !!((window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) || window.navigator.standalone === true);
   }
   function updateInstallState(){
-    if(isInstalled()){if(b){b.hidden=true;}return;}
-    if(b){b.hidden=false;b.disabled=false;b.textContent='⬇ Install app';}
+    installButtons.forEach(function(button){
+      if(isInstalled()){button.hidden=true;}
+      else{button.hidden=false;button.disabled=false;button.textContent='⬇ Install app';}
+    });
   }
   function showInstallHelp(){
     if(installHelp && typeof installHelp.showModal==='function') installHelp.showModal();
@@ -3634,25 +3640,25 @@ if('serviceWorker' in navigator){ navigator.serviceWorker.register('./sw.js?v=2.
   window.addEventListener('beforeinstallprompt',function(e){
     e.preventDefault();
     deferred=e;
-    if(b){b.hidden=false;b.disabled=false;b.textContent='⬇ Install app';}
+    updateInstallState();
   });
   window.addEventListener('appinstalled',function(){deferred=null;updateInstallState();});
   if(installHelpClose)installHelpClose.addEventListener('click',function(){if(installHelp && installHelp.open)installHelp.close();else if(installHelp)installHelp.removeAttribute('open');});
   if(installHelp)installHelp.addEventListener('click',function(e){if(e.target===installHelp && installHelp.open)installHelp.close();});
-  if(b)b.addEventListener('click',async function(){
+  installButtons.forEach(function(button){button.addEventListener('click',async function(){
     if(isInstalled()){updateInstallState();return;}
     if(deferred){
       var promptEvent=deferred;deferred=null;
       try{
         await promptEvent.prompt();
         var choice=await promptEvent.userChoice;
-        if(choice && choice.outcome==='accepted') {b.textContent='Installing…';}
+        if(choice && choice.outcome==='accepted') installButtons.forEach(function(item){item.textContent='Installing…';});
       }catch(e){console.warn('PWA install prompt failed',e);}
       updateInstallState();
       return;
     }
     showInstallHelp();
-  });
+  });});
 })();
 </script>
 

@@ -105,3 +105,10 @@ Web 2.67 branding update: the existing gold astrology logo is shown in the KP Mu
 - Updated the service-worker cache name and script query to Web 2.70.
 - No KP astronomy, Muhurtham selection, transition, or timing functions were intentionally changed.
 - This remains a PWA installation, not an APK download.
+
+
+## Web 2.71 — Install button beside Show
+- Added a second Install app button beside the Show button in the Data form, while retaining the Home screen install button.
+- Both buttons use the same native PWA install prompt when Chrome provides it, and share the same fallback guidance otherwise.
+- Updated the service-worker cache namespace to `kp-muhurat-combined-v2-71`.
+- No KP astronomy, transition, selection, or Muhurtham calculation functions were intentionally changed.
