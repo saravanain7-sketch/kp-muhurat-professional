@@ -67,7 +67,7 @@ Web 2.61 update: horizontal 11-section navigation in the requested order: Data, 
 Web 2.61 UI fix: when opening Lost & Found, Cuspal Chart, Date-wise Muhurtham, Horse Race, GMP Prasnam, or Chandra Muhurtham from the main tabs, the embedded GuruAgasthiya banner and Show timings card are hidden so the selected tool is the first visible content. Calculation logic is unchanged.
 
 
-## Web 2.66 — GuruAgasthiya APK source audit and integration verification
+## Web 2.67 — GuruAgasthiya APK source audit and integration verification
 - Inspected the supplied `GuruAgasthiya-3.3.1.apk`; its main application UI and astronomy scripts are contained in `assets/index.html`.
 - The embedded `guruagasthiya.html` retains the same 116,424-character astronomy library script as the APK. The main GuruAgasthiya tool script differs from the APK original because the web version adds shared KP Data-tab context handling and English-only embedded presentation adjustments.
 - Kept the embedded GuruAgasthiya iframe and shared context bridge: KP date, start time, location, latitude, longitude, UTC offset, and KP ayanamsa are sent from the main Data tab. When requested, the embedded tool recalculates on receipt.
@@ -77,4 +77,7 @@ Web 2.61 UI fix: when opening Lost & Found, Cuspal Chart, Date-wise Muhurtham, H
 - Timing parity remains to be verified by running the APK and web app with identical date, time, coordinates, timezone, and ayanamsa; source inspection alone cannot prove output parity.
 
 
-Web 2.66: removed the logo image from the top header only. Bottom navigation icons (Home, Chart, Notifications, Settings) remain. No calculation logic was intentionally changed.
+Web 2.67: removed the logo image from the top header only. Bottom navigation icons (Home, Chart, Notifications, Settings) remain. No calculation logic was intentionally changed.
+
+
+Web 2.67 branding update: the existing gold astrology logo is shown in the KP Muhurat header and retained as the PWA/app icon. Calculation logic is unchanged.
