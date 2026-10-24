@@ -769,28 +769,17 @@ html body nav:not(.mobileBottomNav){display:none!important}
 body{padding-bottom:calc(76px + env(safe-area-inset-bottom))!important}
 @media(min-width:701px){html body nav.mobileBottomNav{left:50%!important;right:auto!important;width:min(100%,1000px)!important;transform:translateX(-50%)!important;border-radius:16px 16px 0 0!important}}
 
-.appInstallActions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:14px}
-.appInstallButton{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:11px 18px;border:0;border-radius:12px;background:linear-gradient(120deg,#176da4,#0b3e70);color:#fff;font-weight:800;font-size:14px;box-shadow:0 4px 12px rgba(13,76,122,.2);cursor:pointer}
-.appInstallActions>span{font-size:12px;color:#61727a}
 .dataActionRow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px}
 .dataActionRow #show{margin:0}
-.dataInstallButton{min-height:46px;padding:11px 15px;white-space:nowrap}
 .dataActionRow #placeDbStatus{font-size:12px}
-@media(max-width:520px){.appInstallButton{width:100%;min-height:46px}.appInstallActions{gap:6px}.appInstallActions>span{width:100%;text-align:center}.dataActionRow{gap:8px}.dataActionRow #show,.dataActionRow .dataInstallButton{width:auto;flex:1;min-width:0;padding-left:10px;padding-right:10px}.dataActionRow #placeDbStatus{width:100%;margin-left:0!important}}
+@media(max-width:520px){.dataActionRow{gap:8px}.dataActionRow #show{width:auto;flex:1;min-width:0;padding-left:10px;padding-right:10px}.dataActionRow #placeDbStatus{width:100%;margin-left:0!important}}
 </style>
 </head><body>
-<header><div class="headerBrand"><img class="headerLogo" src="kp-icon-512.png" alt="KP Muhurat gold astrology logo"><div><b>KP Muhurat</b> <small>V 1.5.11 — Web 2.71</small></div></div></header>
+<header><div class="headerBrand"><img class="headerLogo" src="kp-icon-512.png" alt="KP Muhurat gold astrology logo"><div><b>KP Muhurat</b> <small>V 1.5.11 — Web 2.72</small></div></div></header>
 <nav aria-label="KP Muhurat sections"><button class="active" data-t="data">Data</button><button data-t="results">Results</button><button data-t="muhurtham">Muhurtham</button><button data-t="chart">Chart</button><button data-t="analysis">Analysis</button><button data-tool="lostBtn">Lost &amp; Found</button><button data-tool="cuspBtn">Cuspal Chart</button><button data-tool="rangeBtn">Date-wise Muhurtham</button><button data-tool="raceBtn">Horse Race</button><button data-tool="gpBtn">GMP Prasnam</button><button data-tool="cmBtn">Chandra Muhurtham</button></nav>
 <main>
 <section id="dashboard" class="active">
-  <div class="homeWelcome"><div class="homeWelcomeEyebrow">KP ASTROLOGY</div><h2>KP Muhurat</h2><p>Choose a calculation, chart, or timing tool.</p><div class="appInstallActions"><button class="appInstallButton" id="install" type="button">⬇ Install app</button><span>Install on your Android home screen</span></div></div>
-<dialog id="installHelp" aria-labelledby="installHelpTitle" style="width:min(92vw,420px);border:0;border-radius:18px;padding:22px;color:#17313d;box-shadow:0 20px 60px #071b2b55">
-  <h3 id="installHelpTitle" style="margin:0 0 10px;font-size:20px">Install KP Muhurat</h3>
-  <p style="line-height:1.5;margin:0 0 10px">Your browser has not offered the automatic install prompt yet. To install on Android:</p>
-  <ol style="padding-left:22px;line-height:1.65;margin:0 0 16px"><li>Open this website in <b>Google Chrome</b>.</li><li>Tap the <b>⋮</b> menu in the top-right corner.</li><li>Choose <b>Install app</b> or <b>Add to Home screen</b>.</li></ol>
-  <p style="font-size:12px;color:#61727a;line-height:1.5">This installs KP Muhurat as a web app. It does not download an APK file. If the install option is missing, refresh the website and check again.</p>
-  <button id="installHelpClose" type="button" style="display:block;margin-left:auto;padding:10px 20px;border:0;border-radius:10px;background:#174a83;color:#fff;font-weight:700">OK</button>
-</dialog>
+  <div class="homeWelcome"><div class="homeWelcomeEyebrow">KP ASTROLOGY</div><h2>KP Muhurat</h2><p>Choose a calculation, chart, or timing tool.</p></div>
   <div class="homeGroup"><div class="homeGroupTitle"><span class="homeGroupAccent"></span><div><h3>KP Muhurat</h3><p>Core calculations and chart tools</p></div></div>
     <div class="kp-shortcut-grid" aria-label="KP Muhurat tools">
       <button class="kp-shortcut-card" type="button" data-go="data"><span class="kp-shortcut-icon icon-home">☷</span><span>Event Data</span></button>
@@ -821,7 +810,7 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom))!important}
 <div class="grid3"><label>Longitude<input id="lon" value="76:58:00"></label><select id="londir"><option>E</option><option>W</option></select></div>
 <div class="grid3"><label>Time Zone<input id="tz" value="05:30:00"></label><select id="tzdir"><option>East of UT</option><option>West of UT</option></select></div>
 <label>Event<select id="event"><option>Loading extracted events…</option></select></label>
-<div class="dataActionRow"><button class="btn" id="show" disabled>Loading engine…</button><button class="appInstallButton dataInstallButton" id="installData" type="button">⬇ Install app</button><span id="placeDbStatus" class="muted">Place DB: local package</span></div>
+<div class="dataActionRow"><button class="btn" id="show" disabled>Loading engine…</button><span id="placeDbStatus" class="muted">Place DB: local package</span></div>
 <div id="status" class="status">Browser-only mode. No Python server is required.</div>
 <!-- Web 2.59: removed duplicate navigation cards from Data; shortcuts live on Home only. -->
 </div>
@@ -911,7 +900,7 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom))!important}
 
 <section id="notes"><div class="panel"><div class="titlebar">Notes</div><textarea id="notesText" placeholder="Add your own notes here..."></textarea></div></section>
 <section id="placeSelect"><div class="panel"><h3>PlaceSelect</h3><p class="muted">Search a city/place, select the result, or enter a custom location manually. The selected location updates Place, Latitude, Longitude and Time Zone fields on Data.</p><div class="placeRow"><input id="placeSearch" placeholder="Search city or place, e.g. Pallavaram"><button class="btn" id="placeSearchBtn" type="button">Search</button></div><div id="placeResults" class="placeResults"></div><div class="customBox"><h4>Custom Location</h4><div class="grid2"><label>Place name<input id="customPlace" placeholder="My Location"></label><label>Time Zone<input id="customTz" value="05:30:00"></label></div><div class="grid2"><div><label>Latitude (decimal)<input id="customLat" inputmode="decimal" placeholder="12.9761"></label><select id="customLatDir"><option>N</option><option>S</option></select></div><div><label>Longitude (decimal)<input id="customLon" inputmode="decimal" placeholder="80.1825"></label><select id="customLonDir"><option>E</option><option>W</option></select></div></div><button class="btn" id="applyCustom" type="button">✓ Apply Custom Location</button><span class="muted">You can also enter DMS in the Data tab, for example 12:58:34 and 80:11:01.</span></div><button class="btn" id="gps2" type="button">📍 Use Current GPS Location</button></div></section>
-<section id="help"><div class="panel"><h3>Help</h3><p>This is a browser-hosted reconstruction of KPMuhurat V1.5.11 using the supplied event rules, original place database, KP/astronomy logic, VedicBpUtil reference metadata and V1.5.11 regression evidence.</p><p class="muted"><b>Build 1.35 engine note:</b> the supplied Windows V1.5.11 executable, VedicBpUtil and calculation DLLs are included in the ZIP under <code>reference/windows-engine/</code> as the authoritative reverse-engineering reference. Browser execution still uses the WebAssembly astronomy layer; the Windows DLLs are not directly executable inside Chrome.</p><p class="muted">The original Windows executable/source is not embedded in the browser runtime. Web 1.39 uses a live reconstruction of the decoded event-rule and B/M selection path; exact byte-for-byte Windows equivalence remains a validation target. Stored regression fixtures remain diagnostics only and are not injected into production selection. The app opens with the device current date and Coimbatore, Tamil Nadu, India as the default place. For Android Chrome, Install app uses the browser PWA install prompt when available.</p><p><b>Included original data:</b> AstroOpenSourceAtlas place database, events.txt, Settings.xml, license and package checksums.</p></div></section>
+<section id="help"><div class="panel"><h3>Help</h3><p>This is a browser-hosted reconstruction of KPMuhurat V1.5.11 using the supplied event rules, original place database, KP/astronomy logic, VedicBpUtil reference metadata and V1.5.11 regression evidence.</p><p class="muted"><b>Build 1.35 engine note:</b> the supplied Windows V1.5.11 executable, VedicBpUtil and calculation DLLs are included in the ZIP under <code>reference/windows-engine/</code> as the authoritative reverse-engineering reference. Browser execution still uses the WebAssembly astronomy layer; the Windows DLLs are not directly executable inside Chrome.</p><p class="muted">The original Windows executable/source is not embedded in the browser runtime. Web 1.39 uses a live reconstruction of the decoded event-rule and B/M selection path; exact byte-for-byte Windows equivalence remains a validation target. Stored regression fixtures remain diagnostics only and are not injected into production selection. The app opens with the device current date and Coimbatore, Tamil Nadu, India as the default place. The app can be installed through the browser menu when supported.</p><p><b>Included original data:</b> AstroOpenSourceAtlas place database, events.txt, Settings.xml, license and package checksums.</p></div></section>
 </main>
 <script>
 (function(){
@@ -3618,47 +3607,7 @@ initEngine();
     });
   }
 })();
-if('serviceWorker' in navigator){ navigator.serviceWorker.register('./sw.js?v=2.70').catch(function(e){console.warn('SW registration failed',e);}); }
-  var installButtons=[document.getElementById('install'),document.getElementById('installData')].filter(Boolean);
-  var deferred=null;
-  var installHelp=document.getElementById('installHelp');
-  var installHelpClose=document.getElementById('installHelpClose');
-  function isInstalled(){
-    return !!((window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) || window.navigator.standalone === true);
-  }
-  function updateInstallState(){
-    installButtons.forEach(function(button){
-      if(isInstalled()){button.hidden=true;}
-      else{button.hidden=false;button.disabled=false;button.textContent='⬇ Install app';}
-    });
-  }
-  function showInstallHelp(){
-    if(installHelp && typeof installHelp.showModal==='function') installHelp.showModal();
-    else if(installHelp) installHelp.setAttribute('open','');
-  }
-  updateInstallState();
-  window.addEventListener('beforeinstallprompt',function(e){
-    e.preventDefault();
-    deferred=e;
-    updateInstallState();
-  });
-  window.addEventListener('appinstalled',function(){deferred=null;updateInstallState();});
-  if(installHelpClose)installHelpClose.addEventListener('click',function(){if(installHelp && installHelp.open)installHelp.close();else if(installHelp)installHelp.removeAttribute('open');});
-  if(installHelp)installHelp.addEventListener('click',function(e){if(e.target===installHelp && installHelp.open)installHelp.close();});
-  installButtons.forEach(function(button){button.addEventListener('click',async function(){
-    if(isInstalled()){updateInstallState();return;}
-    if(deferred){
-      var promptEvent=deferred;deferred=null;
-      try{
-        await promptEvent.prompt();
-        var choice=await promptEvent.userChoice;
-        if(choice && choice.outcome==='accepted') installButtons.forEach(function(item){item.textContent='Installing…';});
-      }catch(e){console.warn('PWA install prompt failed',e);}
-      updateInstallState();
-      return;
-    }
-    showInstallHelp();
-  });});
+if('serviceWorker' in navigator){ navigator.serviceWorker.register('./sw.js?v=2.72').catch(function(e){console.warn('SW registration failed',e);}); }
 })();
 </script>
 

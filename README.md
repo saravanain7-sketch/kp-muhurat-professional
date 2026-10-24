@@ -112,3 +112,12 @@ Web 2.67 branding update: the existing gold astrology logo is shown in the KP Mu
 - Both buttons use the same native PWA install prompt when Chrome provides it, and share the same fallback guidance otherwise.
 - Updated the service-worker cache namespace to `kp-muhurat-combined-v2-71`.
 - No KP astronomy, transition, selection, or Muhurtham calculation functions were intentionally changed.
+
+
+## Web 2.72 — Remove installation prompts after install
+- Removed the Install app button and helper text from the Home dashboard.
+- Removed the duplicate Install app button beside Show on the Data tab.
+- Removed the install-help dialog and install-button event handlers.
+- Kept the gold astrology logo in the app header and retained PWA manifest/icons/service worker for the already-installed app.
+- Updated the visible version and service-worker cache namespace to Web 2.72.
+- No KP astronomy, calculation, transition, or Muhurtham-selection functions were intentionally changed.
