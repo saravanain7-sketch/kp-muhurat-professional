@@ -81,3 +81,10 @@ Web 2.67: removed the logo image from the top header only. Bottom navigation ico
 
 
 Web 2.67 branding update: the existing gold astrology logo is shown in the KP Muhurat header and retained as the PWA/app icon. Calculation logic is unchanged.
+
+
+## Web 2.68 — High-resolution gold astrology icon
+- Replaced `kp-icon-192.png` and `kp-icon-512.png` with the supplied high-resolution gold astrology emblem.
+- The existing header and manifest already reference these assets, so the same emblem is used in the header, favicon, and installable app icon.
+- Updated the service-worker cache version to `kp-muhurat-combined-v2-68` so browsers can refresh cached assets.
+- No astronomical calculation functions were intentionally changed.
