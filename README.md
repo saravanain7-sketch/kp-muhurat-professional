@@ -139,3 +139,10 @@ Web 2.67 branding update: the existing gold astrology logo is shown in the KP Mu
 - Added Tamil labels to each shortcut. Each shortcut opens the embedded GuruAgasthiya page and activates the corresponding existing tool button.
 - Bumped the service-worker cache name to v2-74 to reduce stale-version issues after deployment.
 - No KP Muhurat calculation functions or GuruAgasthiya tool calculation functions were intentionally modified.
+
+
+## GuruAgasthiya 5.0 integration
+- Replaced the integrated GuruAgasthiya page with the HTML interface bundled in the supplied GuruAgasthiya-5.0.apk.
+- Preserved the KP Muhurat shared Data-tab bridge for date/time/location synchronization.
+- Updated the visible web version to 2.75 and bumped the service-worker cache.
+- The APK itself is not redistributed as the web app; this ZIP contains the integrated web interface.
