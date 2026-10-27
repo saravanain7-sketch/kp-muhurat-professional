@@ -6580,7 +6580,19 @@ document.querySelectorAll('.viewswitch button').forEach(function(b){
   b.addEventListener('click',function(){setView(b.dataset.v,true);});
 });
 var pref=stored();
-setView(pref==='mobile'||pref==='desktop'?pref:(smallDevice()||window.innerWidth<760?'mobile':'desktop'),false);
+/* Web 2.79: when embedded inside KP Muhurat, ignore a previously saved Desktop
+   preference. Desktop mode forces a 1100px viewport on phones and clips the
+   tool panels; the standalone page still honours the user's saved preference. */
+var embeddedInKPMuhurat=false;
+try{embeddedInKPMuhurat=window.self!==window.top;}catch(e){embeddedInKPMuhurat=true;}
+if(embeddedInKPMuhurat){
+  stage.setAttribute('data-embedded','true');
+  setView('mobile',false);
+  document.querySelectorAll('.viewswitch').forEach(function(el){el.style.display='none';});
+  window.addEventListener('resize',function(){setView('mobile',false);});
+}else{
+  setView(pref==='mobile'||pref==='desktop'?pref:(smallDevice()||window.innerWidth<760?'mobile':'desktop'),false);
+}
 
 document.querySelectorAll('.tool').forEach(function(t){var x=t.querySelector('.tx');if(x)t.title=x.firstChild.textContent.trim();});
 

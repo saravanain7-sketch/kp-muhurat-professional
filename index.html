@@ -793,8 +793,25 @@ body:has(#guruagasthiya.active){padding-top:0!important}
 @media(min-width:701px){body:has(#guruagasthiya.active) #guruagasthiya .guruEmbeddedFrameWrap{height:calc(100dvh - 78px)!important}}
 </style>
 
+
+<style id="web279-mobile-scroll-and-tools-fix">
+/* Web 2.79: keep the entire Home shortcut list scrollable on phones. */
+html,body{height:auto!important;min-height:100%!important;overflow-x:hidden!important;overflow-y:auto!important}
+body{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))!important}
+main{height:auto!important;min-height:0!important;max-height:none!important;overflow:visible!important}
+#dashboard.active{display:block!important;height:auto!important;min-height:0!important;max-height:none!important;overflow:visible!important}
+#dashboard .homeGroup,#dashboard .kp-shortcut-grid{height:auto!important;max-height:none!important;overflow:visible!important}
+#dashboard .kp-shortcut-card{min-height:88px;align-self:stretch}
+@media(max-width:700px){
+  body:has(#guruagasthiya.active){overflow:hidden!important;height:100dvh!important}
+  body:has(#guruagasthiya.active) main{overflow:hidden!important;height:auto!important}
+  body:has(#guruagasthiya.active) #guruagasthiya .guruEmbeddedFrameWrap{height:calc(100dvh - 76px - env(safe-area-inset-bottom,0px))!important;min-height:0!important;max-height:none!important;overflow:hidden!important}
+  body:has(#guruagasthiya.active) #guruAgasthiyaFrame{height:100%!important;min-height:0!important;width:100%!important}
+}
+</style>
+
 </head><body>
-<header><div class="headerBrand"><img class="headerLogo" src="kp-icon-512.png" alt="KP Muhurat gold astrology logo"><div><b>KP Muhurat</b> <small>V 1.5.11 — Web 2.78</small></div></div></header>
+<header><div class="headerBrand"><img class="headerLogo" src="kp-icon-512.png" alt="KP Muhurat gold astrology logo"><div><b>KP Muhurat</b> <small>V 1.5.11 — Web 2.79</small></div></div></header>
 <nav aria-label="KP Muhurat sections"><button class="active" data-t="data">Data</button><button data-t="results">Results</button><button data-t="muhurtham">Muhurtham</button><button data-t="chart">Chart</button><button data-t="analysis">Analysis</button><button data-tool="lostBtn">Lost &amp; Found</button><button data-tool="cuspBtn">Cuspal Chart</button><button data-tool="rangeBtn">Date-wise Muhurtham</button><button data-tool="raceBtn">Horse Race</button><button data-tool="gpBtn">GMP Prasnam</button><button data-tool="cmBtn">Chandra Muhurtham</button></nav>
 <main>
 <section id="dashboard" class="active">
@@ -3697,7 +3714,20 @@ if('serviceWorker' in navigator){ navigator.serviceWorker.register('./sw.js?v=2.
   if(section)section.classList.add('active');
   syncQuick('dashboard');
   const frame=document.getElementById('guruAgasthiyaFrame');
-  const openTool=()=>{try{const toolId=b.dataset.guruTool==='liveBtn'?'nowBtn':b.dataset.guruTool;const target=frame.contentDocument&&frame.contentDocument.getElementById(toolId);if(target)target.click();}catch(e){}}
+  const openTool=()=>{try{
+   const win=frame.contentWindow,doc=frame.contentDocument;
+   if(!win||!doc)return;
+   /* Ensure the embedded module cannot remain in a saved wide Desktop view. */
+   const stage=doc.getElementById('stage');
+   if(stage&&stage.dataset.view!=='mobile'){
+    const mobileButton=doc.querySelector('.viewswitch button[data-v="mobile"]');
+    if(mobileButton)mobileButton.click();
+    else stage.dataset.view='mobile';
+   }
+   const toolId=b.dataset.guruTool==='liveBtn'?'nowBtn':b.dataset.guruTool;
+   const target=doc.getElementById(toolId);
+   if(target){setTimeout(()=>{try{target.click();}catch(e){}},120);}
+  }catch(e){console.warn('GuruAgasthiya tool could not be opened:',e);}}
   if(frame){if(frame.contentDocument&&frame.contentDocument.readyState==='complete')openTool();else frame.addEventListener('load',openTool,{once:true});}
   window.scrollTo({top:0,behavior:'smooth'});
  }));

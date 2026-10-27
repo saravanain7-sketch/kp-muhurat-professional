@@ -165,3 +165,11 @@ The embedded GuruAgasthiya page is sourced from `assets/index.html` in the suppl
 - When embedded, forces GuruAgasthiya to the responsive mobile layout and restores the normal device viewport width. Standalone GuruAgasthiya retains its own Mobile/Desktop selector.
 - Keeps English and Tamil labels/tools and the shared KP Data-tab context bridge.
 - This is a presentation/layout and cache-version update only; no astronomical calculation, transition, timing, or Muhurtham-selection functions were intentionally changed.
+
+
+## Web 2.79 — Mobile scrolling and blank-tool fix
+- Forces the embedded GuruAgasthiya page to use Mobile layout even if Desktop mode was previously saved. Standalone GuruAgasthiya still respects its saved view preference.
+- Ensures the Home dashboard and additional-tool cards are not clipped by a fixed height or hidden overflow.
+- Makes shortcut-card navigation wait for the iframe to be ready and activates the requested existing tool.
+- Updates service-worker cache version to `kp-muhurat-combined-v2-79`.
+- No KP astronomy, transition, selection, or Muhurtham calculation functions were intentionally changed.
