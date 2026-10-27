@@ -7158,6 +7158,15 @@ body.kp-shared-context .wrap{padding-top:8px}
 (function(){
   if(window.parent===window)return;
   document.body.classList.add('kp-shared-context');
+  // Web 2.78: force the embedded instance to phone layout, regardless of saved standalone Desktop preference.
+  // Layout-only override; calculation and timing code are untouched.
+  try {
+    const stage=document.getElementById('stage');
+    if(stage) stage.dataset.view='mobile';
+    const vp=document.querySelector('meta[name=viewport]');
+    if(vp) vp.setAttribute('content','width=device-width, initial-scale=1, viewport-fit=cover');
+    document.querySelectorAll('.viewswitch button').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.v==='mobile'));});
+  } catch(e) {}
   let lastKey='';
   window.addEventListener('message',function(ev){
     if(ev.origin!==location.origin||!ev.data||ev.data.type!=='KP_MUHURAT_CONTEXT')return;

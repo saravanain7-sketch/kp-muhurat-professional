@@ -158,3 +158,10 @@ The embedded GuruAgasthiya page is sourced from `assets/index.html` in the suppl
 - Hides the duplicate KP header/top navigation only while GuruAgasthiya is open; keeps the four-item KP bottom navigation available.
 - Preserves GuruAgasthiya English/Tamil content and the shared KP event-context bridge. No astronomical calculation functions were changed.
 - Updated the service-worker cache namespace to Web 2.77.
+
+
+## Web 2.78 — Embedded mobile layout lock
+- Fixes GuruAgasthiya opening in a saved Desktop layout inside the KP Muhurat mobile app, which caused the right side of the screen to be cut off.
+- When embedded, forces GuruAgasthiya to the responsive mobile layout and restores the normal device viewport width. Standalone GuruAgasthiya retains its own Mobile/Desktop selector.
+- Keeps English and Tamil labels/tools and the shared KP Data-tab context bridge.
+- This is a presentation/layout and cache-version update only; no astronomical calculation, transition, timing, or Muhurtham-selection functions were intentionally changed.
