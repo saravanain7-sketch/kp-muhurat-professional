@@ -780,8 +780,21 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom))!important}
 .kp-shortcut-card span:last-child small{display:block;margin-top:4px;font-size:12px;font-weight:600;line-height:1.35;color:#647784}
 @media(max-width:520px){.kp-shortcut-card span:last-child small{font-size:11px}.kp-shortcut-card{min-height:96px}}
 </style>
+
+<style id="web277-guruagasthiya-reference-layout">
+/* Web 2.77: make the embedded GuruAgasthiya screen use the supplied mobile/desktop reference layout. UI only. */
+body:has(#guruagasthiya.active) > header{display:none!important}
+body:has(#guruagasthiya.active) > nav:not(.mobileBottomNav){display:none!important}
+body:has(#guruagasthiya.active) #guruagasthiya{padding:0!important;margin:0!important;min-height:0!important}
+body:has(#guruagasthiya.active) #guruagasthiya .guruEmbeddedIntro{display:none!important}
+body:has(#guruagasthiya.active) #guruagasthiya .guruEmbeddedFrameWrap{height:calc(100dvh - 78px - env(safe-area-inset-bottom,0px))!important;min-height:520px!important;max-height:none!important;overflow:hidden!important;border:0!important;border-radius:0!important;box-shadow:none!important;margin:0!important;padding:0!important;background:#f2f2f7!important}
+body:has(#guruagasthiya.active) #guruAgasthiyaFrame{display:block!important;width:100%!important;height:100%!important;min-height:0!important;border:0!important;background:#f2f2f7!important}
+body:has(#guruagasthiya.active){padding-top:0!important}
+@media(min-width:701px){body:has(#guruagasthiya.active) #guruagasthiya .guruEmbeddedFrameWrap{height:calc(100dvh - 78px)!important}}
+</style>
+
 </head><body>
-<header><div class="headerBrand"><img class="headerLogo" src="kp-icon-512.png" alt="KP Muhurat gold astrology logo"><div><b>KP Muhurat</b> <small>V 1.5.11 — Web 2.76</small></div></div></header>
+<header><div class="headerBrand"><img class="headerLogo" src="kp-icon-512.png" alt="KP Muhurat gold astrology logo"><div><b>KP Muhurat</b> <small>V 1.5.11 — Web 2.77</small></div></div></header>
 <nav aria-label="KP Muhurat sections"><button class="active" data-t="data">Data</button><button data-t="results">Results</button><button data-t="muhurtham">Muhurtham</button><button data-t="chart">Chart</button><button data-t="analysis">Analysis</button><button data-tool="lostBtn">Lost &amp; Found</button><button data-tool="cuspBtn">Cuspal Chart</button><button data-tool="rangeBtn">Date-wise Muhurtham</button><button data-tool="raceBtn">Horse Race</button><button data-tool="gpBtn">GMP Prasnam</button><button data-tool="cmBtn">Chandra Muhurtham</button></nav>
 <main>
 <section id="dashboard" class="active">
@@ -3619,7 +3632,7 @@ initEngine();
     });
   }
 })();
-if('serviceWorker' in navigator){ navigator.serviceWorker.register('./sw.js?v=2.72').catch(function(e){console.warn('SW registration failed',e);}); }
+if('serviceWorker' in navigator){ navigator.serviceWorker.register('./sw.js?v=2.77').catch(function(e){console.warn('SW registration failed',e);}); }
 })();
 </script>
 

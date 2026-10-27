@@ -150,3 +150,11 @@ Web 2.67 branding update: the existing gold astrology logo is shown in the KP Mu
 
 ## GuruAgasthiya 5.9 update
 The embedded GuruAgasthiya page is sourced from `assets/index.html` in the supplied `GuruAgasthiya-5.9.apk`. A shared-context bridge synchronizes the KP Muhurat Data tab date, time, latitude, longitude, timezone and ayanamsa. KP Muhurat calculation code was not intentionally modified.
+
+
+## Web 2.77 — GuruAgasthiya reference layout
+
+- Adjusted the GuruAgasthiya embedded view to use the supplied mobile/desktop layout with its own Chart, Timings, and Tools interface.
+- Hides the duplicate KP header/top navigation only while GuruAgasthiya is open; keeps the four-item KP bottom navigation available.
+- Preserves GuruAgasthiya English/Tamil content and the shared KP event-context bridge. No astronomical calculation functions were changed.
+- Updated the service-worker cache namespace to Web 2.77.
