@@ -173,3 +173,11 @@ The embedded GuruAgasthiya page is sourced from `assets/index.html` in the suppl
 - Makes shortcut-card navigation wait for the iframe to be ready and activates the requested existing tool.
 - Updates service-worker cache version to `kp-muhurat-combined-v2-79`.
 - No KP astronomy, transition, selection, or Muhurtham calculation functions were intentionally changed.
+
+
+## Web 2.80 — embedded mobile layout and cache repair
+- Cache-busts the embedded GuruAgasthiya iframe URL so the updated HTML is requested instead of a stale iframe document.
+- Adds a stronger embedded-only mobile layout guard and width/height overrides to prevent desktop sidebar layout and clipped/blank tool panels inside the parent app.
+- Bumps the service-worker cache namespace.
+- No astrology, KP transition, or Muhurtham calculation functions were intentionally changed.
+- Must be deployed with every file at repository root; verify on Android after clearing the old installed app/site cache if needed.
