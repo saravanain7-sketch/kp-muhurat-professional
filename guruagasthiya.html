@@ -5199,13 +5199,45 @@ function bpReportBody(usePics){
 const BP_PRINT_CSS='@page{margin:11mm}html,body{height:auto!important;overflow:visible!important}.tscroll{overflow:visible!important;border:0!important}.bpd td,.bpd th{white-space:normal!important}.ctab{min-width:0!important}tr{page-break-inside:avoid}.bpc{display:block!important}.bpc>div{display:inline-block;width:48%;vertical-align:top;page-break-inside:avoid}details>summary{font-weight:700;margin-top:6px}';
 function bpReportDoc(usePics){
   const css=Array.prototype.map.call(document.getElementsByTagName('style'),x=>x.textContent).filter(x=>x.indexOf('bpPrintRoot')<0).join('\n');
-  return '<!doctype html><html data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+bpEsc(BP.name)+' - GuruAgasthiya birth chart</title><style>'+css+'\nhtml,body{background:#fff!important;color:#111!important}.wrap{max-width:none;padding:0}'+BP_PRINT_CSS+'</style></head><body><div class="wrap">'+bpReportBody(usePics)+'</div></body></html>';
+  return '<!doctype html><html data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+bpEsc(BP.name)+' - GuruAgasthiya birth chart</title><style>'+css+'\nhtml,body{background:#fff!important;color:#111!important}.wrap{max-width:none;padding:0}'+BP_PRINT_CSS+'</style></head><body><div class="wrap">'+bpReportBody(usePics)+'</div>
+<style id="web281-embedded-mobile-tools-repair">
+/* Web 2.81: harden embedded phone layout and restore the two-column Tools grid. */
+html,body{max-width:100%!important;width:100%!important;overflow-x:hidden!important}
+body.kp-shared-context .stage, .stage[data-embedded="true"]{width:100%!important;max-width:100%!important;min-width:0!important;height:auto!important;min-height:100dvh!important;overflow:visible!important}
+body.kp-shared-context .stage[data-view="mobile"] .app,.stage[data-embedded="true"][data-view="mobile"] .app{display:flex!important;flex-direction:column!important;width:100%!important;min-width:0!important;max-width:100%!important;height:auto!important;min-height:0!important;padding:0!important;overflow:visible!important}
+body.kp-shared-context .tools .tgrid,.stage[data-embedded="true"] .tools .tgrid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;align-items:stretch!important}
+body.kp-shared-context .tools .tool,.stage[data-embedded="true"] .tools .tool{min-width:0!important;width:100%!important;max-width:100%!important}
+body.kp-shared-context #screen,body.kp-shared-context #scroller,.stage[data-embedded="true"] #screen,.stage[data-embedded="true"] #scroller{width:100%!important;min-width:0!important;max-width:100%!important;height:auto!important;min-height:0!important;overflow:visible!important}
+body.kp-shared-context .viewswitch,.stage[data-embedded="true"] .viewswitch{display:none!important}
+@media(max-width:700px){body.kp-shared-context .tools .tgrid,.stage[data-embedded="true"] .tools .tgrid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important}body.kp-shared-context .tools .tool,.stage[data-embedded="true"] .tools .tool{padding:12px!important}body.kp-shared-context .stage[data-view="desktop"] .app,.stage[data-embedded="true"][data-view="desktop"] .app{display:flex!important;flex-direction:column!important;min-width:0!important;width:100%!important}}
+</style>
+<script id="web281-embedded-layout-lock">
+(function(){function lock(){try{if(window.self===window.top)return;var st=document.getElementById('stage');if(st){st.setAttribute('data-embedded','true');st.setAttribute('data-view','mobile');}var vp=document.querySelector('meta[name="viewport"]');if(vp)vp.setAttribute('content','width=device-width, initial-scale=1, viewport-fit=cover');document.querySelectorAll('.viewswitch button').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.v==='mobile'));});}catch(e){}}lock();document.addEventListener('DOMContentLoaded',lock);window.addEventListener('load',lock);window.addEventListener('resize',lock);setTimeout(lock,0);})();
+</script>
+
+</body></html>';
 }
 function bpRichHtml(){
   const tmp=document.createElement('div'); tmp.innerHTML=bpReportBody(true);
   tmp.querySelectorAll('table').forEach(t=>{t.setAttribute('border','1');t.setAttribute('cellspacing','0');t.setAttribute('cellpadding','3');});
   tmp.querySelectorAll('.bpc').forEach(x=>x.removeAttribute('class'));
-  return '<html><head><meta charset="utf-8"><style>body{font-family:Calibri,Arial,sans-serif;font-size:10.5pt}table{border-collapse:collapse}td,th{border:1px solid #777;padding:2px 5px;font-size:9.5pt;vertical-align:top}h3{margin:12px 0 4px}</style></head><body>'+tmp.innerHTML+'</body></html>';
+  return '<html><head><meta charset="utf-8"><style>body{font-family:Calibri,Arial,sans-serif;font-size:10.5pt}table{border-collapse:collapse}td,th{border:1px solid #777;padding:2px 5px;font-size:9.5pt;vertical-align:top}h3{margin:12px 0 4px}</style></head><body>'+tmp.innerHTML+'
+<style id="web281-embedded-mobile-tools-repair">
+/* Web 2.81: harden embedded phone layout and restore the two-column Tools grid. */
+html,body{max-width:100%!important;width:100%!important;overflow-x:hidden!important}
+body.kp-shared-context .stage, .stage[data-embedded="true"]{width:100%!important;max-width:100%!important;min-width:0!important;height:auto!important;min-height:100dvh!important;overflow:visible!important}
+body.kp-shared-context .stage[data-view="mobile"] .app,.stage[data-embedded="true"][data-view="mobile"] .app{display:flex!important;flex-direction:column!important;width:100%!important;min-width:0!important;max-width:100%!important;height:auto!important;min-height:0!important;padding:0!important;overflow:visible!important}
+body.kp-shared-context .tools .tgrid,.stage[data-embedded="true"] .tools .tgrid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;align-items:stretch!important}
+body.kp-shared-context .tools .tool,.stage[data-embedded="true"] .tools .tool{min-width:0!important;width:100%!important;max-width:100%!important}
+body.kp-shared-context #screen,body.kp-shared-context #scroller,.stage[data-embedded="true"] #screen,.stage[data-embedded="true"] #scroller{width:100%!important;min-width:0!important;max-width:100%!important;height:auto!important;min-height:0!important;overflow:visible!important}
+body.kp-shared-context .viewswitch,.stage[data-embedded="true"] .viewswitch{display:none!important}
+@media(max-width:700px){body.kp-shared-context .tools .tgrid,.stage[data-embedded="true"] .tools .tgrid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important}body.kp-shared-context .tools .tool,.stage[data-embedded="true"] .tools .tool{padding:12px!important}body.kp-shared-context .stage[data-view="desktop"] .app,.stage[data-embedded="true"][data-view="desktop"] .app{display:flex!important;flex-direction:column!important;min-width:0!important;width:100%!important}}
+</style>
+<script id="web281-embedded-layout-lock">
+(function(){function lock(){try{if(window.self===window.top)return;var st=document.getElementById('stage');if(st){st.setAttribute('data-embedded','true');st.setAttribute('data-view','mobile');}var vp=document.querySelector('meta[name="viewport"]');if(vp)vp.setAttribute('content','width=device-width, initial-scale=1, viewport-fit=cover');document.querySelectorAll('.viewswitch button').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.v==='mobile'));});}catch(e){}}lock();document.addEventListener('DOMContentLoaded',lock);window.addEventListener('load',lock);window.addEventListener('resize',lock);setTimeout(lock,0);})();
+</script>
+
+</body></html>';
 }
 function bpPrint(){
   if(!BP)return;
@@ -7205,6 +7237,22 @@ body.kp-shared-context .wrap{padding-top:8px}
     if(d.run&&key!==lastKey){lastKey=key;setTimeout(function(){const go=document.getElementById('go');if(go)go.click();},180);}
   });
 })();
+</script>
+
+
+<style id="web281-embedded-mobile-tools-repair">
+/* Web 2.81: harden embedded phone layout and restore the two-column Tools grid. */
+html,body{max-width:100%!important;width:100%!important;overflow-x:hidden!important}
+body.kp-shared-context .stage, .stage[data-embedded="true"]{width:100%!important;max-width:100%!important;min-width:0!important;height:auto!important;min-height:100dvh!important;overflow:visible!important}
+body.kp-shared-context .stage[data-view="mobile"] .app,.stage[data-embedded="true"][data-view="mobile"] .app{display:flex!important;flex-direction:column!important;width:100%!important;min-width:0!important;max-width:100%!important;height:auto!important;min-height:0!important;padding:0!important;overflow:visible!important}
+body.kp-shared-context .tools .tgrid,.stage[data-embedded="true"] .tools .tgrid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;align-items:stretch!important}
+body.kp-shared-context .tools .tool,.stage[data-embedded="true"] .tools .tool{min-width:0!important;width:100%!important;max-width:100%!important}
+body.kp-shared-context #screen,body.kp-shared-context #scroller,.stage[data-embedded="true"] #screen,.stage[data-embedded="true"] #scroller{width:100%!important;min-width:0!important;max-width:100%!important;height:auto!important;min-height:0!important;overflow:visible!important}
+body.kp-shared-context .viewswitch,.stage[data-embedded="true"] .viewswitch{display:none!important}
+@media(max-width:700px){body.kp-shared-context .tools .tgrid,.stage[data-embedded="true"] .tools .tgrid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important}body.kp-shared-context .tools .tool,.stage[data-embedded="true"] .tools .tool{padding:12px!important}body.kp-shared-context .stage[data-view="desktop"] .app,.stage[data-embedded="true"][data-view="desktop"] .app{display:flex!important;flex-direction:column!important;min-width:0!important;width:100%!important}}
+</style>
+<script id="web281-embedded-layout-lock">
+(function(){function lock(){try{if(window.self===window.top)return;var st=document.getElementById('stage');if(st){st.setAttribute('data-embedded','true');st.setAttribute('data-view','mobile');}var vp=document.querySelector('meta[name="viewport"]');if(vp)vp.setAttribute('content','width=device-width, initial-scale=1, viewport-fit=cover');document.querySelectorAll('.viewswitch button').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.v==='mobile'));});}catch(e){}}lock();document.addEventListener('DOMContentLoaded',lock);window.addEventListener('load',lock);window.addEventListener('resize',lock);setTimeout(lock,0);})();
 </script>
 
 </body>

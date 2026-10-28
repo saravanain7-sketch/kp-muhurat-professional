@@ -181,3 +181,11 @@ The embedded GuruAgasthiya page is sourced from `assets/index.html` in the suppl
 - Bumps the service-worker cache namespace.
 - No astrology, KP transition, or Muhurtham calculation functions were intentionally changed.
 - Must be deployed with every file at repository root; verify on Android after clearing the old installed app/site cache if needed.
+
+
+## Web 2.81 — embedded Tools grid and mobile layout repair
+- Forces the embedded GuruAgasthiya page to remain in mobile layout and restores a two-column Tools card grid.
+- Removes conflicting large minimum heights from the iframe so the view fits the available phone screen and can scroll normally.
+- Cache namespace and iframe query updated to 2.81.
+- Only layout, iframe sizing, and cache versioning were changed; KP Muhurat astronomy and timing calculations were not intentionally modified.
+- Please test the deployed page on Android, including opening multiple tool cards; source checks cannot replace device testing.
