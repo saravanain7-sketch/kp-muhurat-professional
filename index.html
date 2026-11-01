@@ -817,9 +817,9 @@ html,body{max-width:100%;overflow-x:hidden}#guruagasthiya{min-width:0!important;
 </style>
 </head><body>
 <header><div class="headerBrand"><img class="headerLogo" src="kp-icon-512.png" alt="KP Muhurat gold astrology logo"><div><b>KP Muhurat</b> <small>V 1.5.11 — Web 2.81</small></div></div></header>
-<nav aria-label="KP Muhurat sections"><button class="active" data-t="data">Data</button><button data-t="results">Results</button><button data-t="muhurtham">Muhurtham</button><button data-t="chart">Chart</button><button data-t="analysis">Analysis</button><button data-tool="lostBtn">Lost &amp; Found</button><button data-tool="cuspBtn">Cuspal Chart</button><button data-tool="rangeBtn">Date-wise Muhurtham</button><button data-tool="raceBtn">Horse Race</button><button data-tool="gpBtn">GMP Prasnam</button><button data-tool="cmBtn">Chandra Muhurtham</button></nav>
+<nav aria-label="KP Muhurat sections"><button class="active" data-t="data" aria-current="page">Data</button><button data-t="results">Results</button><button data-t="muhurtham">Muhurtham</button><button data-t="chart">Chart</button><button data-t="analysis">Analysis</button><button data-tool="lostBtn">Lost &amp; Found</button><button data-tool="cuspBtn">Cuspal Chart</button><button data-tool="rangeBtn">Date-wise Muhurtham</button><button data-tool="raceBtn">Horse Race</button><button data-tool="gpBtn">GMP Prasnam</button><button data-tool="cmBtn">Chandra Muhurtham</button></nav>
 <main>
-<section id="dashboard" class="active">
+<section id="dashboard" aria-hidden="true">
   <div class="homeWelcome"><div class="homeWelcomeEyebrow">KP ASTROLOGY</div><h2>KP Muhurat</h2><p>Choose a calculation, chart, or timing tool.</p></div>
   <div class="homeGroup"><div class="homeGroupTitle"><span class="homeGroupAccent"></span><div><h3>KP Muhurat</h3><p>Core calculations and chart tools</p></div></div>
     <div class="kp-shortcut-grid" aria-label="KP Muhurat tools">
@@ -849,7 +849,7 @@ html,body{max-width:100%;overflow-x:hidden}#guruagasthiya{min-width:0!important;
   </div>
   <div class="homeQuickInfo"><div><span class="homeInfoIcon">⌖</span><div><b>Calculation location</b><span id="dashPlace">Coimbatore, Tamil Nadu, India</span></div></div><div><span class="homeInfoIcon">◷</span><div><b>Time window</b><span id="dashWindow">09:00–22:00</span></div></div><button type="button" class="homeEditButton" data-go="data">Settings / Edit event data →</button></div>
 </section>
-<section id="data"><div class="panel blue"><h3>Event data</h3>
+<section id="data" class="active"><div class="panel blue"><h3>Event data</h3>
 <div class="grid2"><label>Date<input id="date" type="date"></label><label>To date<input id="todate" type="date"></label></div>
 <div class="grid2"><label>From time<input id="from" type="time" step="1" value="09:00:00"></label><label>To time<input id="to" type="time" step="1" value="22:00:00"></label></div>
 <label>Place<div class="placeRow"><input id="place" value="Coimbatore, Tamil Nadu, India"><button class="btn gpsBtn" id="findPlace" type="button">🔎 Find</button><button class="btn gpsBtn" id="gps" type="button">📍 GPS</button></div></label>
