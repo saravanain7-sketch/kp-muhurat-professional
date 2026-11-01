@@ -5200,15 +5200,13 @@ function bpReportBody(usePics){
 const BP_PRINT_CSS='@page{margin:11mm}html,body{height:auto!important;overflow:visible!important}.tscroll{overflow:visible!important;border:0!important}.bpd td,.bpd th{white-space:normal!important}.ctab{min-width:0!important}tr{page-break-inside:avoid}.bpc{display:block!important}.bpc>div{display:inline-block;width:48%;vertical-align:top;page-break-inside:avoid}details>summary{font-weight:700;margin-top:6px}';
 function bpReportDoc(usePics){
   const css=Array.prototype.map.call(document.getElementsByTagName('style'),x=>x.textContent).filter(x=>x.indexOf('bpPrintRoot')<0).join('\n');
-  return '<!doctype html><html data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+bpEsc(BP.name)+' - GuruAgasthiya birth chart</title><style>'+css+'\nhtml,body{background:#fff!important;color:#111!important}.wrap{max-width:none;padding:0}'+BP_PRINT_CSS+'</style></head><body><div class="wrap">'+bpReportBody(usePics)+'</div>
-</body></html>';
+  return '<!doctype html><html data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+bpEsc(BP.name)+' - GuruAgasthiya birth chart</title><style>'+css+'\nhtml,body{background:#fff!important;color:#111!important}.wrap{max-width:none;padding:0}'+BP_PRINT_CSS+'</style></head><body><div class="wrap">'+bpReportBody(usePics)+'</div>\n</body></html>';
 }
 function bpRichHtml(){
   const tmp=document.createElement('div'); tmp.innerHTML=bpReportBody(true);
   tmp.querySelectorAll('table').forEach(t=>{t.setAttribute('border','1');t.setAttribute('cellspacing','0');t.setAttribute('cellpadding','3');});
   tmp.querySelectorAll('.bpc').forEach(x=>x.removeAttribute('class'));
-  return '<html><head><meta charset="utf-8"><style>body{font-family:Calibri,Arial,sans-serif;font-size:10.5pt}table{border-collapse:collapse}td,th{border:1px solid #777;padding:2px 5px;font-size:9.5pt;vertical-align:top}h3{margin:12px 0 4px}</style></head><body>'+tmp.innerHTML+'
-</body></html>';
+  return '<html><head><meta charset="utf-8"><style>body{font-family:Calibri,Arial,sans-serif;font-size:10.5pt}table{border-collapse:collapse}td,th{border:1px solid #777;padding:2px 5px;font-size:9.5pt;vertical-align:top}h3{margin:12px 0 4px}</style></head><body>'+tmp.innerHTML+'\n</body></html>';
 }
 function bpPrint(){
   if(!BP)return;
