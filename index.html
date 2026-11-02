@@ -421,17 +421,6 @@ main{max-width:1000px;padding:16px 16px 92px!important}
 @media(min-width:701px){.mobileBottomNav{display:grid!important;max-width:1000px;left:50%;right:auto;width:100%;transform:translateX(-50%);border-radius:16px 16px 0 0}}
 @media(max-width:520px){main{padding:12px 18px 95px!important}.homeWelcome{padding:19px 16px;border-radius:17px}.homeWelcome h2{font-size:25px}.homeGroupTitle h3{font-size:19px}.kp-shortcut-grid{gap:10px}.kp-shortcut-card{min-height:88px;padding:13px 11px;gap:10px;font-size:14px}.kp-shortcut-icon{flex-basis:36px;width:36px;height:36px;font-size:20px}.panel{border-radius:16px}}
 
-
-/* GuruAgasthiya embedded-tool mode: preserve the host app and show only KP work area */
-html.kp-embedded, html.kp-embedded body{min-height:100%;height:100%;overflow-x:hidden}
-html.kp-embedded body{margin:0;background:#f2f2f7}
-html.kp-embedded header,html.kp-embedded nav.mobileBottomNav{display:none!important}
-html.kp-embedded nav[aria-label="KP Muhurat sections"]{position:sticky;top:0;z-index:5;margin:0;padding:8px 10px;background:#f2f2f7;border-bottom:1px solid #d6d6dc;display:flex;overflow-x:auto;white-space:nowrap}
-html.kp-embedded nav[aria-label="KP Muhurat sections"] button[data-tool]{display:none!important}
-html.kp-embedded main{max-width:none;width:100%;margin:0;padding:12px 14px 28px;min-width:0}
-html.kp-embedded .panel{border-radius:18px}
-html.kp-embedded section#data{padding-top:2px}
-html.kp-embedded section#data>.panel:first-child{margin-top:0}
 </style>
 <style id="hide-results-diagnostics-v210">
 /* Web 2.10: keep the normal Results view focused on chosen Muhurats and controls.
@@ -826,12 +815,48 @@ main{height:auto!important;min-height:0!important;max-height:none!important;over
 html,body{max-width:100%;overflow-x:hidden}#guruagasthiya{min-width:0!important;width:100%!important;overflow:visible!important}#guruagasthiya .guruEmbeddedFrameWrap{width:100%!important;height:calc(100dvh - 125px)!important;min-height:0!important;overflow:hidden!important;position:relative!important}#guruAgasthiyaFrame{display:block!important;width:100%!important;height:100%!important;min-height:0!important;max-width:100%!important;border:0!important;background:#f2f2f7!important}
 @media(max-width:700px){#guruagasthiya .guruEmbeddedFrameWrap{height:calc(100dvh - 115px)!important;min-height:0!important}#guruAgasthiyaFrame{min-height:0!important}}
 </style>
-<script>(function(){try{if(new URLSearchParams(location.search).get('embed')==='1')document.documentElement.classList.add('kp-embedded')}catch(e){}})();</script>
+
+<style id="guru-embedded-kp-mode">
+/* GuruAgasthiya embedded KP module: retain the native V1.5.11/Web 2.81 engine and core views. */
+html.guru-kp-embedded, html.guru-kp-embedded body{min-height:100%;background:#f3f2f7!important}
+html.guru-kp-embedded body{padding:0 0 calc(12px + env(safe-area-inset-bottom))!important}
+html.guru-kp-embedded body>header{display:none!important}
+html.guru-kp-embedded body>nav:not(.mobileBottomNav){display:flex!important;position:sticky!important;top:0!important;z-index:30!important;overflow-x:auto!important;white-space:nowrap!important;gap:5px!important;padding:8px 10px!important;background:#f3f2f7!important;border-bottom:1px solid #dedde5!important;scrollbar-width:none}
+html.guru-kp-embedded body>nav:not(.mobileBottomNav) button{display:inline-flex!important;flex:0 0 auto!important;border:1px solid #dedde5!important;border-radius:12px!important;background:#fff!important;color:#34343a!important;padding:10px 15px!important;font:600 14px system-ui,Arial,sans-serif!important}
+html.guru-kp-embedded body>nav:not(.mobileBottomNav) button.active{background:#e6f2ff!important;border-color:#9bc9f1!important;color:#0878c9!important}
+html.guru-kp-embedded body>nav:not(.mobileBottomNav) button[data-tool]{display:none!important}
+html.guru-kp-embedded body>main{max-width:100%!important;padding:14px 14px 24px!important;margin:0 auto!important}
+html.guru-kp-embedded body>main>section#dashboard{display:none!important}
+html.guru-kp-embedded body>main>section#data.active{display:block!important}
+html.guru-kp-embedded body>nav.mobileBottomNav{display:none!important}
+html.guru-kp-embedded body{overflow-x:hidden!important}
+@media(max-width:520px){html.guru-kp-embedded body>main{padding:12px 12px 22px!important}html.guru-kp-embedded body>nav:not(.mobileBottomNav) button{padding:9px 12px!important;font-size:13px!important}}
+</style>
+<script>if(new URLSearchParams(location.search).has("embed")){document.documentElement.classList.add("guru-kp-embedded");}</script>
+
+<style id="guru-kp-embedded-tools-v19">
+/* Embedded KP module: GuruAgasthiya remains the host app; no KP home/dashboard shell. */
+html.guru-kp-embedded,html.guru-kp-embedded body{min-height:100%;width:100%;max-width:100%;margin:0!important;background:#f3f2f7!important;overflow-x:hidden!important}
+html.guru-kp-embedded body{padding:0 0 calc(14px + env(safe-area-inset-bottom,0px))!important}
+html.guru-kp-embedded body>header{display:none!important;height:0!important;min-height:0!important}
+html.guru-kp-embedded body>main{display:block!important;width:100%!important;max-width:100%!important;margin:0!important;padding:12px 12px 24px!important;box-sizing:border-box!important}
+html.guru-kp-embedded body>main>section#dashboard,html.guru-kp-embedded #dashboard{display:none!important;visibility:hidden!important;height:0!important;min-height:0!important;overflow:hidden!important}
+html.guru-kp-embedded body>main>section#data{display:block!important;visibility:visible!important}
+html.guru-kp-embedded body>main>section:not(#data):not(.active){display:none!important}
+html.guru-kp-embedded body>nav:not(.mobileBottomNav){display:flex!important;position:sticky!important;top:0!important;z-index:30!important;width:100%!important;box-sizing:border-box!important;overflow-x:auto!important;white-space:nowrap!important;gap:5px!important;padding:8px 10px!important;margin:0!important;background:#f3f2f7!important;border-bottom:1px solid #dedde5!important;scrollbar-width:none!important}
+html.guru-kp-embedded body>nav:not(.mobileBottomNav) button{display:inline-flex!important;flex:0 0 auto!important;border:1px solid #dedde5!important;border-radius:12px!important;background:#fff!important;color:#34343a!important;padding:10px 15px!important;font:600 14px system-ui,Arial,sans-serif!important}
+html.guru-kp-embedded body>nav:not(.mobileBottomNav) button.active{background:#e6f2ff!important;border-color:#9bc9f1!important;color:#0878c9!important}
+html.guru-kp-embedded body>nav:not(.mobileBottomNav) button[data-tool]{display:none!important}
+html.guru-kp-embedded body>nav.mobileBottomNav{display:none!important}
+html.guru-kp-embedded .homeWelcome,html.guru-kp-embedded .homeGroup,html.guru-kp-embedded .homeQuickInfo{display:none!important}
+@media(max-width:520px){html.guru-kp-embedded body>main{padding:10px 10px 20px!important}html.guru-kp-embedded body>nav:not(.mobileBottomNav) button{padding:9px 12px!important;font-size:13px!important}}
+</style>
+
 </head><body>
 <header><div class="headerBrand"><img class="headerLogo" src="kp-icon-512.png" alt="KP Muhurat gold astrology logo"><div><b>KP Muhurat</b> <small>V 1.5.11 — Web 2.81</small></div></div></header>
-<nav aria-label="KP Muhurat sections"><button class="active" data-t="data" aria-current="page">Data</button><button data-t="results">Results</button><button data-t="muhurtham">Muhurtham</button><button data-t="chart">Chart</button><button data-t="analysis">Analysis</button><button data-tool="lostBtn">Lost &amp; Found</button><button data-tool="cuspBtn">Cuspal Chart</button><button data-tool="rangeBtn">Date-wise Muhurtham</button><button data-tool="raceBtn">Horse Race</button><button data-tool="gpBtn">GMP Prasnam</button><button data-tool="cmBtn">Chandra Muhurtham</button></nav>
+<nav aria-label="KP Muhurat sections"><button class="active" data-t="data">Data</button><button data-t="results">Results</button><button data-t="muhurtham">Muhurtham</button><button data-t="chart">Chart</button><button data-t="analysis">Analysis</button><button data-tool="lostBtn">Lost &amp; Found</button><button data-tool="cuspBtn">Cuspal Chart</button><button data-tool="rangeBtn">Date-wise Muhurtham</button><button data-tool="raceBtn">Horse Race</button><button data-tool="gpBtn">GMP Prasnam</button><button data-tool="cmBtn">Chandra Muhurtham</button></nav>
 <main>
-<section id="dashboard" aria-hidden="true">
+<section id="dashboard" class="active">
   <div class="homeWelcome"><div class="homeWelcomeEyebrow">KP ASTROLOGY</div><h2>KP Muhurat</h2><p>Choose a calculation, chart, or timing tool.</p></div>
   <div class="homeGroup"><div class="homeGroupTitle"><span class="homeGroupAccent"></span><div><h3>KP Muhurat</h3><p>Core calculations and chart tools</p></div></div>
     <div class="kp-shortcut-grid" aria-label="KP Muhurat tools">
@@ -861,7 +886,7 @@ html,body{max-width:100%;overflow-x:hidden}#guruagasthiya{min-width:0!important;
   </div>
   <div class="homeQuickInfo"><div><span class="homeInfoIcon">⌖</span><div><b>Calculation location</b><span id="dashPlace">Coimbatore, Tamil Nadu, India</span></div></div><div><span class="homeInfoIcon">◷</span><div><b>Time window</b><span id="dashWindow">09:00–22:00</span></div></div><button type="button" class="homeEditButton" data-go="data">Settings / Edit event data →</button></div>
 </section>
-<section id="data" class="active"><div class="panel blue"><h3>Event data</h3>
+<section id="data"><div class="panel blue"><h3>Event data</h3>
 <div class="grid2"><label>Date<input id="date" type="date"></label><label>To date<input id="todate" type="date"></label></div>
 <div class="grid2"><label>From time<input id="from" type="time" step="1" value="09:00:00"></label><label>To time<input id="to" type="time" step="1" value="22:00:00"></label></div>
 <label>Place<div class="placeRow"><input id="place" value="Coimbatore, Tamil Nadu, India"><button class="btn gpsBtn" id="findPlace" type="button">🔎 Find</button><button class="btn gpsBtn" id="gps" type="button">📍 GPS</button></div></label>
@@ -3750,4 +3775,40 @@ if('serviceWorker' in navigator){ navigator.serviceWorker.register('./sw.js?v=2.
  }));
 })();
 </script>
+
+<script id="guru-embedded-kp-startup">
+(function(){
+  if(!new URLSearchParams(location.search).has('embed')) return;
+  function enterData(){
+    document.documentElement.classList.add('guru-kp-embedded');
+    var dashboard=document.getElementById('dashboard');
+    if(dashboard) dashboard.classList.remove('active');
+    var data=document.getElementById('data');
+    if(data) data.classList.add('active');
+    var tabs=document.querySelectorAll('body>nav:not(.mobileBottomNav) button[data-t]');
+    tabs.forEach(function(b){b.classList.toggle('active',b.getAttribute('data-t')==='data');});
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',enterData,{once:true});
+  else enterData();
+  window.addEventListener('pageshow',enterData);
+})();
+</script>
+
+<script id="guru-kp-embedded-data-first-v19">
+(function(){
+ 'use strict';
+ try{if(!new URLSearchParams(window.location.search).has('embed'))return;}catch(e){return;}
+ document.documentElement.classList.add('guru-kp-embedded');
+ function activateData(){
+   var dashboard=document.getElementById('dashboard');
+   var data=document.getElementById('data');
+   if(dashboard)dashboard.classList.remove('active');
+   if(data)data.classList.add('active');
+   document.querySelectorAll('body>nav:not(.mobileBottomNav) button[data-t]').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-t')==='data');});
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',activateData,{once:true});else activateData();
+ window.addEventListener('pageshow',activateData,{once:true});
+})();
+</script>
+
 </body></html>
