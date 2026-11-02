@@ -1,26 +1,13 @@
 {
-  "id": "./",
-  "name": "KP Muhurat",
-  "short_name": "KP Muhurat",
-  "description": "KP Muhurat astrology calculations, charts, and timing tools.",
-  "start_url": "./index.html",
+  "name": "GuruAgasthiya",
+  "short_name": "GuruAgasthiya",
+  "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "orientation": "portrait",
-  "background_color": "#eaf6fc",
-  "theme_color": "#08264a",
+  "background_color": "#F2F2F7",
+  "theme_color": "#F2F2F7",
   "icons": [
-    {
-      "src": "kp-icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "kp-icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    }
+    {"src": "guru-icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "guru-icon-512.png", "sizes": "512x512", "type": "image/png"}
   ]
 }
