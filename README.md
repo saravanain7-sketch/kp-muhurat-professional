@@ -1,20 +1,11 @@
-# GuruAgasthiya Standalone Web 1.10 — Clean Only
+# GuruAgasthiya Web 7.7
 
-This is the standalone GuruAgasthiya application. KP Muhurat has been removed completely from this package.
+This package upgrades the standalone GuruAgasthiya Web 1.10 app using the `assets/index.html` application bundled in the user-supplied GuruAgasthiya 7.7 APK.
 
-## Included
-- GuruAgasthiya Chart, Timings and Tools interface
-- Existing GuruAgasthiya tools and astrology functionality
-- Language preferences: English only, Tamil only, English + Tamil
-- Chart Colour preferences: Scientific (mono), Classic, High contrast
-- Local preference saving
-- PWA manifest and GuruAgasthiya app icons
-
-## Removed
-- KP Muhurat tool/card and embedded KP Muhurat application
-- KP Muhurat dashboard, header, navigation, assets and service worker
+- GuruAgasthiya 7.7 HTML application is the main `index.html`.
+- KP Muhurat has not been integrated; the APK source contains no KP Muhurat references.
+- PWA manifest, existing GuruAgasthiya app icons, and a versioned service worker are included for GitHub Pages installation and cache refresh.
+- The APK's application HTML is retained; the only web-wrapper additions are the manifest link and service-worker registration.
 
 ## Deploy
-Upload the contents of this folder to the root of the hosting repository. `index.html` and `manifest.webmanifest` must be at the repository root.
-
-This package is based on the standalone GuruAgasthiya 1.2 source, which predates the KP Muhurat integration. No KP Muhurat code has been added to this clean build.
+Extract the ZIP and upload all five files (`index.html`, `manifest.webmanifest`, `sw.js`, both icon PNGs) to the GitHub Pages repository root, replacing the previous version. Keep all files together.
