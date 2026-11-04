@@ -5937,9 +5937,7 @@ function bpReportBody(usePics){
 const BP_PRINT_CSS='#bpPrintRoot::before,.wrap::before{content:\'GuruAgasthiya\';position:fixed;top:42%;left:0;right:0;text-align:center;font:800 96px Arial,sans-serif;letter-spacing:.05em;color:rgba(0,0,0,.055);transform:rotate(-32deg);pointer-events:none;z-index:0}@page{margin:11mm}html,body{height:auto!important;overflow:visible!important}.tscroll{overflow:visible!important;border:0!important}.bpd td,.bpd th{white-space:normal!important}.ctab{min-width:0!important}tr{page-break-inside:avoid}.bpc{display:block!important}.bpc>div{display:inline-block;width:48%;vertical-align:top;page-break-inside:avoid}details>summary{font-weight:700;margin-top:6px}';
 function bpReportDoc(usePics){
   const css=Array.prototype.map.call(document.getElementsByTagName('style'),x=>x.textContent).filter(x=>x.indexOf('bpPrintRoot')<0).join('\n');
-  return '<!doctype html><html data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+bpEsc(BP.name)+' - GuruAgasthiya birth chart</title><style>'+css+'\nhtml,body{background:#fff!important;color:#111!important}.wrap{max-width:none;padding:0}'+BP_PRINT_CSS+'</style></head><body><div class="wrap">'+bpReportBody(usePics)+'</div>
-<script>if ("serviceWorker" in navigator) { window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(() => {})); }</script>
-</body></html>';
+  return '<!doctype html><html data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+bpEsc(BP.name)+' - GuruAgasthiya birth chart</title><style>'+css+'\nhtml,body{background:#fff!important;color:#111!important}.wrap{max-width:none;padding:0}'+BP_PRINT_CSS+'</style></head><body><div class="wrap">'+bpReportBody(usePics)+'</div></body></html>';
 }
 function bpRichHtml(){
   const tmp=document.createElement('div'); tmp.innerHTML=bpReportBody(true);
@@ -9997,5 +9995,7 @@ place();
 <li>To the fullest extent permitted by law, the author, the creator and the publisher of this application accept <b>no liability</b> for any loss, damage or claim arising from its use or from reliance on its results.</li></ul>
 <p class="gta">இந்தச் செயலியின் முடிவுகள் ஜோதிட நிகழ்தகவின் அடிப்படையிலானவை மட்டுமே. கிரிக்கெட் விக்கெட் விழும் நேரம், குதிரைப் பந்தய வெற்றி, லாட்டரி வெற்றி அல்லது பண லாபம் ஆகியவற்றுக்கு உறுதி அளிக்கப்படவில்லை. பந்தயம் கட்டுமாறு இது அறிவுறுத்தவில்லை. பயன்படுத்துவதால் ஏற்படும் எந்த இழப்புக்கும் ஆசிரியரோ செயலி உருவாக்குநரோ பொறுப்பல்ல.</p></div>
 <button type="button" id="gaDiscOk">OK, I understand · சரி, புரிந்துகொண்டேன்</button></div></div>
+
+<script>if ("serviceWorker" in navigator) { window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(() => {})); }</script>
 </body>
 </html>
