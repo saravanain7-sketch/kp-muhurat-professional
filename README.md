@@ -1,16 +1,20 @@
-# GuruAgasthiya Standalone Web 1.2
+# GuruAgasthiya Standalone Web 1.10 — Clean Only
 
-This package opens directly into the standalone GuruAgasthiya interface (no KP Muhurat dashboard).
+This is the standalone GuruAgasthiya application. KP Muhurat has been removed completely from this package.
 
 ## Included
-- Chart, Timings and Tools navigation retained.
-- Chart display preferences: Language (English only / Tamil only / English + Tamil) and Chart Colour (Scientific mono / Classic / High contrast).
-- Preferences are saved locally in the browser.
-- Chart colour preferences affect chart presentation only; astronomical calculations and timing logic are not modified.
-- PWA manifest and app icons.
+- GuruAgasthiya Chart, Timings and Tools interface
+- Existing GuruAgasthiya tools and astrology functionality
+- Language preferences: English only, Tamil only, English + Tamil
+- Chart Colour preferences: Scientific (mono), Classic, High contrast
+- Local preference saving
+- PWA manifest and GuruAgasthiya app icons
+
+## Removed
+- KP Muhurat tool/card and embedded KP Muhurat application
+- KP Muhurat dashboard, header, navigation, assets and service worker
 
 ## Deploy
-Upload the contents of this folder to the root of your GitHub Pages repository. Ensure `index.html` and `manifest.webmanifest` are at the repository root.
+Upload the contents of this folder to the root of the hosting repository. `index.html` and `manifest.webmanifest` must be at the repository root.
 
-## Validation
-Inline JavaScript syntax checks passed (8 executable inline scripts). JSON data blocks were parsed separately. ZIP integrity was checked after packaging. Full Android interaction testing is still required on the target device.
+This package is based on the standalone GuruAgasthiya 1.2 source, which predates the KP Muhurat integration. No KP Muhurat code has been added to this clean build.
