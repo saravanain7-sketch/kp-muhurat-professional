@@ -1,13 +1,22 @@
 {
-  "name": "GuruAgasthiya 7.7",
+  "name": "GuruAgasthiya 12.3",
   "short_name": "GuruAgasthiya",
+  "description": "GuruAgasthiya astrology tools",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#F2F2F7",
-  "theme_color": "#F2F2F7",
+  "background_color": "#f2f2f7",
+  "theme_color": "#f2f2f7",
   "icons": [
-    {"src": "guru-icon-192.png", "sizes": "192x192", "type": "image/png"},
-    {"src": "guru-icon-512.png", "sizes": "512x512", "type": "image/png"}
+    {
+      "src": "guru-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "guru-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
   ]
 }
